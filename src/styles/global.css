@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --font-mono: 'JetBrains Mono', monospace;
@@ -139,6 +140,12 @@ html[data-theme="sanina-light"] {
 /* ================================================
    BASE
    ================================================ */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Compensate for sticky header */
+}
+
 body {
     font-family: var(--font-body);
     background: linear-gradient(180deg,

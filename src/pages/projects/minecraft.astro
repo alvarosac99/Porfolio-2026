@@ -1,7 +1,7 @@
 ---
 import ConsoleLayout from '../../layouts/ConsoleLayout.astro';
-import TopBar from '../../components/console/TopBar.astro';
-import DocHero from '../../components/console/DocHero.astro';
+import McTopBar from '../../components/console/McTopBar.astro';
+import McHero from '../../components/console/McHero.astro';
 import DocFooter from '../../components/console/DocFooter.astro';
 import { marked } from 'marked';
 import hljs from 'highlight.js';
@@ -14,16 +14,31 @@ marked.use({
   gfm: true,
 });
 
-const response = await fetch('https://raw.githubusercontent.com/alvarosac99/GameS/main/README.md');
-let markdownContent = await response.text();
+let markdownContent = '';
+let fetchError = false;
 
-// Arreglar las rutas relativas de imágenes del README para que apunten al raw github
-markdownContent = markdownContent.replace(/src="docs\/screenshots\//g, 'src="https://raw.githubusercontent.com/alvarosac99/GameS/main/docs/screenshots/');
-markdownContent = markdownContent.replace(/\]\(docs\/screenshots\//g, '](https://raw.githubusercontent.com/alvarosac99/GameS/main/docs/screenshots/');
+try {
+    const response = await fetch('https://raw.githubusercontent.com/alvarosac99/mc-web/master/README.md');
+    if (response.ok) {
+        markdownContent = await response.text();
+    } else {
+        fetchError = true;
+    }
+} catch (e) {
+    fetchError = true;
+}
 
-// Redirigir todos los links relativos de archivos a github
-markdownContent = markdownContent.replace(/\]\((?!http|#|mailto:)(.*?)\)/g, '](https://github.com/alvarosac99/GameS/tree/main/$1)');
-markdownContent = markdownContent.replace(/href="(?!http|#|mailto:)(.*?)"/g, 'href="https://github.com/alvarosac99/GameS/tree/main/$1"');
+if (!fetchError && markdownContent) {
+    // Arreglar las rutas relativas de imágenes del README para que apunten al raw github
+    markdownContent = markdownContent.replace(/src="docs\/screenshots\//g, 'src="https://raw.githubusercontent.com/alvarosac99/mc-web/master/docs/screenshots/');
+    markdownContent = markdownContent.replace(/\]\(docs\/screenshots\//g, '](https://raw.githubusercontent.com/alvarosac99/mc-web/master/docs/screenshots/');
+    markdownContent = markdownContent.replace(/src="assets\//g, 'src="https://raw.githubusercontent.com/alvarosac99/mc-web/master/assets/');
+    markdownContent = markdownContent.replace(/\]\(assets\//g, '](https://raw.githubusercontent.com/alvarosac99/mc-web/master/assets/');
+
+    // Redirigir todos los links relativos de archivos a github
+    markdownContent = markdownContent.replace(/\]\((?!http|#|mailto:)(.*?)\)/g, '](https://github.com/alvarosac99/mc-web/tree/master/$1)');
+    markdownContent = markdownContent.replace(/href="(?!http|#|mailto:)(.*?)"/g, 'href="https://github.com/alvarosac99/mc-web/tree/master/$1"');
+}
 
 // Extraer cabeceras H2 para el menú lateral y ponerles IDs amigables
 const headings: { text: string; id: string }[] = [];
@@ -74,12 +89,14 @@ renderer.code = function(obj) {
 marked.use({ renderer });
 
 // Parsear el contenido markdown a HTML
-const htmlContent = marked.parse(markdownContent);
+const htmlContent = fetchError || !markdownContent
+  ? '<p style="color: var(--color-text-muted); font-family: monospace;">// No se pudo cargar el README. El repositorio puede ser privado o inaccesible.</p>'
+  : marked.parse(markdownContent);
 ---
 
-<ConsoleLayout title="games/ — sebas">
-    <TopBar />
-    <DocHero />
+<ConsoleLayout title="minecraft_server/ — sebas">
+    <McTopBar />
+    <McHero />
     
     <div class="relative z-20 w-full flex-grow flex flex-col items-center px-0 lg:px-8">
         <div class="article-reader-zone w-full max-w-7xl flex flex-col lg:flex-row gap-12 px-6 md:px-12 lg:px-16 py-12 items-start relative z-20">
@@ -94,6 +111,9 @@ const htmlContent = marked.parse(markdownContent);
                             {heading.text.toLowerCase()}
                         </a>
                     ))}
+                    {headings.length === 0 && (
+                        <span class="font-mono text-[10px] text-[#555555] italic">sin índice</span>
+                    )}
                 </div>
             </aside>
 
@@ -103,7 +123,7 @@ const htmlContent = marked.parse(markdownContent);
         </div>
     </div>
 
-    <DocFooter />
+    <DocFooter project="minecraft_server" />
 </ConsoleLayout>
 
 <style is:global>
@@ -125,7 +145,6 @@ const htmlContent = marked.parse(markdownContent);
         border-radius: 0 !important;
     }
 
-    /* Remove the direct descendant combinator `>` so it finds images wrapped in anchors */
     #markdown-content p:has(img[src*="shields.io"]) {
         display: flex;
         flex-wrap: wrap;
@@ -155,7 +174,6 @@ const htmlContent = marked.parse(markdownContent);
         padding-left: 0 !important;
     }
     
-    /* Force table to behave as block element with max-content to center securely */
     #markdown-content [align="center"] table,
     #markdown-content table[align="center"] {
         margin-inline: auto !important;
@@ -170,7 +188,6 @@ const htmlContent = marked.parse(markdownContent);
         text-align: center !important;
     }
 
-    /* Override any default prose gray text on tables and general body for excellent readability */
     #markdown-content table, 
     #markdown-content th, 
     #markdown-content td, 
@@ -181,7 +198,6 @@ const htmlContent = marked.parse(markdownContent);
         color: var(--color-text) !important;
     }
 
-    /* Keep main large screenshots bordered if needed, otherwise no border by default to avoid ugly boxes on badges */
     #markdown-content img:not([width]):not([src*="shields.io"]):not([src*="iconify"]) {
         border: 1px solid var(--color-stroke);
     }
@@ -196,12 +212,10 @@ const htmlContent = marked.parse(markdownContent);
         filter: invert(1) hue-rotate(180deg);
     }
 
-    /* Invert white icons when in light modes to ensure visibility */
     html[data-theme$="-light"] #markdown-content img[src*="ffffff" i] {
         filter: invert(1);
     }
     
-    /* Make summary/dropdown elements behave as clickable buttons */
     #markdown-content summary {
         cursor: pointer;
         user-select: none;
@@ -227,7 +241,6 @@ const htmlContent = marked.parse(markdownContent);
         background-color: var(--color-bg);
     }
     
-    /* Prettify interactive zoom controls (global because injected by js) */
     :global(#svg-pan-zoom-controls) {
         opacity: 0.2;
         transition: opacity 0.4s ease-out !important;
@@ -324,7 +337,6 @@ const htmlContent = marked.parse(markdownContent);
         themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     });
 
-    // Fallback if not using ViewTransitions
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             setupIntersectionObserver();

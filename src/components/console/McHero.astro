@@ -1,0 +1,90 @@
+---
+---
+
+<div class="relative w-full overflow-hidden border-b border-[var(--color-stroke)] pt-[100px] pb-12 px-4 md:px-12 lg:px-[120px] min-h-[450px] flex items-center">
+    <!-- Background Image with Blend & Gradient Fade -->
+    <div 
+        class="absolute inset-0 w-full h-full z-0 opacity-30 pointer-events-none" 
+        style="background-image: url('/assets/minecraft/minecraft_bg_luminous.png'); background-size: cover; background-position: center top; filter: contrast(1.1) brightness(1.3) blur(1px); mix-blend-mode: overlay;"
+    ></div>
+    <!-- Fades out the background image into the actual background color on the left/bottom -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/85 to-transparent z-0 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/40 z-0 pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto w-full">
+        
+        <!-- Text content -->
+        <div class="flex flex-col gap-6 max-w-[650px] relative z-10 flex-shrink-0">
+            
+            <!-- MOBILE ONLY: Pixel art / logo block replacing "03 minecraft/" -->
+            <div class="flex lg:hidden w-full justify-center relative z-10 mb-2 mt-4">
+                <div class="relative flex items-center justify-center w-full max-w-[400px]">
+                    <img 
+                        src="/assets/minecraft/minecraft_bg_luminous.png" 
+                        alt="Minecraft Server" 
+                        class="w-full h-[220px] object-cover object-top rounded-xl filter drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]" 
+                    />
+                    <!-- Overlay pixel glow -->
+                    <div class="absolute inset-0 bg-[#4CAF50]/10 rounded-xl pointer-events-none"></div>
+                </div>
+                <!-- Glow behind image -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[#4CAF50]/15 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+            </div>
+
+            <span class="hidden lg:block font-mono font-bold text-6xl text-[var(--color-accent)] drop-shadow-md">03</span>
+            <div class="flex flex-col gap-2">
+                <h1 class="hidden lg:block font-mono font-bold text-4xl md:text-5xl text-[var(--color-text)] tracking-tight drop-shadow-md">
+                    minecraft_server/
+                </h1>
+                <span class="font-mono text-xl text-[var(--color-text-muted)]">— servidor en producción</span>
+            </div>
+            <p class="font-body text-[var(--color-text)] opacity-90 text-[17px] leading-relaxed drop-shadow-sm max-w-[550px]">
+                servidor de minecraft desplegado en el vps propio con plugins personalizados, voz in-game, optimización de rendimiento y gestión de comunidad.
+            </p>
+
+            <div class="mt-1">
+                 <a href="https://mc.zenithseed.dev" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 font-mono text-sm text-[var(--color-text-muted)] hover:text-[#4CAF50] transition-colors hover:underline underline-offset-4 decoration-1">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" class="stroke-current transition-colors" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                     <span>mc.zenithseed.dev</span>
+                 </a>
+            </div>
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2.5 mt-2 relative z-10">
+                <span class="px-3 py-1.5 border border-[#A855F7]/30 bg-[#A855F7]/10 rounded text-xs font-mono text-[#A855F7] backdrop-blur-md shadow-sm transition-colors hover:bg-[#A855F7]/20">[java]</span>
+                <span class="px-3 py-1.5 border border-[#C76D2B]/30 bg-[#C76D2B]/10 rounded text-xs font-mono text-[#C76D2B] backdrop-blur-md shadow-sm transition-colors hover:bg-[#C76D2B]/20">[forge]</span>
+                <span class="px-3 py-1.5 border border-[#2496ED]/30 bg-[#2496ED]/10 rounded text-xs font-mono text-[#2496ED] backdrop-blur-md shadow-sm transition-colors hover:bg-[#2496ED]/20">[docker]</span>
+                <span class="px-3 py-1.5 border border-[#F472B6]/30 bg-[#F472B6]/10 rounded text-xs font-mono text-[#F472B6] backdrop-blur-md shadow-sm transition-colors hover:bg-[#F472B6]/20">[mods]</span>
+                <span class="px-3 py-1.5 border border-[#F59E0B]/30 bg-[#F59E0B]/10 rounded text-xs font-mono text-[#F59E0B] backdrop-blur-md shadow-sm transition-colors hover:bg-[#F59E0B]/20">[voicechat]</span>
+                <span class="px-3 py-1.5 border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 rounded text-xs font-mono text-[var(--color-accent)] backdrop-blur-md shadow-sm transition-colors hover:bg-[var(--color-accent)]/20">[scripts]</span>
+            </div>
+        </div>
+
+        <!-- DESKTOP ONLY: Minecraft visual -->
+        <div class="hidden lg:flex flex-1 w-full justify-end relative z-10 perspective-[1000px]">
+             <a href="https://mc.zenithseed.dev" target="_blank" rel="noopener noreferrer" class="relative z-10 block transition-transform duration-700 ease-out hover:scale-105 hover:-translate-y-2">
+                 <div class="relative rounded-xl overflow-hidden max-w-[600px] w-full">
+                     <img 
+                        src="/assets/minecraft/minecraft_bg_luminous.png" 
+                        alt="Minecraft Server" 
+                        class="w-full h-[380px] object-cover object-top filter drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]" 
+                     />
+                     <!-- Pixel overlay -->
+                     <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)]/60 via-transparent to-transparent pointer-events-none"></div>
+                     <div class="absolute bottom-4 left-4 right-4 font-mono text-sm text-white/60">mc.zenithseed.dev</div>
+                 </div>
+             </a>
+             
+             <!-- Glow behind image -->
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[#4CAF50]/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+</style>

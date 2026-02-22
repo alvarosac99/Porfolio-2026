@@ -1,23 +1,83 @@
 ---
 ---
 
-<div class="border-b border-[var(--color-stroke)] pt-12 pb-12 px-4 md:px-12 lg:px-[120px]">
-    <div class="flex flex-col gap-5 max-w-7xl mx-auto">
-        <span class="font-mono font-bold text-5xl text-[var(--color-accent)]">03</span>
-        <h1 class="font-mono font-bold text-3xl md:text-4xl lg:text-[32px] text-[var(--color-text)]">
-            games/ — proyecto fin de curso
-        </h1>
-        <p class="font-body text-[var(--color-text-muted)] text-base leading-relaxed max-w-[800px]">
-             plataforma web de videojuegos. proyecto final de grado superior en dam. desarrollo completo fullstack con gestión de usuarios y catálogo.
-        </p>
+<div class="relative w-full overflow-hidden border-b border-[var(--color-stroke)] pt-[100px] pb-12 px-4 md:px-12 lg:px-[120px] min-h-[450px] flex items-center">
+    <!-- Background Image with Blend & Gradient Fade -->
+    <div 
+        class="absolute inset-0 w-full h-full z-0 opacity-20 pointer-events-none" 
+        style="background-image: url('/assets/games/img-2.jpg'); background-size: cover; background-position: center; filter: contrast(1.2) brightness(1.5) blur(2px); mix-blend-mode: overlay;"
+    ></div>
+    <!-- Fades out the background image into the actual background color on the left/bottom -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--color-bg)] via-[var(--color-bg)]/80 to-transparent z-0 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-[var(--color-bg)]/40 z-0 pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto w-full">
         
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-2 mt-2">
-            <span class="px-2.5 py-1 border border-[var(--color-stroke)] rounded text-[11px] font-mono text-[var(--color-accent)]">java</span>
-            <span class="px-2.5 py-1 border border-[var(--color-stroke)] rounded text-[11px] font-mono text-[var(--color-accent)]">spring boot</span>
-            <span class="px-2.5 py-1 border border-[var(--color-stroke)] rounded text-[11px] font-mono text-[var(--color-accent)]">react</span>
-            <span class="px-2.5 py-1 border border-[var(--color-stroke)] rounded text-[11px] font-mono text-[var(--color-accent)]">postgresql</span>
-            <span class="px-2.5 py-1 border border-[var(--color-stroke)] rounded text-[11px] font-mono text-[var(--color-accent)]">docker</span>
+        <!-- Text content -->
+        <div class="flex flex-col gap-6 max-w-[650px] relative z-10 flex-shrink-0">
+            
+            <!-- MOBILE ONLY: Floating Hero Visual replacing "01 games/" -->
+            <div class="flex lg:hidden w-full justify-center relative z-10 perspective-[1000px] mb-2 mt-4">
+                 <a href="https://games.zenithseed.dev" target="_blank" rel="noopener noreferrer" class="relative z-10 block transition-transform duration-700 ease-out hover:scale-105">
+                     <img 
+                        src="/assets/games/img-3.png" 
+                        alt="GameS Interface Hero" 
+                        class="w-full max-w-[450px] h-auto object-contain filter drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]" 
+                     />
+                 </a>
+                 <!-- Glow behind image -->
+                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[var(--color-accent)]/20 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+            </div>
+
+            <span class="hidden lg:block font-mono font-bold text-6xl text-[var(--color-accent)] drop-shadow-md">01</span>
+            <div class="flex flex-col gap-2">
+                <h1 class="hidden lg:block font-mono font-bold text-4xl md:text-5xl text-[var(--color-text)] tracking-tight drop-shadow-md">
+                    games/
+                </h1>
+                <span class="font-mono text-xl text-[var(--color-text-muted)]">— proyecto fin de curso</span>
+            </div>
+            <p class="font-body text-[var(--color-text)] opacity-90 text-[17px] leading-relaxed drop-shadow-sm max-w-[550px]">
+                 plataforma web integral para descubrir, organizar y gestionar videojuegos, con búsqueda avanzada, historial de precios y recomendaciones personalizadas.
+            </p>
+
+            <div class="mt-1">
+                 <a href="https://games.zenithseed.dev" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-1.5 font-mono text-sm text-[var(--color-text-muted)] hover:text-[#A855F7] transition-colors decoration-[#A855F7]/30 hover:underline underline-offset-4 decoration-1">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" class="stroke-current transition-colors" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                     <span>games.zenithseed.dev</span>
+                 </a>
+            </div>
+            
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2.5 mt-2 relative z-10">
+                <span class="px-3 py-1.5 border border-[#61DAFB]/30 bg-[#61DAFB]/10 rounded text-xs font-mono text-[#61DAFB] backdrop-blur-md shadow-sm transition-colors hover:bg-[#61DAFB]/20">[react]</span>
+                <span class="px-3 py-1.5 border border-[#10B981]/30 bg-[#10B981]/10 rounded text-xs font-mono text-[#10B981] backdrop-blur-md shadow-sm transition-colors hover:bg-[#10B981]/20">[django]</span>
+                <span class="px-3 py-1.5 border border-[#F59E0B]/30 bg-[#F59E0B]/10 rounded text-xs font-mono text-[#F59E0B] backdrop-blur-md shadow-sm transition-colors hover:bg-[#F59E0B]/20">[python]</span>
+                <span class="px-3 py-1.5 border border-[#4479A1]/30 bg-[#4479A1]/10 rounded text-xs font-mono text-[#4479A1] backdrop-blur-md shadow-sm transition-colors hover:bg-[#4479A1]/20">[mysql]</span>
+                <span class="px-3 py-1.5 border border-[#DC382D]/30 bg-[#DC382D]/10 rounded text-xs font-mono text-[#DC382D] backdrop-blur-md shadow-sm transition-colors hover:bg-[#DC382D]/20">[redis]</span>
+                <span class="px-3 py-1.5 border border-[#2496ED]/30 bg-[#2496ED]/10 rounded text-xs font-mono text-[#2496ED] backdrop-blur-md shadow-sm transition-colors hover:bg-[#2496ED]/20">[docker]</span>
+            </div>
         </div>
+
+        <!-- DESKTOP ONLY: Floating Hero Visual -->
+        <div class="hidden lg:flex flex-1 w-full justify-end relative z-10 perspective-[1000px]">
+             <a href="https://games.zenithseed.dev" target="_blank" rel="noopener noreferrer" class="relative z-10 block transition-transform duration-700 ease-out hover:scale-105 hover:-translate-y-2">
+                 <img 
+                    src="/assets/games/img-3.png" 
+                    alt="GameS Interface Hero" 
+                    class="w-full max-w-[600px] h-auto object-contain filter drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]" 
+                 />
+             </a>
+             
+             <!-- Glow behind image -->
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] bg-[var(--color-accent)]/20 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+        </div>
+
     </div>
 </div>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+</style>

@@ -18,7 +18,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="w-full flex-grow flex flex-col gap-12">
+    <main class="w-full flex-grow flex flex-col gap-12 pb-12">
         <!-- Sec: Descripción -->
         <section id="descripción" class="flex flex-col gap-4">
             <div class="flex flex-col gap-2">
@@ -27,25 +27,25 @@
             </div>
             <div class="space-y-4 text-sm font-body text-[#C8CCD4] leading-relaxed">
                 <p>
-                    Games es una plataforma web de videojuegos desarrollada como proyecto final del grado superior en Desarrollo de Aplicaciones Multiplataforma (DAM). La aplicación permite a los usuarios explorar un catálogo completo de videojuegos, gestionar sus colecciones personales, escribir reseñas y conectar con otros jugadores.
+                    <strong class="text-[var(--color-text)] font-semibold">GameS</strong> es un gestor de videojuegos conceptualizado y desarrollado para ofrecer una experiencia completa a los apasionados de los juegos. Permite a los usuarios consultar información meticulosamente extraída de IGDB, planificar sus sesiones, administrar bibliotecas personales, hacer un seguimiento del tiempo y descubrir las mejores ofertas y precios históricos del mercado de claves.
                 </p>
                 <p>
-                    El proyecto demuestra una arquitectura fullstack moderna, con un backend robusto en Spring Boot y un frontend interactivo en React, todo orquestado con Docker para facilitar el despliegue.
+                    Todo configurado bajo una interfaz estilizada y responsiva, con un backend dinámico preparado para optimización de alto tráfico gestionando redes locales de cachés ultrarrápidas y proxies inversos.
                 </p>
             </div>
         </section>
 
-        <!-- Sec: Características (Placeholder) -->
+        <!-- Sec: Características -->
         <section id="características" class="flex flex-col gap-4">
              <div class="flex flex-col gap-2">
                 <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Características</h2>
                  <div class="h-px bg-[var(--color-stroke)] w-full"></div>
             </div>
-            <ul class="list-none space-y-2 text-sm font-body text-[#C8CCD4]">
-                <li class="flex gap-2"><span class="text-[var(--color-accent)]">-</span> Gestión de usuarios y roles (Admin/User)</li>
-                <li class="flex gap-2"><span class="text-[var(--color-accent)]">-</span> Catálogo paginado con filtros avanzados</li>
-                <li class="flex gap-2"><span class="text-[var(--color-accent)]">-</span> Sistema de reseñas y valoraciones</li>
-                <li class="flex gap-2"><span class="text-[var(--color-accent)]">-</span> Panel de administración para gestión de contenido</li>
+            <ul class="list-none space-y-3 text-sm font-body text-[#C8CCD4]">
+                <li class="flex gap-3"><span class="text-[var(--color-accent)] font-bold">1</span> <span><strong class="text-[var(--color-text)]">Catálogo Completo (+100K Juegos):</strong> Integración automática con la API de IGDB, cacheado en Redis para respuestas instantáneas.</span></li>
+                <li class="flex gap-3"><span class="text-[var(--color-accent)] font-bold">2</span> <span><strong class="text-[var(--color-text)]">Buscador Inteligente de Ofertas:</strong> Rastreador de precios con base en AllKeyShop con algoritmo de mapeo automático de títulos e historial de rebajas.</span></li>
+                <li class="flex gap-3"><span class="text-[var(--color-accent)] font-bold">3</span> <span><strong class="text-[var(--color-text)]">Gestión de Tiempo:</strong> Registra y modera tus sesiones con estadísticas precisas y representaciones gráficas directas de tu tiempo empleado.</span></li>
+                <li class="flex gap-3"><span class="text-[var(--color-accent)] font-bold">4</span> <span><strong class="text-[var(--color-text)]">Recomendaciones personalizadas:</strong> Algoritmos de similitud que analizan tu biblioteca personal automatizando sugerencias y unificando el aspecto social.</span></li>
             </ul>
         </section>
 
@@ -56,52 +56,70 @@
                  <div class="h-px bg-[var(--color-stroke)] w-full"></div>
             </div>
             <p class="text-sm font-body text-[#C8CCD4] leading-relaxed">
-                Clona el repositorio y levanta los servicios con Docker:
+                El entorno está completamente dockerizado. Clona el repositorio y levanta los servicios para iniciar el ecosistema local en tu propia máquina:
             </p>
-            <div class="bg-[#141418] border border-[var(--color-stroke)] rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                <div class="flex gap-2 text-[#8B939F] mb-1">
+            <div class="bg-[var(--color-surface-dark)] border border-[var(--color-stroke)] rounded-lg p-5 font-mono text-sm overflow-x-auto shadow-inner">
+                <div class="flex gap-3 text-[#8B939F] mb-2">
                     <span class="text-[var(--color-accent)]">$</span>
-                    <span>git clone https://github.com/sebas/games.git</span>
+                    <span class="text-[var(--color-text)]">git clone https://github.com/alvarosac99/GameS.git</span>
                 </div>
-                <div class="flex gap-2 text-[#8B939F] mb-1">
+                <div class="flex gap-3 text-[#8B939F] mb-2">
                      <span class="text-[var(--color-accent)]">$</span>
-                    <span>cd games</span>
+                    <span class="text-[var(--color-text)]">cd GameS</span>
                 </div>
-                 <div class="flex gap-2 text-[#8B939F]">
+                 <div class="flex gap-3 text-[#8B939F]">
                      <span class="text-[var(--color-accent)]">$</span>
-                    <span>docker-compose up -d</span>
+                     <span class="text-[#00D4AA]">docker-compose up -d --build</span>
                 </div>
             </div>
         </section>
-        
-        <!-- Sec: Capturas (Placeholder) -->
-        <section id="capturas" class="flex flex-col gap-4">
-             <div class="flex flex-col gap-2">
-                <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Capturas</h2>
+
+        <!-- Sec: Uso -->
+        <section id="uso" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Uso y Arquitectura</h2>
                  <div class="h-px bg-[var(--color-stroke)] w-full"></div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="aspect-video bg-[#141418] border border-[var(--color-stroke)] flex items-center justify-center text-[#8B939F] text-xs font-mono">
-                    [Dashboad_Admin.png]
+            <p class="text-sm font-body text-[#C8CCD4] leading-relaxed">
+                La aplicación centraliza la interacción global en un frontend (React 19) expuesto nativamente en los puertos de Nginx. El proxy inverso inteligente redirige el tráfico estricto de la API hacia el backend desacoplado en Django empaquetado y servido por un orquestador <i>Gunicorn WSGI</i>.
+            </p>
+             <p class="text-sm font-body text-[#C8CCD4] leading-relaxed mt-1">
+                Tras el primer despliegue inicial completo, el anillo en memoria de <b>Redis</b> inicializa inmediatamente (en background) una solicitud y captura masiva prioritaria hacia los servidores de Twitch Developers (IGDB) para almacenar internamente la red neuronal de los videojuegos más populares en JSON acelerando por mil la navegación y evitando banneos de rate-limit hacia las request de clientes posteriores.
+             </p>
+        </section>
+        
+        <!-- Sec: Capturas -->
+        <section id="capturas" class="flex flex-col gap-4 mt-2">
+             <div class="flex flex-col gap-2">
+                <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Galería visual</h2>
+                 <div class="h-px bg-[var(--color-stroke)] w-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-3">
+                <!-- Imagen principal interface Games -->
+                <div class="group relative rounded-xl border border-[var(--color-stroke)] overflow-hidden bg-[var(--color-surface-dark)] hover:border-[var(--color-accent)] transition-colors shadow-xl">
+                    <img src="/assets/games/img-2.jpg" alt="Catalogo y Frontend de GameS" loading="lazy" class="w-full aspect-[16/10] object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
                 </div>
-                <div class="aspect-video bg-[#141418] border border-[var(--color-stroke)] flex items-center justify-center text-[#8B939F] text-xs font-mono">
-                    [Catalogo_View.png]
+                <!-- Diseño mixto Logos -->
+                <div class="group aspect-[16/10] bg-[#050505] border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors rounded-xl flex items-center justify-center p-8 relative overflow-hidden shadow-xl">
+                    <img src="/assets/games/img-2.jpg" alt="Fondo borroso" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen scale-110 group-hover:scale-100 group-hover:opacity-40 transition-all duration-700 blur-[8px]" />
+                    <img src="/assets/games/img-1.png" alt="Logo de GameS S" class="absolute h-[160px] w-[160px] object-contain opacity-20 group-hover:opacity-100 transition-opacity duration-700 mix-blend-screen blur-[2px] group-hover:blur-0" />
+                    <img src="/assets/games/img-3.png" alt="Titulo GameS" class="relative z-10 w-[70%] object-contain drop-shadow-[0_10px_20px_rgba(255,80,0,0.4)] group-hover:scale-110 transition-transform duration-[800ms] ease-out" />
                 </div>
             </div>
         </section>
 
         <!-- Sec: Licencia -->
-        <section id="licencia" class="flex flex-col gap-4">
+        <section id="licencia" class="flex flex-col gap-4 mt-2">
              <div class="flex flex-col gap-2">
-                <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Licencia</h2>
+                <h2 class="font-mono text-2xl font-bold text-[var(--color-text)]"># Licencia y Derechos</h2>
                  <div class="h-px bg-[var(--color-stroke)] w-full"></div>
             </div>
             <p class="text-sm font-body text-[#C8CCD4] leading-relaxed">
-                Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+                © Copyright - Todos los derechos del código fuente, interfaces y logotipos de GameS pertenecen y están adjudicados exclusivamente a su desarrollador principal (Álvaro). Queda prohibida la copia, reproducción, venta o uso no autorizado en terceros servicios externos comerciales según la jurisdicción actual.
             </p>
-             <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#141418] border border-[var(--color-stroke)] rounded-md w-fit">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B939F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span class="font-mono text-sm text-[#8B939F]">MIT License</span>
+             <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--color-surface-dark)] border border-[var(--color-stroke)] rounded-md w-fit mt-1 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-[var(--color-accent)]" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span class="font-mono text-[13px] font-medium text-[var(--color-text)]">Proyecto Privativo (Reservado)</span>
             </div>
         </section>
     </main>

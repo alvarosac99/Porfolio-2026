@@ -12,8 +12,11 @@
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/jetbrains-mono": "^5.2.8",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.2.5",
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.3",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.7.3"
   }
