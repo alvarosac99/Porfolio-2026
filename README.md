@@ -1,15 +1,15 @@
 <div align="center">
 
-```
+<pre>
 ██████╗  ██████╗ ██████╗ ████████╗███████╗ ██████╗ ██╗     ██╗ ██████╗ 
 ██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔═══██╗██║     ██║██╔═══██╗
 ██████╔╝██║   ██║██████╔╝   ██║   █████╗  ██║   ██║██║     ██║██║   ██║
 ██╔═══╝ ██║   ██║██╔══██╗   ██║   ██╔══╝  ██║   ██║██║     ██║██║   ██║
 ██║     ╚██████╔╝██║  ██║   ██║   ██║     ╚██████╔╝███████╗██║╚██████╔╝
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝ 
-```
+</pre>
 
-### *Portfolio personal interactivo con estética de terminal — desarrollado con Astro, Tailwind CSS y animaciones inmersivas*
+### *Portfolio personal — desarrollado con Astro, Tailwind CSS y animaciones inmersivas*
 
 [![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Highlight.js](https://img.shields.io/badge/Highlight.js-11.x-E5742F?style=for-the-badge)](https://highlightjs.org/) [![Marked](https://img.shields.io/badge/Marked-17.x-000000?style=for-the-badge)](https://marked.js.org/) [![Mermaid](https://img.shields.io/badge/Mermaid-10.x-FF3670?style=for-the-badge&logo=mermaid&logoColor=white)](https://mermaid.js.org/) [![Status](https://img.shields.io/badge/Status-Online-00FF00?style=for-the-badge)](https://alvarosac99.github.io/Porfolio/)
 
