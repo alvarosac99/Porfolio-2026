@@ -1,0 +1,74 @@
+---
+---
+
+<section id="hero" class="flex items-center justify-between px-5 md:px-10 lg:px-20 xl:px-[120px] w-full min-h-[calc(100vh-56px)] md:h-[600px] py-12 md:py-0">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-[60px] w-full">
+        <!-- Left: Intro -->
+        <div class="flex flex-col gap-6 items-start w-full md:flex-1">
+            <!-- Name -->
+            <div class="space-y-0 text-left">
+                <h1 class="font-mono font-bold leading-[1.1] tracking-tight">
+                    <span class="text-[var(--color-accent)] text-sm md:hidden block mb-4">&gt; hola, soy</span>
+                    <span class="text-[var(--color-text)] text-[32px] md:text-[64px] block">Álvaro Sebastián</span>
+                    <span class="text-[var(--color-accent)] text-[32px] md:text-[64px] block">Acosta</span>
+                </h1>
+            </div>
+
+            <!-- Description -->
+            <p class="font-body text-[var(--color-text-muted)] text-base leading-[1.6] max-w-[520px]">
+                // desarrollador multiplataforma, apasionado por linux, docker, servidores y el desarrollo web.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col md:flex-row gap-3 pt-2 w-full md:w-auto">
+                <a href="#projects" class="w-full md:w-auto flex items-center justify-center bg-[var(--color-accent)] text-[#0D0B0E] px-7 py-3.5 font-mono text-sm font-medium hover:opacity-90 transition-opacity">
+                    $ ver_proyectos
+                </a>
+                <a href="/cv.pdf" target="_blank" download class="w-full md:w-auto flex items-center justify-center border border-[var(--color-stroke)] text-[var(--color-text)] px-7 py-3.5 font-mono text-sm hover:border-[var(--color-text)] hover:text-[var(--color-text)] transition-colors">
+                    $ descargar_cv
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Terminal -->
+        <div class="w-full md:w-[520px] h-auto md:h-[440px] flex-shrink-0 mt-6 md:mt-0">
+            <div class="bg-[var(--color-surface)] border border-[var(--color-stroke-secondary)] overflow-hidden w-full h-full flex flex-col shadow-2xl">
+                <!-- Header -->
+                <div class="bg-[var(--color-surface-dark)] px-4 h-[36px] border-b border-[var(--color-stroke-secondary)] flex items-center gap-2">
+                    <div class="flex gap-2 mr-auto">
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#10B981]"></div>
+                    </div>
+                    <div class="text-[var(--color-text-muted-secondary)] text-xs font-mono">  ~/portfolio</div>
+                </div>
+
+                <!-- Body -->
+                <div class="p-5 space-y-1.5 font-mono text-[13px] md:text-[16px] flex-1 flex flex-col">
+                    <!-- Cmd 1 -->
+                    <div class="text-[var(--color-accent)]">$ whoami</div>
+                    <div class="text-[var(--color-text)] font-body pb-2.5">sebas</div>
+
+                    <!-- Cmd 2 -->
+                    <div class="text-[var(--color-accent)]">$ cat about.txt</div>
+                    <div class="text-[var(--color-text)] font-body pb-2.5 max-w-[370px]">desarrollador | consultor ti @ castroalonso</div>
+
+                    <!-- Cmd 3 -->
+                    <div class="text-[var(--color-accent)]">$ ls skills/</div>
+                    <div class="text-[#06B6D4] font-body max-w-[370px]">java  python  django  react  sql  docker</div>
+                    <div class="text-[#06B6D4] font-body pb-2.5 max-w-[370px]">linux  cloudflare  mantenimiento  soporte</div>
+
+                    <!-- Cmd 4 -->
+                    <div class="text-[var(--color-accent)]">$ uptime</div>
+                    <div class="text-[var(--color-text)] font-body pb-2.5">ubicación: oviedo, asturias</div>
+
+                    <!-- Cursor -->
+                    <div class="flex gap-2 mt-auto pt-2">
+                        <span class="text-[var(--color-accent)]">&gt;</span>
+                        <span class="text-[var(--color-accent)] animate-pulse">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

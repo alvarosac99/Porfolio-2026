@@ -1,0 +1,87 @@
+---
+---
+
+<div class="relative inline-block text-left theme-switcher">
+  <button
+    id="theme-toggle"
+    type="button"
+    class="inline-flex justify-center items-center w-10 h-10 rounded-full border border-[var(--color-text)]/20 bg-[var(--color-bg)] text-[var(--color-text)] hover:bg-[var(--color-bg-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-all"
+    aria-label="Cambiar tema"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div
+    id="theme-menu"
+    class="hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-[var(--color-bg-secondary)] ring-1 ring-[var(--color-text)]/10 z-50 origin-top-right focus:outline-none"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="theme-toggle"
+  >
+    <div class="py-1" role="none">
+        <button
+            class="text-[var(--color-text)] block px-4 py-2 text-sm w-full text-left hover:bg-[var(--color-bg)]/50 hover:text-[var(--color-accent)] transition-colors"
+            role="menuitem"
+            data-theme-value="console"
+        >
+            Console
+        </button>
+        <button
+            class="text-[var(--color-text)] block px-4 py-2 text-sm w-full text-left hover:bg-[var(--color-bg)]/50 hover:text-[var(--color-accent)] transition-colors"
+            role="menuitem"
+            data-theme-value="favorite-dark"
+        >
+            Favorite Dark
+        </button>
+        <button
+            class="text-[var(--color-text)] block px-4 py-2 text-sm w-full text-left hover:bg-[var(--color-bg)]/50 hover:text-[var(--color-accent)] transition-colors"
+            role="menuitem"
+            data-theme-value="favorite-light"
+        >
+            Favorite Light
+        </button>
+    </div>
+  </div>
+</div>
+
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeMenu = document.getElementById('theme-menu');
+    const themeButtons = document.querySelectorAll('[data-theme-value]');
+
+    // Toggle menu
+    themeToggle?.addEventListener('click', () => {
+        themeMenu?.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!themeToggle?.contains(event.target as Node) && !themeMenu?.contains(event.target as Node)) {
+            themeMenu?.classList.add('hidden');
+        }
+    });
+
+    // Handle theme selection
+    themeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const theme = button.getAttribute('data-theme-value');
+            if (theme) {
+                setTheme(theme);
+                themeMenu?.classList.add('hidden');
+            }
+        });
+    });
+
+    // Set theme function
+    function setTheme(theme: string) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme') || 'favorite-dark';
+    setTheme(savedTheme);
+</script>

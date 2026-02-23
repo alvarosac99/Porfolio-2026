@@ -1,0 +1,238 @@
+---
+---
+
+<div
+    class="theme-dropdown absolute right-0 top-[calc(100%+16px)] w-[200px] rounded-lg bg-[var(--color-surface)] border border-[var(--color-stroke-tertiary)] shadow-xl z-50 overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.2,0.0,0.2,1)] origin-top opacity-0 scale-y-0 pointer-events-none"
+    role="menu"
+    aria-hidden="true"
+>
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-1.5 px-3.5 py-2.5 border-b border-[var(--color-stroke-tertiary)]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+        </svg>
+        <span class="font-mono text-[11px] text-[var(--color-text-muted-secondary)] flex-1">tema</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
+        </svg>
+    </div>
+
+    <!-- Opciones -->
+    <div class="p-1.5">
+        <!-- Console -->
+        <button
+            class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md hover:bg-[var(--color-stroke-tertiary)] transition-colors"
+            data-theme-option="console"
+        >
+            <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background-color: #00D4AA;"></div>
+            <span class="theme-name font-mono text-xs flex-1 text-left transition-colors">console</span>
+            <svg class="theme-check-icon opacity-0 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </svg>
+        </button>
+
+        <!-- Favorito Oscuro -->
+        <button
+            class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md hover:bg-[var(--color-stroke-tertiary)] transition-colors"
+            data-theme-option="favorite-dark"
+        >
+            <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background-color: #FF7A42;"></div>
+            <span class="theme-name font-mono text-xs flex-1 text-left transition-colors">favorito</span>
+            <span class="font-mono text-[10px] text-[#888] mr-auto">oscuro</span>
+            <svg class="theme-check-icon opacity-0 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF7A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </svg>
+        </button>
+
+        <!-- Favorito Claro -->
+        <button
+            class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md hover:bg-[var(--color-stroke-tertiary)] transition-colors"
+            data-theme-option="favorite-light"
+        >
+            <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background-color: #E8612A;"></div>
+            <span class="theme-name font-mono text-xs flex-1 text-left transition-colors">favorito</span>
+            <span class="font-mono text-[10px] text-[#888] mr-auto">claro</span>
+            <svg class="theme-check-icon opacity-0 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8612A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </svg>
+        <!-- Sanina Oscuro -->
+        <button
+            class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md hover:bg-[var(--color-stroke-tertiary)] transition-colors"
+            data-theme-option="sanina-dark"
+        >
+            <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background-color: #C084FC;"></div>
+            <span class="theme-name font-mono text-xs flex-1 text-left transition-colors">sanina</span>
+            <span class="font-mono text-[10px] text-[#888] mr-auto">oscuro</span>
+            <svg class="theme-check-icon opacity-0 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </svg>
+        </button>
+
+        <!-- Sanina Claro -->
+        <button
+            class="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-md hover:bg-[var(--color-stroke-tertiary)] transition-colors"
+            data-theme-option="sanina-light"
+        >
+            <div class="w-2.5 h-2.5 rounded-full flex-shrink-0" style="background-color: #5B21B6;"></div>
+            <span class="theme-name font-mono text-xs flex-1 text-left transition-colors">sanina</span>
+            <span class="font-mono text-[10px] text-[#888] mr-auto">claro</span>
+            <svg class="theme-check-icon opacity-0 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    const THEME_LABELS: Record<string, string> = {
+        'console':        'console',
+        'favorite-dark':  'favorito',
+        'favorite-light': 'favorito claro',
+        'sanina-dark':    'sanina',
+        'sanina-light':   'sanina claro',
+    };
+
+    const dropdowns = document.querySelectorAll('.theme-dropdown');
+    
+    // Clases para el estado abierto y cerrado
+    const OPEN_CLASSES = ['opacity-100', 'scale-y-100', 'pointer-events-auto'];
+    const CLOSED_CLASSES = ['opacity-0', 'scale-y-0', 'pointer-events-none'];
+
+    function openDropdowns() {
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove(...CLOSED_CLASSES);
+            dropdown.classList.add(...OPEN_CLASSES);
+            dropdown.setAttribute('aria-hidden', 'false');
+        });
+    }
+
+    function closeDropdowns() {
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove(...OPEN_CLASSES);
+            dropdown.classList.add(...CLOSED_CLASSES);
+            dropdown.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    function updateActiveState(activeTheme: string) {
+        dropdowns.forEach(dropdown => {
+            const themeButtons = dropdown.querySelectorAll<HTMLElement>('[data-theme-option]');
+            themeButtons.forEach(btn => {
+                const btnTheme = btn.getAttribute('data-theme-option');
+                const check = btn.querySelector<SVGElement>('.theme-check-icon');
+                const nameSpan = btn.querySelector('.theme-name');
+                const isActive = btnTheme === activeTheme;
+                
+                btn.classList.toggle('bg-[var(--color-stroke-tertiary)]', isActive);
+                if (check) check.style.opacity = isActive ? '1' : '0';
+                
+                if (nameSpan) {
+                    if (isActive) {
+                        nameSpan.className = 'theme-name font-mono text-xs flex-1 text-left transition-colors font-medium text-[var(--color-text-primary)]';
+                    } else {
+                        nameSpan.className = 'theme-name font-mono text-xs flex-1 text-left transition-colors text-[var(--color-text-muted-secondary)]';
+                    }
+                }
+            });
+        });
+    }
+
+    function applyTheme(theme: string) {
+        // Clase temporal para activar transiciones en todos los elementos
+        document.documentElement.classList.add('theme-transitioning');
+
+        // Aplicar el nuevo tema (actualiza las CSS variables)
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Efecto épico: scan line con el color de acento del nuevo tema
+        const overlay = document.createElement('div');
+        overlay.className = 'theme-scan-overlay';
+        document.body.appendChild(overlay);
+
+        // Actualizar etiquetas de TODOS los triggers
+        const triggerLabels = document.querySelectorAll('.theme-trigger-label');
+        triggerLabels.forEach(label => {
+            label.textContent = THEME_LABELS[theme] ?? theme;
+        });
+
+        // Limpiar tras la animación
+        setTimeout(() => {
+            document.documentElement.classList.remove('theme-transitioning');
+            overlay.remove();
+        }, 750);
+    }
+
+    // Abrir/cerrar dropdown
+    document.addEventListener('toggle-theme-dropdown', () => {
+        // Check state of the first one to determine global state
+        const isOpen = dropdowns[0]?.classList.contains('opacity-100');
+        if (isOpen) {
+            closeDropdowns();
+        } else {
+            openDropdowns();
+        }
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (event) => {
+        let clickedInside = false;
+        
+        // Verifica si hemos hecho clic en alguno de los triggers o dropdowns
+        const triggers = document.querySelectorAll('.theme-trigger');
+        triggers.forEach(trigger => {
+            if (trigger.contains(event.target as Node)) clickedInside = true;
+        });
+        
+        dropdowns.forEach(dropdown => {
+            if (dropdown.contains(event.target as Node)) clickedInside = true;
+        });
+
+        if (!clickedInside) {
+            closeDropdowns();
+            
+            // Sync aria-expanded across all triggers when closing by clicking outside
+            triggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+        }
+    });
+
+    // Selección de tema para todos los botones en todos los menús
+    dropdowns.forEach(dropdown => {
+        const themeButtons = dropdown.querySelectorAll<HTMLElement>('[data-theme-option]');
+        themeButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Prevent event bubbling so the 'click outside' doesn"t fire
+                e.stopPropagation();
+                
+                const theme = button.getAttribute('data-theme-option');
+                if (theme) {
+                    updateActiveState(theme);
+                    applyTheme(theme);
+                    closeDropdowns();
+                    
+                    // Asegurarse de quitar el aria-expanded de los triggers
+                    const triggers = document.querySelectorAll('.theme-trigger');
+                    triggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+                }
+            });
+        });
+    });
+
+    // Inicializar desde el tema actual (ya aplicado por el script anti-flash global)
+    const currentTheme =
+        document.documentElement.getAttribute('data-theme') ||
+        localStorage.getItem('theme') ||
+        'favorite-dark';
+
+    updateActiveState(currentTheme);
+
+    // Inicializar etiquetas de los triggers
+    const triggerLabels = document.querySelectorAll('.theme-trigger-label');
+    triggerLabels.forEach(label => {
+        label.textContent = THEME_LABELS[currentTheme] ?? currentTheme;
+    });
+</script>

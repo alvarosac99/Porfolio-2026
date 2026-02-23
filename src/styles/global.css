@@ -1,0 +1,244 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'IBM Plex Mono', monospace;
+}
+
+/* ================================================
+   TEMA: FAVORITO OSCURO (por defecto)
+   Naranja cálido sobre fondos morado oscuro
+   ================================================ */
+:root,
+html[data-theme="favorite-dark"] {
+    --color-bg: #0E0C10;
+    --color-bg-gradient-start: #0E0C10;
+    --color-bg-gradient-end: #1A1520;
+    --color-bg-sidebar: #0E0C10;
+    --color-text: #FFF5F0;
+    --color-text-primary: #FFF5F0;
+    --color-text-muted: #AE9EA8;
+    --color-text-muted-secondary: #AE9EA8;
+    --color-text-footer-muted: #7D6E77;
+    --color-text-title: #FFF8F2;
+    --color-accent: #FF7A42;
+    --color-accent-secondary: #FF7A42;
+    --color-stroke: #3D3048;
+    --color-stroke-secondary: #2A2530;
+    --color-stroke-tertiary: #3D3048;
+    --color-surface: #1A1520;
+    --color-surface-dark: #0A0A0A;
+    --color-surface-footer: #1A1520;
+    color-scheme: dark;
+}
+
+/* ================================================
+   TEMA: CONSOLE
+   Verde menta sobre negro puro, estilo terminal
+   ================================================ */
+html[data-theme="console"] {
+    --color-bg: #0C0C0C;
+    --color-bg-gradient-start: #0C0C0C;
+    --color-bg-gradient-end: #0C0C0C;
+    --color-bg-sidebar: #0C0C0C;
+    --color-text: #FAFAFA;
+    --color-text-primary: #FAFAFA;
+    --color-text-muted: #8B939F;
+    --color-text-muted-secondary: #8B939F;
+    --color-text-footer-muted: #555555;
+    --color-text-title: #FAFAFA;
+    --color-accent: #00D4AA;
+    --color-accent-secondary: #00D4AA;
+    --color-stroke: #1E2028;
+    --color-stroke-secondary: #1E2028;
+    --color-stroke-tertiary: #1E2028;
+    --color-surface: #141414;
+    --color-surface-dark: #0A0A0A;
+    --color-surface-footer: #141414;
+    color-scheme: dark;
+}
+
+/* ================================================
+   TEMA: FAVORITO CLARO
+   Naranja tostado sobre crema cálida
+   ================================================ */
+html[data-theme="favorite-light"] {
+    --color-bg: #E8E3DF;
+    --color-bg-gradient-start: #E8E3DF;
+    --color-bg-gradient-end: #E0DAD5;
+    --color-bg-sidebar: #FAF8F6;
+    --color-text: #1A1118;
+    --color-text-primary: #1A1118;
+    --color-text-muted: #6B5F65;
+    --color-text-muted-secondary: #6B5F65;
+    --color-text-footer-muted: #9B8F95;
+    --color-text-title: #1A1118;
+    --color-accent: #E8612A;
+    --color-accent-secondary: #E8612A;
+    --color-stroke: #C0B5BA;
+    --color-stroke-secondary: #E5DFE2;
+    --color-stroke-tertiary: #C0B5BA;
+    --color-surface: #FFFFFF;
+    --color-surface-dark: #F5F2EE;
+    --color-surface-footer: #DDD8D4;
+    color-scheme: light;
+}
+
+/* ================================================
+   TEMA: SANINA OSCURO
+   Acentos púrpuras sobre fondos oscuros profundos
+   ================================================ */
+html[data-theme="sanina-dark"] {
+    --color-bg: #0D0A14;
+    --color-bg-gradient-start: #0D0A14;
+    --color-bg-gradient-end: #1A1228;
+    --color-bg-sidebar: #0D0A14;
+    --color-text: #F5F0FA;
+    --color-text-primary: #F5F0FA;
+    --color-text-muted: #9085A0;
+    --color-text-muted-secondary: #9085A0;
+    --color-text-footer-muted: #6B5080;
+    --color-text-title: #FAF5FF;
+    --color-accent: #C084FC;
+    --color-accent-secondary: #C084FC;
+    --color-stroke: #2D2240;
+    --color-stroke-secondary: #1E0A30;
+    --color-stroke-tertiary: #2D2240;
+    --color-surface: #1A1228;
+    --color-surface-dark: #0D0A14;
+    --color-surface-footer: #1A1228;
+    color-scheme: dark;
+}
+
+/* ================================================
+   TEMA: SANINA CLARO
+   Acentos violetas oscuros sobre fondos lavanda claros
+   ================================================ */
+html[data-theme="sanina-light"] {
+    --color-bg: #EFE6F7;
+    --color-bg-gradient-start: #EFE6F7;
+    --color-bg-gradient-end: #E6DAF2;
+    --color-bg-sidebar: #FAF5FF;
+    --color-text: #1E0A30;
+    --color-text-primary: #1E0A30;
+    --color-text-muted: #6B5080;
+    --color-text-muted-secondary: #6B5080;
+    --color-text-footer-muted: #9085A0;
+    --color-text-title: #1E0A30;
+    --color-accent: #5B21B6;
+    --color-accent-secondary: #5B21B6;
+    --color-stroke: #B8A3D1;
+    --color-stroke-secondary: #F0E4FA;
+    --color-stroke-tertiary: #B8A3D1;
+    --color-surface: #FFFFFF;
+    --color-surface-dark: #F8F4FC;
+    --color-surface-footer: #E2D4F0;
+    color-scheme: light;
+}
+
+/* ================================================
+   BASE
+   ================================================ */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Compensate for sticky header */
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(180deg,
+            var(--color-bg-gradient-end) 0%,
+            var(--color-bg-gradient-start) 24%);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-mono);
+}
+
+/* ================================================
+   TRANSICIÓN SUAVE ENTRE TEMAS
+   Se activa solo durante el cambio (clase temporal)
+   ================================================ */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+    transition:
+        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        fill 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ================================================
+   ANIMACIÓN DE CAMBIO DE TEMA — SCAN LINE ÉPICA
+   ================================================ */
+@keyframes theme-scan-down {
+    0% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.55;
+    }
+
+    92% {
+        opacity: 0.55;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.theme-scan-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 99999;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-accent),
+            transparent);
+    animation: theme-scan-down 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ================================================
+   SCROLLBAR
+   ================================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-stroke);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}

@@ -1,0 +1,71 @@
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+import MobileMenu from './MobileMenu.astro';
+---
+
+<header class="fixed top-0 z-40 w-full bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[#3D3048] transition-colors duration-300 h-16 md:h-[72px] flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex justify-between items-center h-full">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+            <span class="font-mono font-bold text-xl md:text-2xl text-[#FF7A42]">&gt;</span>
+            <span class="font-mono font-medium text-base md:text-lg text-[#FFF5F0]">sebas</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+            <nav class="flex gap-6 lg:gap-8">
+                <a href="#about" class="text-[#AE9EA8] hover:text-[#FFF5F0] transition-colors text-xs lg:text-[13px] font-mono lowercase">
+                    sobre_mí
+                </a>
+                <a href="#projects" class="text-[#AE9EA8] hover:text-[#FFF5F0] transition-colors text-xs lg:text-[13px] font-mono lowercase">
+                    proyectos
+                </a>
+                <a href="#experience" class="text-[#AE9EA8] hover:text-[#FFF5F0] transition-colors text-xs lg:text-[13px] font-mono lowercase">
+                    experiencia
+                </a>
+                <a href="#skills" class="text-[#AE9EA8] hover:text-[#FFF5F0] transition-colors text-xs lg:text-[13px] font-mono lowercase">
+                    aptitudes
+                </a>
+                <a href="#contact" class="text-[#AE9EA8] hover:text-[#FFF5F0] transition-colors text-xs lg:text-[13px] font-mono lowercase">
+                    contacto
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-6">
+                 <!-- CTA Button -->
+                <a href="#contact" class="flex items-center justify-center bg-[#FF7A42] px-4 py-2 lg:px-5 lg:py-2.5 hover:opacity-90 transition-opacity">
+                    <span class="font-mono font-medium text-xs text-[#0D0B0E]">$ contactar</span>
+                </a>
+                
+                <!-- Theme Switcher -->
+                <div class="border-l border-[#3D3048] pl-6 h-6 flex items-center">
+                    <ThemeSwitcher />
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex items-center md:hidden gap-4">
+            <ThemeSwitcher />
+            <button
+                id="mobile-menu-btn"
+                type="button"
+                class="inline-flex items-center justify-center p-2 text-[#FFF5F0] hover:text-[#FF7A42] focus:outline-none transition-colors"
+                aria-label="Abrir menú"
+            >
+                <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<MobileMenu />
+
+<script>
+    const btn = document.getElementById('mobile-menu-btn');
+    btn?.addEventListener('click', () => {
+        document.dispatchEvent(new Event('open-mobile-menu'));
+    });
+</script>

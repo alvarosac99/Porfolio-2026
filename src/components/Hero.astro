@@ -1,0 +1,125 @@
+---
+---
+
+<section id="hero" class="min-h-screen flex items-center justify-center pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center w-full">
+        <!-- Left Column: Content -->
+        <div class="flex flex-col gap-6 items-start w-full order-2 lg:order-1">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 border border-[#FF7A42] rounded-full animate-fade-in-up w-auto">
+                <span class="w-2 h-2 rounded-full bg-[#FF7A42]"></span>
+                <span class="font-mono text-xs text-[#FF7A42]">disponible para trabajar</span>
+            </div>
+
+            <!-- Main Title -->
+            <div class="space-y-2 animate-fade-in-up delay-100">
+                <p class="font-mono text-[#FF7A42] text-lg md:text-xl">
+                    &gt; hola mundo, soy
+                </p>
+                <h1 class="font-mono font-bold leading-tight tracking-tight">
+                    <span class="text-[#FFF5F0] text-4xl md:text-5xl lg:text-6xl block">Álvaro Sebastián</span>
+                    <span class="text-[#FF7A42] text-4xl md:text-5xl lg:text-6xl block">Acosta</span>
+                </h1>
+            </div>
+
+            <!-- Description -->
+            <p class="font-body text-[#AE9EA8] text-sm md:text-base leading-relaxed max-w-lg animate-fade-in-up delay-200">
+                // desarrollador multiplataforma, apasionado por linux, docker, servidores y el desarrollo web. construyendo proyectos que importan.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 pt-4 animate-fade-in-up delay-300 w-full md:w-auto">
+                <a href="#contact" class="flex-1 md:flex-none flex items-center justify-center bg-[#FF7A42] text-[#0D0B0E] px-6 py-3 font-mono text-sm font-bold hover:opacity-90 transition-opacity">
+                    $ contactar
+                </a>
+                <a href="#projects" class="flex-1 md:flex-none flex items-center justify-center border border-[#3D3048] text-[#AE9EA8] px-6 py-3 font-mono text-sm hover:border-[#FFF5F0] hover:text-[#FFF5F0] transition-colors">
+                    ver_proyectos
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Column: Terminal Visual -->
+        <div class="w-full max-w-lg mx-auto lg:ml-auto animate-fade-in-up delay-500 order-1 lg:order-2">
+            <div class="bg-[#141414] border border-[#2A2530] rounded-lg overflow-hidden w-full shadow-2xl font-mono text-sm">
+                <!-- Terminal Header -->
+                <div class="bg-[#0A0A0A] px-4 py-2 border-b border-[#2A2530] flex items-center gap-2">
+                    <div class="flex gap-1.5 mr-auto">
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#EF4444]"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#10B981]"></div>
+                    </div>
+                    <div class="text-[#8B939F] text-xs">~/portfolio</div>
+                </div>
+
+                <!-- Terminal Body -->
+                <div class="p-4 md:p-6 space-y-4 bg-[#141414] min-h-[300px] flex flex-col justify-start text-xs md:text-sm">
+                    <!-- Command 1 -->
+                    <div class="space-y-1">
+                        <div class="flex gap-2">
+                            <span class="text-[#FF7A42]">$</span>
+                            <span class="text-[#FF7A42]">whoami</span>
+                        </div>
+                        <div class="text-[#FAFAFA]">álvaro sebastián acosta</div>
+                    </div>
+
+                     <!-- Command 2 -->
+                    <div class="space-y-1">
+                        <div class="flex gap-2">
+                            <span class="text-[#FF7A42]">$</span>
+                            <span class="text-[#FF7A42]">cat about.txt</span>
+                        </div>
+                        <div class="text-[#FAFAFA]">desarrollador dam | consultor ti @ castroalonso</div>
+                    </div>
+
+                    <!-- Command 3 -->
+                    <div class="space-y-1">
+                        <div class="flex gap-2">
+                            <span class="text-[#FF7A42]">$</span>
+                            <span class="text-[#FF7A42]">ls skills/</span>
+                        </div>
+                        <div class="grid grid-cols-1 gap-1 text-[#06B6D4]">
+                            <span>python  django  php  react  sql  docker</span>
+                            <span>linux   servers  hardware  devops</span>
+                        </div>
+                    </div>
+
+                    <!-- Command 4 -->
+                    <div class="space-y-1">
+                        <div class="flex gap-2">
+                            <span class="text-[#FF7A42]">$</span>
+                            <span class="text-[#FF7A42]">uptime</span>
+                        </div>
+                        <div class="text-[#FAFAFA]">ubicación: oviedo, asturias</div>
+                        <div class="text-[#FAFAFA]">estado: [activo] trabajando en castroalonso</div>
+                    </div>
+
+                    <!-- Cursor -->
+                    <div class="flex gap-2 pt-2 mt-auto">
+                        <span class="text-[#FF7A42]">&gt;</span>
+                        <span class="animate-pulse">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

@@ -1,0 +1,117 @@
+---
+import ThemeTrigger from './ThemeTrigger.astro';
+import ThemeDropdown from './ThemeDropdown.astro';
+---
+
+<header class="h-14 md:h-[72px] border-b border-[var(--color-stroke)] bg-[var(--color-bg)] sticky top-0 z-50 px-5 md:px-[60px] flex items-center justify-between w-full">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+        <span class="font-mono font-bold text-2xl text-[var(--color-accent)]">&gt;</span>
+        <span class="font-mono font-medium text-lg text-[var(--color-text)]">sebas</span>
+    </a>
+
+    <!-- Nav & Actions -->
+    <div class="flex items-center gap-8">
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="#about" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">sobre_mí</a>
+            <a href="#projects" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">proyectos</a>
+            <a href="#experience" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">experiencia</a>
+            <a href="#skills" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">aptitudes</a>
+            <a href="#contact" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">contacto</a>
+        </nav>
+
+        <!-- CTA & Theme -->
+        <div class="hidden md:flex items-center gap-4">
+            <a href="#contact" class="flex items-center justify-center bg-[var(--color-accent)] px-5 py-2.5 hover:opacity-90 transition-opacity">
+                <span class="font-mono font-medium text-xs text-[#0D0B0E]">$ contactar</span>
+            </a>
+            
+            <div class="border-l border-[var(--color-stroke)] pl-4 h-6 flex items-center relative">
+                <ThemeTrigger />
+                <ThemeDropdown />
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+            id="mobile-menu-btn"
+            type="button"
+            class="inline-flex md:hidden items-center justify-center p-2 text-[var(--color-text)] hover:text-[var(--color-accent)] focus:outline-none transition-colors"
+            aria-label="Abrir menú"
+        >
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Menu Dropdown (now inside header for stickiness) -->
+    <div 
+        id="mobile-menu"
+        class="absolute top-full left-0 w-full z-40 bg-[var(--color-bg)] border-b border-[var(--color-stroke)] md:hidden transition-all duration-300 ease-[cubic-bezier(0.2,0.0,0.2,1)] origin-top opacity-0 scale-y-0 pointer-events-none"
+        aria-hidden="true"
+    >
+        <div class="flex flex-col p-5 gap-4">
+            <nav class="flex flex-col gap-4">
+                <a href="#about" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">sobre_mí</a>
+                <a href="#projects" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">proyectos</a>
+                <a href="#experience" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">experiencia</a>
+                <a href="#skills" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">aptitudes</a>
+                <a href="#contact" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">contacto</a>
+            </nav>
+            
+            <div class="w-full h-px bg-[var(--color-stroke)] my-2"></div>
+            
+            <div class="flex items-center justify-between">
+                <span class="font-mono text-xs text-[var(--color-text-muted)]">tema</span>
+                <div class="relative w-auto flex justify-end">
+                    <ThemeTrigger />
+                    <ThemeDropdown />
+                </div>
+            </div>
+
+            <a href="#contact" class="mobile-nav-link mt-4 flex items-center justify-center bg-[var(--color-accent)] w-full py-3 rounded hover:opacity-90 transition-opacity">
+                <span class="font-mono font-medium text-[13px] text-[#0D0B0E]">$ contactar</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const OPEN_CLASSES = ['opacity-100', 'scale-y-100', 'pointer-events-auto'];
+    const CLOSED_CLASSES = ['opacity-0', 'scale-y-0', 'pointer-events-none'];
+
+    function toggleMobileMenu() {
+        if (!mobileMenu) return;
+        
+        const isOpen = mobileMenu.classList.contains('opacity-100');
+        
+        if (isOpen) {
+            mobileMenu.classList.remove(...OPEN_CLASSES);
+            mobileMenu.classList.add(...CLOSED_CLASSES);
+            mobileMenu.setAttribute('aria-hidden', 'true');
+        } else {
+            mobileMenu.classList.remove(...CLOSED_CLASSES);
+            mobileMenu.classList.add(...OPEN_CLASSES);
+            mobileMenu.setAttribute('aria-hidden', 'false');
+        }
+    }
+
+    mobileBtn?.addEventListener('click', () => {
+        toggleMobileMenu();
+    });
+
+    // Close mobile menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (mobileMenu?.classList.contains('opacity-100')) {
+                toggleMobileMenu();
+            }
+        });
+    });
+</script>

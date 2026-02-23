@@ -1,0 +1,42 @@
+---
+---
+
+<button
+    type="button"
+    class="theme-trigger flex items-center gap-1.5 px-3 py-1.5 rounded border border-[var(--color-stroke-tertiary)] bg-transparent hover:bg-[var(--color-stroke-tertiary)]/30 transition-colors"
+    aria-label="Cambiar tema"
+    aria-haspopup="true"
+    aria-expanded="false"
+>
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
+        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
+        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+    </svg>
+    <span
+        class="theme-trigger-label font-mono text-[11px] text-[var(--color-text-muted-secondary)]"
+    >favorito</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+    </svg>
+</button>
+
+<script>
+    const triggers = document.querySelectorAll('.theme-trigger');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            // Stop propagation so it doesn't immediately close the dropdown
+            e.stopPropagation();
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            
+            // Sync aria-expanded across all triggers
+            triggers.forEach(t => t.setAttribute('aria-expanded', expanded ? 'false' : 'true'));
+            
+            // Dispatch event to open dropdown
+            document.dispatchEvent(new Event('toggle-theme-dropdown'));
+        });
+    });
+</script>
