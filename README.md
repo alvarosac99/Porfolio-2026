@@ -41,9 +41,9 @@
 
 ## <img src="https://api.iconify.design/mdi:rocket-launch.svg?color=%23EF4444" width="20" height="20" align="absmiddle" /> Sobre el Proyecto
 
-> **Portfolio** es un sitio web personal interactivo diseñado para presentar el perfil profesional, proyectos y habilidades de **Álvaro Sebastián Acosta Cortizas** — Desarrollador Multiplataforma y Consultor TI. Su estética está inspirada íntegramente en terminales, IDEs y entornos de desarrollo, combinando tipografías monoespaciadas, micro-animaciones y un sistema multi-tema avanzado.
+> Este portfolio es mi carta de presentación digital. Lo he diseñado para compartir mi CV, mostrar mis proyectos y dejar claro quién soy como desarrollador. La idea era construir algo que no fuese un PDF aburrido, sino una experiencia interactiva que refleje mi forma de trabajar y mi obsesión por los detalles.
 
-La web se construye sobre **Astro** como framework SSG (Static Site Generator), con un enfoque en rendimiento extremo (0 JavaScript del framework en el cliente), **Tailwind CSS v4** para el sistema de diseño reactivo y componentes `.astro` modulares que conforman una experiencia de una sola página (SPA) enriquecida con páginas de detalle independientes para cada proyecto.
+He construido todo desde cero con **Astro** como generador estático (0 JavaScript del framework en el cliente), **Tailwind CSS v4** para el diseño y componentes `.astro` modulares. La estética está inspirada en terminales e IDEs porque es donde paso la mayor parte de mi tiempo — tipografías monoespaciadas, micro-animaciones, partículas interactivas y un sistema multi-tema que puedes alternar en tiempo real. Cada proyecto tiene su propia página de detalle que renderiza directamente el `README.md` de su repositorio en GitHub.
 
 ---
 
@@ -115,49 +115,35 @@ La web se construye sobre **Astro** como framework SSG (Static Site Generator), 
 ## <img src="https://api.iconify.design/mdi:crane.svg?color=%236366F1" width="20" height="20" align="absmiddle" /> Arquitectura
 
 ```mermaid
-graph TD
-    subgraph Portfolio["Portfolio (Astro SSG)"]
-        Index["index.astro — Landing Page"]
-        Games["projects/games.astro"]
-        MC["projects/minecraft.astro"]
+graph LR
+    subgraph Landing["Landing Page"]
+        direction TB
+        Hero["Hero + Partículas"]
+        Stats["Stats"]
+        Projects["Proyectos"]
+        Skills["Aptitudes"]
+        Experience["Experiencia"]
+        Education["Educación"]
+        Contact["Contacto"]
+        Theme["Multi-Tema"]
     end
 
-    subgraph Componentes["Componentes .astro"]
-        Header["ConsoleHeader"]
-        Hero["ConsoleHero"]
-        Projects["ConsoleProjects"]
-        Skills["ConsoleSkills"]
-        Experience["ConsoleExperience"]
-        Education["ConsoleEducation"]
-        Contact["ConsoleContact"]
-        Footer["ConsoleFooter"]
-        BG["BackgroundAnimation (Canvas)"]
-        Theme["ThemeDropdown + ThemeTrigger"]
+    subgraph Detalle["Visor de Proyecto"]
+        direction TB
+        TopBar["TopBar"]
+        DocHero["Hero"]
+        MD["Marked + hljs"]
+        Mermaid["Mermaid + PanZoom"]
+        Sidebar["Sidebar Sticky"]
     end
 
-    subgraph ProyectoDetail["Visor de Proyecto"]
-        TopBar["TopBar / McTopBar"]
-        DocHero["DocHero / McHero"]
-        Markdown["marked + hljs + Mermaid"]
-        Sidebar["Sidebar (IntersectionObserver)"]
-        DocFooter["DocFooter"]
+    subgraph GitHub["GitHub Repos"]
+        direction TB
+        GH["README.md de cada proyecto"]
     end
 
-    subgraph Externo["Recursos Externos (Build Time)"]
-        GH_Games["GitHub: GameS README"]
-        GH_MC["GitHub: mc-web README"]
-        Iconify["Iconify CDN (SVG)"]
-        MermaidCDN["Mermaid ESM (CDN)"]
-    end
-
-    Index --> Header & Hero & Projects & Skills & Experience & Education & Contact & Footer
-    Index --> BG & Theme
-    Projects -->|click enlace| Games & MC
-    Games --> TopBar & DocHero & Markdown & Sidebar & DocFooter
-    MC --> TopBar & DocHero & Markdown & Sidebar & DocFooter
-    Games -.->|fetch raw| GH_Games
-    MC -.->|fetch raw| GH_MC
-    Markdown -.->|CDN runtime| MermaidCDN
+    Projects -->|/projects/*| Detalle
+    GitHub -.->|fetch en build| MD
 ```
 
 ---
