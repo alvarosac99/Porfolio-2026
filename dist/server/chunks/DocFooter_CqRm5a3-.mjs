@@ -1,0 +1,19 @@
+import { e as createComponent, m as maybeRenderHead, r as renderTemplate, h as createAstro } from './astro/server_DqZNW82L.mjs';
+import 'piccolore';
+import 'clsx';
+
+const $$Astro = createAstro();
+const $$DocFooter = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$DocFooter;
+  const { project = "games" } = Astro2.props;
+  return renderTemplate`${maybeRenderHead()}<footer class="mt-auto border-t border-[var(--color-stroke)] bg-[var(--color-surface-footer)] px-4 md:px-12 lg:px-[120px] py-8"> <div class="max-w-7xl mx-auto flex flex-col gap-8"> <!-- Top Section --> <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8"> <!-- Brand --> <div class="flex flex-col gap-3"> <div class="flex items-center gap-0.5"> <span class="font-mono font-bold text-base text-[var(--color-accent)] mr-1.5">&gt;</span> <span class="font-mono font-medium text-base text-[var(--color-text)]">sebas/proyectos/</span> <span class="font-mono text-base font-bold text-[var(--color-accent)]">${project}</span> </div> <p class="font-body text-xs text-[var(--color-text-muted)]">
+// desarrollador · consultor ti · creador
+</p> </div> <!-- Links --> <div class="flex flex-wrap gap-12 md:gap-[60px]"> <!-- Redes --> <div class="flex flex-col gap-3"> <h3 class="font-mono text-xs text-[var(--color-text-title)]">// redes</h3> <a href="https://github.com/alvarosac99" target="_blank" rel="noopener" class="font-body text-xs text-[var(--color-accent)] hover:opacity-80 transition-opacity">github.com/alvarosac99</a> <a href="https://linkedin.com/in/sebastián-acosta-cortizas" target="_blank" rel="noopener" class="font-body text-xs text-[var(--color-accent)] hover:opacity-80 transition-opacity">linkedin.com/in/sebastián-acosta-cortizas</a> </div> <!-- Proyectos --> <div class="flex flex-col gap-3"> <h3 class="font-mono text-xs text-[var(--color-text-title)]">// proyectos</h3> <a href="https://games.zenithseed.dev" target="_blank" rel="noopener" class="font-body text-xs text-[#A855F7] hover:opacity-80 transition-opacity">games.zenithseed.dev</a> <a href="https://mc.zenithseed.dev" target="_blank" rel="noopener" class="font-body text-xs text-[#A855F7] hover:opacity-80 transition-opacity">mc.zenithseed.dev</a> </div> <!-- Contacto --> <div class="flex flex-col gap-3"> <h3 class="font-mono text-xs text-[var(--color-text-title)]">// contacto</h3> <a href="mailto:sebas@zenithseed.dev" class="font-body text-xs text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">sebas@zenithseed.dev</a> </div> </div> </div> <!-- Bottom Bar --> <div class="flex items-center justify-between pt-4 border-t border-[var(--color-stroke)]"> <p class="font-body text-[11px] text-[var(--color-text-footer-muted)]">
+© 2026 all rights reserved.
+</p> <span class="font-body text-[11px] text-[#555555]">
+README.md — renderizado desde github
+</span> </div> </div> </footer>`;
+}, "/home/sebas/Porfolio/src/components/console/DocFooter.astro", void 0);
+
+export { $$DocFooter as $ };

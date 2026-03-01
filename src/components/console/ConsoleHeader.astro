@@ -114,4 +114,54 @@ import ThemeDropdown from './ThemeDropdown.astro';
             }
         });
     });
+
+    // Inicialización del tooltip de "Próximamente" para el nav
+    function initAboutTooltip() {
+        let tooltip = document.getElementById('about-tooltip');
+        if (!tooltip) {
+            tooltip = document.createElement('div');
+            tooltip.id = 'about-tooltip';
+            tooltip.className = 'fixed pointer-events-none z-[99999] bg-[var(--color-surface)] text-[var(--color-accent)] font-mono text-xs px-2.5 py-1.5 rounded border border-[var(--color-stroke)] shadow-lg transition-all duration-300 ease-out origin-top-left flex items-center gap-2';
+            tooltip.innerHTML = '<span class="animate-pulse">⏳</span> próximamente...';
+            document.body.appendChild(tooltip);
+        }
+
+        let hideTimeout;
+
+        document.querySelectorAll('a[href="#about"]').forEach(link => {
+            // Removemos escuchas viejas por si acaso (clonando) o nos aseguramos de no duplicar
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                const mouseEvent = e;
+                
+                tooltip.style.transition = 'none';
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = `translate(${mouseEvent.clientX}px, ${mouseEvent.clientY}px) scale(0.8)`;
+                
+                void tooltip.offsetWidth; // Reflow
+                
+                tooltip.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                tooltip.style.opacity = '1';
+                tooltip.style.transform = `translate(${mouseEvent.clientX + 10}px, ${mouseEvent.clientY + 15}px) scale(1)`;
+
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => {
+                    tooltip.style.transition = 'all 0.3s ease-in';
+                    tooltip.style.opacity = '0';
+                    tooltip.style.transform = `translate(${mouseEvent.clientX + 10}px, ${mouseEvent.clientY + 25}px) scale(0.8)`;
+                }, 1200);
+            });
+        });
+    }
+
+    // Ejecutar inyección del tooltip
+    document.addEventListener('astro:page-load', initAboutTooltip);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAboutTooltip);
+    } else {
+        initAboutTooltip();
+    }
 </script>

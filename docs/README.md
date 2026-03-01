@@ -44,7 +44,7 @@ El contenido se estructura en una sola página (One Page) con secciones claramen
     *   Tarjetas con formación académica.
 8.  **Contacto (Contact CTA):**
     *   Llamada a la acción clara: "¿trabajamos juntos?".
-    *   Correo electrónico visible: `acostacortizasalvarosebastian@gmail.com`.
+    *   Correo electrónico visible: `sebas@zenithseed.dev`.
     *   Botones de redes sociales.
 9.  **Footer (Pie de página):**
     *   Copyright, enlaces legales o repetición de redes.

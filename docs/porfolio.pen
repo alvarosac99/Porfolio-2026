@@ -2489,7 +2489,7 @@
               "id": "Di4Dx",
               "name": "contactEmail",
               "fill": "#8B939F",
-              "content": "acostacortizasalvarosebastian@gmail.com",
+              "content": "sebas@zenithseed.dev",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 13,
               "fontWeight": "normal"
@@ -2696,7 +2696,7 @@
                           "id": "ZMCU6",
                           "name": "link8",
                           "fill": "#8B939F",
-                          "content": "acostacortizas...@gmail.com",
+                          "content": "sebas@zenithseed.dev",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
@@ -5500,7 +5500,7 @@
                           "id": "lcZ9b",
                           "name": "link8",
                           "fill": "#AE9EA8",
-                          "content": "acostacortizas...@gmail.com",
+                          "content": "sebas@zenithseed.dev",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
@@ -11114,7 +11114,7 @@
               "id": "pRuhM",
               "name": "contactEmail",
               "fill": "#4A4044",
-              "content": "acostacortizasalvarosebastian@gmail.com",
+              "content": "sebas@zenithseed.dev",
               "fontFamily": "IBM Plex Mono",
               "fontSize": 13,
               "fontWeight": "normal"
@@ -11321,7 +11321,7 @@
                           "id": "l95Q8",
                           "name": "link8",
                           "fill": "#4A4044",
-                          "content": "acostacortizas...@gmail.com",
+                          "content": "sebas@zenithseed.dev",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 12,
                           "fontWeight": "normal"
@@ -22220,7 +22220,7 @@
                       "textGrowth": "fixed-width-height",
                       "width": 228,
                       "height": 13,
-                      "content": "acostacortizasalvarosebastian@gmail.com",
+                      "content": "sebas@zenithseed.dev",
                       "fontFamily": "IBM Plex Mono",
                       "fontSize": 9,
                       "fontWeight": "normal"
@@ -22232,7 +22232,8 @@
                       "fill": "#0000eebd",
                       "content": "https://zenithseed.dev",
                       "fontFamily": "IBM Plex Mono",
-                      "fontSize": 11
+                      "fontSize": 11,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -23100,11 +23101,6 @@
                       "id": "0quGo",
                       "name": "name_txt",
                       "fill": "#000000ff",
-                      "stroke": {
-                        "align": "inside",
-                        "thickness": 1,
-                        "fill": "#000000ff"
-                      },
                       "content": "Sebastián Acosta Cortizas",
                       "fontFamily": "IBM Plex Mono",
                       "fontSize": 31,
@@ -23306,7 +23302,7 @@
                                   "id": "n3W4a",
                                   "name": "hos_txt",
                                   "fill": "#111110",
-                                  "content": "Hostelería & Construcción",
+                                  "content": "Hostelería && Construcción",
                                   "fontFamily": "IBM Plex Mono",
                                   "fontSize": 14,
                                   "fontWeight": "700"
@@ -23950,7 +23946,7 @@
               "textGrowth": "fixed-width-height",
               "width": 497,
               "height": 12,
-              "content": "acostacortizasalvarosebastian@gmail.com  ·  613 779 910",
+              "content": "sebas@zenithseed.dev  ·  613 779 910",
               "textAlign": "right",
               "textAlignVertical": "middle",
               "fontFamily": "IBM Plex Mono",

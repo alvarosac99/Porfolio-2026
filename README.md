@@ -9,11 +9,11 @@
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝ ╚══════╝╚═╝ ╚═════╝ 
 </pre>
 
-### *Portfolio personal — desarrollado con Astro, Tailwind CSS y animaciones inmersivas*
+### *Porfolio personal — desarrollado con Astro, Tailwind CSS y animaciones inmersivas*
 
-[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Highlight.js](https://img.shields.io/badge/Highlight.js-11.x-E5742F?style=for-the-badge)](https://highlightjs.org/) [![Marked](https://img.shields.io/badge/Marked-17.x-000000?style=for-the-badge)](https://marked.js.org/) [![Mermaid](https://img.shields.io/badge/Mermaid-10.x-FF3670?style=for-the-badge&logo=mermaid&logoColor=white)](https://mermaid.js.org/) [![Status](https://img.shields.io/badge/Status-Online-00FF00?style=for-the-badge)](https://alvarosac99.github.io/Porfolio/)
+[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Shiki](https://img.shields.io/badge/Shiki-1.x-38B2AC?style=for-the-badge)](https://shiki.style/) [![Marked](https://img.shields.io/badge/Marked-17.x-000000?style=for-the-badge)](https://marked.js.org/) [![Mermaid](https://img.shields.io/badge/Mermaid-10.x-FF3670?style=for-the-badge&logo=mermaid&logoColor=white)](https://mermaid.js.org/) [![Status](https://img.shields.io/badge/Status-Online-00FF00?style=for-the-badge)](https://alvarosac99.github.io/Porfolio/)
 
-<img src="https://api.iconify.design/mdi:web.svg?color=%233B82F6" width="20" height="20" align="absmiddle" /> [Ver Portfolio en vivo](https://alvarosac99.github.io/Porfolio/) • <img src="https://api.iconify.design/mdi:github.svg?color=%23ffffff" width="20" height="20" align="absmiddle" /> [Repositorio](https://github.com/alvarosac99/Porfolio)
+<img src="https://api.iconify.design/mdi:web.svg?color=%233B82F6" width="20" height="20" align="absmiddle" /> [Ver Portfolio en vivo](https://zenithseed.dev) • <img src="https://api.iconify.design/mdi:github.svg?color=%23ffffff" width="20" height="20" align="absmiddle" /> [Repositorio](https://github.com/alvarosac99/Porfolio)
 
 </div>
 
@@ -41,7 +41,7 @@
 
 ## <img src="https://api.iconify.design/mdi:rocket-launch.svg?color=%23EF4444" width="20" height="20" align="absmiddle" /> Sobre el Proyecto
 
-> Este portfolio es mi carta de presentación digital. Lo he diseñado para compartir mi CV, mostrar mis proyectos y dejar claro quién soy como desarrollador. La idea era construir algo que no fuese un PDF aburrido, sino una experiencia interactiva que refleje mi forma de trabajar y mi obsesión por los detalles.
+> Este porfolio es mi carta de presentación digital. Lo he diseñado para compartir mi CV, mostrar mis proyectos y dejar claro quién soy como desarrollador. La idea era construir algo que no fuese un PDF aburrido, sino una experiencia interactiva que refleje mi forma de trabajar y mi obsesión por los detalles.
 
 He construido todo desde cero con **Astro** como generador estático (0 JavaScript del framework en el cliente), **Tailwind CSS v4** para el diseño y componentes `.astro` modulares. La estética está inspirada en terminales e IDEs porque es donde paso la mayor parte de mi tiempo — tipografías monoespaciadas, micro-animaciones, partículas interactivas y un sistema multi-tema que puedes alternar en tiempo real. Cada proyecto tiene su propia página de detalle que renderiza directamente el `README.md` de su repositorio en GitHub.
 
@@ -58,7 +58,7 @@ He construido todo desde cero con **Astro** como generador estático (0 JavaScri
 - <img src="https://api.iconify.design/mdi:cube-outline.svg?color=%236366F1" width="20" height="20" align="absmiddle" /> **Efectos Parallax 3D** — Tarjetas de proyecto con parallax interactivo, sprites animados y efectos hover con multiplicadores de escala individuales.
 - <img src="https://api.iconify.design/mdi:navigation.svg?color=%233B82F6" width="20" height="20" align="absmiddle" /> **Navegación Sticky + Sidebar** — Header fijo con scroll suave y menú lateral sticky en las páginas de proyecto con detección de sección activa vía `IntersectionObserver`.
 - <img src="https://api.iconify.design/mdi:graph.svg?color=%23F59E0B" width="20" height="20" align="absmiddle" /> **Grafos Mermaid Interactivos** — Diagramas de arquitectura con pan-zoom (`svg-pan-zoom`), cambio dinámico de tema claro/oscuro y cursores drag nativos.
-- <img src="https://api.iconify.design/mdi:code-braces.svg?color=%2310B981" width="20" height="20" align="absmiddle" /> **Syntax Highlighting** — Coloreado de código en bloques del README usando `highlight.js` con tema `github-dark` y adaptación automática a modo claro.
+- <img src="https://api.iconify.design/mdi:code-braces.svg?color=%2310B981" width="20" height="20" align="absmiddle" /> **Syntax Highlighting Avanzado** — Coloreado de código nativo en bloques del README usando `shiki` con _Dual Themes_ (`poimandres` / `min-light`) reactivos al tema general.
 
 ---
 
@@ -70,7 +70,7 @@ He construido todo desde cero con **Astro** como generador estático (0 JavaScri
 |:---:|:---|
 | **Landing** | Hero con partículas, estadísticas y presentación del perfil profesional |
 | **Proyectos** | Grid con tarjetas 3D parallax (GameS, VPS, Minecraft Server) |
-| **Detalle** | Visor README con sidebar sticky, diagramas Mermaid y syntax highlighting |
+| **Detalle** | Visor README con sidebar sticky, diagramas Mermaid adaptativos, tablas scrolleables y Shiki syntax highlighting |
 | **Aptitudes** | Panel de tecnologías con iconos SVG categorizados |
 | **Temas** | 4 combinaciones dark/light con transiciones suaves |
 
@@ -95,7 +95,7 @@ He construido todo desde cero con **Astro** como generador estático (0 JavaScri
 | Librería | Versión | Uso |
 |:---|:---:|:---|
 | **Marked** | 17.x | Parser de Markdown a HTML con renderers personalizados |
-| **Highlight.js** | 11.x | Coloreado de sintaxis en bloques de código (tema `github-dark`) |
+| **Shiki** | 1.x | Coloreado de código avanzado con Dual Themes (`poimandres` y `min-light`) |
 | **Mermaid** | 10.x | Diagramas de arquitectura y flujos renderizados desde código |
 | **svg-pan-zoom** | 3.6.x | Controles interactivos de zoom/pan sobre los grafos SVG |
 
@@ -132,7 +132,7 @@ graph LR
         direction TB
         TopBar["TopBar"]
         DocHero["Hero"]
-        MD["Marked + hljs"]
+        MD["Marked + Shiki"]
         Mermaid["Mermaid + PanZoom"]
         Sidebar["Sidebar Sticky"]
     end
@@ -260,7 +260,7 @@ Porfolio/
 
 ## <img src="https://api.iconify.design/mdi:palette.svg?color=%23A855F7" width="20" height="20" align="absmiddle" /> Sistema de Temas
 
-El portfolio implementa un sistema de **4 temas** gestionados mediante variables CSS y el atributo `data-theme` en el `<html>`:
+El porfolio implementa un sistema de **4 temas** gestionados mediante variables CSS y el atributo `data-theme` en el `<html>`:
 
 | Tema | Atributo | Fondo | Acento |
 |:---|:---|:---|:---|
@@ -290,8 +290,9 @@ Cada proyecto tiene su propia ruta (`/projects/{nombre}`) con un visor completo 
 1. **Descarga el `README.md`** del repositorio GitHub en tiempo de compilación (`fetch` + `marked`).
 2. **Reescribe rutas relativas** de imágenes y enlaces para que apunten al raw de GitHub.
 3. **Extrae las cabeceras H2** para generar un **sidebar de navegación** con detección de sección activa.
-4. **Colorea bloques de código** con `highlight.js` (tema `github-dark`, con inversión automática en modo claro).
+4. **Colorea bloques de código** de forma inteligente con `shiki` y sus _Dual Themes_ (`poimandres` para oscuros, `min-light` para claros) totalmente sincronizados.
 5. **Renderiza diagramas Mermaid** con `mermaid.render()` manual, controles de zoom pan-zoom y **re-renderizado reactivo** al cambiar el tema.
+6. **Manejo responsive completo** con soporte para scroll horizontal en tablas y bloques anchos de código sin romper el diseño del visor.
 
 | Proyecto | Ruta | Repositorio |
 |:---|:---|:---|

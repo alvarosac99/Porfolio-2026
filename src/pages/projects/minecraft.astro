@@ -4,8 +4,12 @@ import McTopBar from '../../components/console/McTopBar.astro';
 import McHero from '../../components/console/McHero.astro';
 import DocFooter from '../../components/console/DocFooter.astro';
 import { marked } from 'marked';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github-dark.css';
+import { createHighlighter } from 'shiki';
+
+const highlighter = await createHighlighter({
+  themes: ['poimandres', 'min-light'],
+  langs: ['javascript', 'typescript', 'bash', 'json', 'yaml', 'markdown', 'html', 'css', 'python', 'java', 'sql', 'astro', 'vue', 'sh', 'txt', 'c', 'cpp', 'csharp', 'go', 'rust']
+});
 
 // Configurando marked para evitar warnings si no se pone esto
 marked.use({
@@ -61,7 +65,7 @@ renderer.heading = function(obj) {
   return `<h${depth} id="${id}" class="group flex whitespace-pre-wrap -ml-4 pl-4">${innerHtml}</h${depth}>\n`;
 };
 
-// Customizando el renderizador del código para parsear gráficos Mermaid y Highlight.js
+// Customizando el renderizador del código para parsear gráficos Mermaid y usar Shiki
 renderer.code = function(obj) {
   const codeText = obj.text;
   const lang = obj.lang ? obj.lang.toLowerCase() : '';
@@ -71,19 +75,18 @@ renderer.code = function(obj) {
       return `<div class="w-full relative my-8 bg-[var(--color-surface)] p-2 rounded-xl border border-[var(--color-stroke)] overflow-hidden"><div class="mermaid-container w-full h-[500px] flex justify-center items-center" data-src="${escapedText}"></div></div>\n`;
   }
   
-  let highlighted;
-  if (lang && hljs.getLanguage(lang)) {
-    try {
-      highlighted = hljs.highlight(codeText, { language: lang }).value;
-    } catch (e) {
-      highlighted = codeText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-    }
-  } else {
-    // Escapar entidades HTML básicas si no hay lenguaje soportado
-    highlighted = codeText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  try {
+    const validLang = highlighter.getLoadedLanguages().includes(lang) ? lang : 'txt';
+    const highlighted = highlighter.codeToHtml(codeText, {
+      lang: validLang,
+      themes: { light: 'min-light', dark: 'poimandres' },
+      defaultColor: false,
+    });
+    return highlighted + '\n';
+  } catch (e) {
+    const escapedText = codeText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    return `<pre><code>${escapedText}</code></pre>\n`;
   }
-
-  return `<pre><code class="hljs language-${lang}">${highlighted}</code></pre>\n`;
 };
 
 marked.use({ renderer });
@@ -117,7 +120,7 @@ const htmlContent = fetchError || !markdownContent
                 </div>
             </aside>
 
-            <main id="markdown-content" class="w-full flex-grow flex flex-col pb-12 overflow-hidden prose prose-p:text-[var(--color-text-muted)] prose-headings:font-mono prose-headings:text-[var(--color-text)] prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:text-[var(--color-accent)]/80 prose-code:text-[var(--color-accent)] prose-code:bg-[var(--color-surface-dark)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-medium prose-code:before:content-none prose-code:after:content-none prose-pre:bg-[var(--color-surface-dark)] prose-pre:border prose-pre:border-[var(--color-stroke)] prose-hr:border-[var(--color-stroke)] prose-td:border-[var(--color-stroke)] prose-th:border-[var(--color-stroke)] prose-strong:text-[var(--color-text)] prose-ul:text-[var(--color-text-muted)] prose-li:text-[var(--color-text-muted)] max-w-none prose-table:overflow-x-auto prose-table:block w-full prose-headings:mt-6 prose-headings:mb-4 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5 prose-hr:my-8 prose-img:rounded-xl">
+            <main id="markdown-content" class="w-full flex-grow flex flex-col pb-12 overflow-x-auto min-w-0 prose prose-p:text-[var(--color-text-muted)] prose-headings:font-mono prose-headings:text-[var(--color-text)] prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:text-[var(--color-accent)]/80 prose-code:text-[var(--color-accent)] prose-code:bg-[var(--color-surface-dark)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-medium prose-code:before:content-none prose-code:after:content-none prose-pre:bg-[var(--color-surface-dark)] prose-pre:border prose-pre:border-[var(--color-stroke)] prose-hr:border-[var(--color-stroke)] prose-td:border-[var(--color-stroke)] prose-th:border-[var(--color-stroke)] prose-strong:text-[var(--color-text)] prose-ul:text-[var(--color-text-muted)] prose-li:text-[var(--color-text-muted)] max-w-none prose-table:overflow-x-auto prose-table:block w-full prose-headings:mt-6 prose-headings:mb-4 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5 prose-hr:my-8 prose-img:rounded-xl">
                 <Fragment set:html={htmlContent} />
             </main>
         </div>
@@ -181,6 +184,35 @@ const htmlContent = fetchError || !markdownContent
         width: max-content !important;
     }
 
+    /* Scroll horizontal para tablas y elementos anchos */
+    #markdown-content table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100% !important;
+    }
+
+    #markdown-content [align="center"] table,
+    #markdown-content table[align="center"] {
+        display: table !important;
+        max-width: 100% !important;
+    }
+
+    #markdown-content pre {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+    }
+
+    #markdown-content .mermaid-container {
+        overflow-x: auto !important;
+    }
+
+    /* Contenedores div anchos (como ASCII art en <pre>) */
+    #markdown-content div {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
     #markdown-content tr[align="center"] th,
     #markdown-content tr[align="center"] td,
     #markdown-content [align="center"] th,
@@ -202,14 +234,25 @@ const htmlContent = fetchError || !markdownContent
         border: 1px solid var(--color-stroke);
     }
 
-    /* Highlight.js transparent background override */
-    .hljs {
-        background: transparent !important;
-        padding: 0 !important;
+    /* Shiki dual-theme configuration */
+    .shiki {
+        background-color: transparent !important;
+    }
+    
+    html[data-theme$="-light"] .shiki,
+    html[data-theme$="-light"] .shiki span {
+        color: var(--shiki-light) !important;
+        font-style: var(--shiki-light-font-style, normal) !important;
+        font-weight: var(--shiki-light-font-weight, normal) !important;
+        text-decoration: var(--shiki-light-text-decoration, none) !important;
     }
 
-    html[data-theme$="-light"] #markdown-content pre {
-        filter: invert(1) hue-rotate(180deg);
+    html:not([data-theme$="-light"]) .shiki,
+    html:not([data-theme$="-light"]) .shiki span {
+        color: var(--shiki-dark) !important;
+        font-style: var(--shiki-dark-font-style, normal) !important;
+        font-weight: var(--shiki-dark-font-weight, normal) !important;
+        text-decoration: var(--shiki-dark-text-decoration, none) !important;
     }
 
     html[data-theme$="-light"] #markdown-content img[src*="ffffff" i] {

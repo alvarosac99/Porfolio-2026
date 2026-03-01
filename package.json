@@ -4,19 +4,25 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "pm2:start": "pm2 start ecosystem.config.cjs",
+    "pm2:stop": "pm2 stop portfolio",
+    "pm2:restart": "pm2 restart portfolio",
+    "pm2:logs": "pm2 logs portfolio",
+    "pm2:status": "pm2 status",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.4",
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.2.5",
-    "highlight.js": "^11.11.1",
     "marked": "^17.0.3",
+    "shiki": "^3.22.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.7.3"
   }
