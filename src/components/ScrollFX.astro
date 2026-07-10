@@ -1,0 +1,118 @@
+---
+---
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function initReveal() {
+        document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+            if (prefersReducedMotion) {
+                gsap.set(el, { opacity: 1, y: 0 });
+                return;
+            }
+            gsap.set(el, { opacity: 0, y: 24 });
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 85%',
+                once: true,
+                onEnter: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }),
+            });
+        });
+    }
+
+    function initStagger() {
+        document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((container) => {
+            const selector = container.getAttribute('data-stagger');
+            if (!selector) return;
+            const children = container.querySelectorAll<HTMLElement>(selector);
+            if (children.length === 0) return;
+
+            if (prefersReducedMotion) {
+                gsap.set(children, { opacity: 1, y: 0 });
+                return;
+            }
+            gsap.set(children, { opacity: 0, y: 24 });
+            ScrollTrigger.create({
+                trigger: container,
+                start: 'top 80%',
+                once: true,
+                onEnter: () =>
+                    gsap.to(children, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: 'power2.out',
+                        stagger: 0.08,
+                    }),
+            });
+        });
+    }
+
+    function initCounter() {
+        document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => {
+            const target = el.getAttribute('data-counter');
+            if (!target) return;
+            const match = target.match(/^(\d+)(.*)$/);
+            if (!match) return;
+            const endValue = parseInt(match[1], 10);
+            const suffix = match[2];
+
+            if (prefersReducedMotion) {
+                el.textContent = target;
+                return;
+            }
+
+            const counter = { value: 0 };
+            el.textContent = `0${suffix}`;
+            ScrollTrigger.create({
+                trigger: el,
+                start: 'top 85%',
+                once: true,
+                onEnter: () => {
+                    gsap.to(counter, {
+                        value: endValue,
+                        duration: 1.2,
+                        ease: 'power1.out',
+                        onUpdate: () => {
+                            el.textContent = `${Math.round(counter.value)}${suffix}`;
+                        },
+                    });
+                },
+            });
+        });
+    }
+
+    function initScrollProgress() {
+        const bar = document.querySelector<HTMLElement>('[data-draw]');
+        if (!bar) return;
+
+        gsap.set(bar, { scaleX: 0, transformOrigin: 'left center' });
+
+        if (prefersReducedMotion) return;
+
+        ScrollTrigger.create({
+            trigger: document.body,
+            start: 'top top',
+            end: 'bottom bottom',
+            onUpdate: (self) => gsap.set(bar, { scaleX: self.progress }),
+        });
+    }
+
+    function init() {
+        initReveal();
+        initStagger();
+        initCounter();
+        initScrollProgress();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+</script>
