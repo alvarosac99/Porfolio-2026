@@ -1,0 +1,61 @@
+---
+---
+
+<div class="stack-wrap relative">
+    <slot />
+</div>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function initStack(root: HTMLElement) {
+        const panels = gsap.utils.toArray<HTMLElement>('.stack-panel', root);
+        if (panels.length < 2) return;
+
+        panels.forEach((panel, i) => {
+            if (i === panels.length - 1) return;
+
+            ScrollTrigger.create({
+                trigger: panel,
+                start: 'top top',
+                endTrigger: panels[panels.length - 1],
+                end: 'top top',
+                pin: true,
+                pinSpacing: false,
+            });
+
+            gsap.to(panel, {
+                scale: 0.92,
+                opacity: 0.55,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: panels[i + 1],
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+                },
+            });
+        });
+    }
+
+    function init() {
+        const root = document.querySelector<HTMLElement>('.stack-wrap');
+        if (!root) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        ScrollTrigger.matchMedia({
+            '(min-width: 768px)': () => initStack(root),
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+</script>
