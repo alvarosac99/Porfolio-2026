@@ -23,7 +23,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
 
         <!-- CTA & Theme -->
         <div class="hidden md:flex items-center gap-4">
-            <a href="#contact" class="flex items-center justify-center bg-[var(--color-accent)] px-5 py-2.5 hover:opacity-90 transition-opacity">
+            <a href="#contact" class="flex items-center justify-center bg-[var(--color-accent)] px-5 py-2.5 hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150">
                 <span class="font-mono font-medium text-xs text-[#0D0B0E]">$ contactar</span>
             </a>
             
@@ -49,7 +49,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
     <!-- Mobile Navigation Menu Dropdown (now inside header for stickiness) -->
     <div 
         id="mobile-menu"
-        class="absolute top-full left-0 w-full z-40 bg-[var(--color-bg)] border-b border-[var(--color-stroke)] md:hidden transition-all duration-300 ease-[cubic-bezier(0.2,0.0,0.2,1)] origin-top opacity-0 scale-y-0 pointer-events-none"
+        class="absolute top-full left-0 w-full z-40 bg-[var(--color-bg)] border-b border-[var(--color-stroke)] md:hidden transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.2,0.0,0.2,1)] origin-top opacity-0 scale-y-0 pointer-events-none"
         aria-hidden="true"
     >
         <div class="flex flex-col p-5 gap-4">
@@ -124,7 +124,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
         if (!tooltip) {
             tooltip = document.createElement('div');
             tooltip.id = 'about-tooltip';
-            tooltip.className = 'fixed pointer-events-none z-[99999] bg-[var(--color-surface)] text-[var(--color-accent)] font-mono text-xs px-2.5 py-1.5 rounded border border-[var(--color-stroke)] shadow-lg transition-all duration-300 ease-out origin-top-left flex items-center gap-2';
+            tooltip.className = 'fixed pointer-events-none z-[99999] bg-[var(--color-surface)] text-[var(--color-accent)] font-mono text-xs px-2.5 py-1.5 rounded border border-[var(--color-stroke)] shadow-lg transition-[opacity,transform] duration-300 ease-out origin-top-left flex items-center gap-2';
             tooltip.innerHTML = '<span class="animate-pulse">⏳</span> próximamente...';
             document.body.appendChild(tooltip);
         }
