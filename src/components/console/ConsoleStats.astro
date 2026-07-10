@@ -9,23 +9,23 @@
         </div>
 
         <!-- Stats Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div data-stagger=".stat-card" class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
             <!-- Card 1: Años Experiencia -->
-            <div class="flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <div class="stat-card flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
                 <span class="font-mono text-xs text-[var(--color-text-muted)]">años_experiencia</span>
-                <span class="font-mono text-[32px] font-bold text-[var(--color-text)]">1+</span>
+                <span data-counter="1+" class="font-mono text-[32px] font-bold text-[var(--color-text)]">1+</span>
                 <span class="font-body text-xs text-[var(--color-accent)]">++ formación continua</span>
             </div>
 
             <!-- Card 2: Tecnologías -->
-            <div class="flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <div class="stat-card flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
                 <span class="font-mono text-xs text-[var(--color-text-muted)]">tecnologías</span>
-                <span class="font-mono text-[32px] font-bold text-[var(--color-text)]">10+</span>
+                <span data-counter="10+" class="font-mono text-[32px] font-bold text-[var(--color-text)]">10+</span>
                 <span class="font-body text-xs text-[var(--color-accent)]">++ python, django, react, docker...</span>
             </div>
 
             <!-- Card 3: Servidores Activos -->
-            <div class="flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <div class="stat-card flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
                 <span class="font-mono text-xs text-[var(--color-text-muted)]">servidores_activos</span>
                 <span class="font-mono text-[32px] font-bold text-[var(--color-text)]">1 VPS</span>
                 <span class="font-body text-xs text-[var(--color-accent)]">++ minecraft + web + más</span>
