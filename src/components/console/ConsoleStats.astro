@@ -50,10 +50,21 @@
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) return;
 
-        animate(el, {
-            text: scrambleText({ chars: 'lowercase' }),
-            duration: 1800,
-            ease: 'linear',
+        // scrambleText() returns a (target, index, targets, prevTween) => spec factory.
+        // Calling it directly gives back { duration, ease, modifier } and we drive the
+        // DOM write ourselves (el.textContent), since "text" is not a built-in animatable
+        // DOM property in anime.js v4 without registering a custom adapter.
+        const spec = scrambleText({ chars: 'lowercase' })(el, 0, [el], null);
+        const state = { p: spec.from };
+
+        animate(state, {
+            p: spec.to,
+            duration: spec.duration,
+            delay: spec.delay,
+            ease: spec.ease,
+            onUpdate: () => {
+                el.textContent = spec.modifier(state.p);
+            },
             autoplay: onScroll({
                 enter: 'bottom-=10% top',
                 once: true,
