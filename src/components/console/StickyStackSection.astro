@@ -12,27 +12,33 @@
     gsap.registerPlugin(ScrollTrigger);
 
     function initStack(root: HTMLElement) {
-        const panels = gsap.utils.toArray<HTMLElement>('.stack-panel', root);
-        if (panels.length < 2) return;
+        const wrappers = gsap.utils.toArray<HTMLElement>('.stack-wrapper', root);
+        if (wrappers.length < 2) return;
 
-        panels.forEach((panel, i) => {
+        wrappers.forEach((wrapper, i) => {
+            const panel = wrapper.querySelector<HTMLElement>('.stack-panel');
+            if (!panel) return;
+
             gsap.set(panel, { zIndex: i, transformOrigin: 'top center' });
 
-            if (i === panels.length - 1) return;
-            const next = panels[i + 1];
+            if (i === wrappers.length - 1) return;
 
-            gsap.to(panel, {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: wrapper,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: true,
+                },
+            });
+            tl.to(panel, { duration: 1 });
+            tl.to(panel, {
                 rotationX: -28,
                 z: -500,
                 scale: 0.82,
                 opacity: 0,
                 ease: 'none',
-                scrollTrigger: {
-                    trigger: next,
-                    start: 'top bottom',
-                    end: 'top top',
-                    scrub: true,
-                },
+                duration: 1,
             });
         });
     }
