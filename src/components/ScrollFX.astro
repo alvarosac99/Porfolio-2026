@@ -87,6 +87,23 @@
         });
     }
 
+    function initParallax() {
+        document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
+            if (prefersReducedMotion) return;
+            const speed = parseFloat(el.getAttribute('data-parallax') || '0.1');
+            gsap.to(el, {
+                yPercent: speed * 100,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: el.parentElement || el,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                },
+            });
+        });
+    }
+
     function initScrollProgress() {
         const bar = document.querySelector<HTMLElement>('[data-draw]');
         if (!bar) return;
@@ -107,6 +124,7 @@
         initReveal();
         initStagger();
         initCounter();
+        initParallax();
         initScrollProgress();
     }
 
