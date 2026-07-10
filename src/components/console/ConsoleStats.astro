@@ -9,6 +9,11 @@
             <h2 class="font-mono text-xs text-[var(--color-text-title)]">// stats</h2>
         </div>
 
+        <!-- Intro animada -->
+        <p id="stats-intro" class="font-body text-[var(--color-text-muted)] text-sm md:text-base leading-[1.7] max-w-[640px]">
+            llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3d, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social que todavía no puede salir a la luz. me comprometo a construir cosas que aporten algo real al mundo.
+        </p>
+
         <!-- Stats Cards: asimétrico, una card destacada + dos apiladas -->
         <div data-stagger=".stat-card" class="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-6 w-full">
             <!-- Card 1: Años Experiencia (destacada) -->
@@ -36,3 +41,35 @@
     </div>
     </div>
 </section>
+
+<script>
+    import { animate, stagger, onScroll, splitText } from 'animejs';
+
+    function initIntro() {
+        const el = document.getElementById('stats-intro');
+        if (!el) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        const { words } = splitText(el);
+
+        animate(words, {
+            opacity: [0, 1],
+            translateY: [16, 0],
+            delay: stagger(25),
+            duration: 500,
+            ease: 'outQuad',
+            autoplay: onScroll({
+                enter: 'bottom-=10% top',
+                once: true,
+            }),
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initIntro);
+    } else {
+        initIntro();
+    }
+</script>
