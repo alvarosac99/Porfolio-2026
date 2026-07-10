@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="stack-wrap relative">
+<div class="stack-wrap relative [perspective:1600px]">
     <slot />
 </div>
 
@@ -28,8 +28,12 @@
                 pinSpacing: false,
             });
 
+            gsap.set(panel, { transformOrigin: 'top center' });
+
             gsap.to(panel, {
-                scale: 0.92,
+                rotationX: -28,
+                z: -500,
+                scale: 0.82,
                 opacity: 0,
                 ease: 'none',
                 scrollTrigger: {
