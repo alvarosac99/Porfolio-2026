@@ -54,7 +54,7 @@
         // Calling it directly gives back { duration, ease, modifier } and we drive the
         // DOM write ourselves (el.textContent), since "text" is not a built-in animatable
         // DOM property in anime.js v4 without registering a custom adapter.
-        const spec = scrambleText({ chars: 'lowercase' })(el, 0, [el], null);
+        const spec = scrambleText({ chars: 'lowercase', duration: 800 })(el, 0, [el], null);
         const state = { p: spec.from };
 
         animate(state, {
