@@ -17,11 +17,12 @@
 
         panels.forEach((panel, i) => {
             if (i === panels.length - 1) return;
+            const next = panels[i + 1];
 
             ScrollTrigger.create({
                 trigger: panel,
                 start: 'top top',
-                endTrigger: panels[panels.length - 1],
+                endTrigger: next,
                 end: 'top top',
                 pin: true,
                 pinSpacing: false,
@@ -29,10 +30,10 @@
 
             gsap.to(panel, {
                 scale: 0.92,
-                opacity: 0.55,
+                opacity: 0,
                 ease: 'none',
                 scrollTrigger: {
-                    trigger: panels[i + 1],
+                    trigger: next,
                     start: 'top bottom',
                     end: 'top top',
                     scrub: true,
