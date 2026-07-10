@@ -3,7 +3,7 @@ import ThemeTrigger from './ThemeTrigger.astro';
 import ThemeDropdown from './ThemeDropdown.astro';
 ---
 
-<header class="h-14 md:h-[72px] border-b border-[var(--color-stroke)] bg-[var(--color-bg)] sticky top-0 z-50 px-5 md:px-[60px] flex items-center justify-between w-full">
+<header class="h-14 md:h-[72px] border-b border-[var(--color-stroke)] bg-[var(--color-bg)] sticky top-0 z-50 px-5 md:px-[60px] flex items-center justify-between w-full relative">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
         <span class="font-mono font-bold text-2xl text-[var(--color-accent)]">&gt;</span>
@@ -76,6 +76,9 @@ import ThemeDropdown from './ThemeDropdown.astro';
             </a>
         </div>
     </div>
+
+    <!-- Scroll progress bar -->
+    <div data-draw class="absolute bottom-0 left-0 h-[2px] w-full bg-[var(--color-accent)]"></div>
 </header>
 
 <script>
