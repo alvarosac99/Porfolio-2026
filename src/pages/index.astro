@@ -3,6 +3,7 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import ZenithHeader from '../components/console/ZenithHeader.astro';
 import ZenithFooter from '../components/console/ZenithFooter.astro';
 import NameOriginNote from '../components/react/NameOriginNote.jsx';
+import HubBackground from '../components/react/HubBackground.jsx';
 ---
 
 <ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
@@ -12,6 +13,10 @@ import NameOriginNote from '../components/react/NameOriginNote.jsx';
             font-family: 'Manrope', sans-serif;
         }
     </style>
+
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+        <HubBackground client:idle />
+    </div>
 
     <ZenithHeader />
 
