@@ -9,31 +9,26 @@
         </div>
 
         <!-- Intro animada -->
-        <p id="stats-intro" class="font-body text-[var(--color-text-muted)] text-sm md:text-base leading-[1.7] max-w-[640px]">
-            llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3d, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social que todavía no puede salir a la luz. me comprometo a construir cosas que aporten algo real al mundo.
+        <p id="stats-intro" class="font-body text-[var(--color-text-muted)] text-xs md:text-sm leading-[1.6] w-full">
+            llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3d, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social. me comprometo a construir cosas que aporten algo real al mundo.
         </p>
 
         <!-- Stats Cards: asimétrico, una card destacada + dos apiladas -->
-        <div data-stagger=".stat-card" class="grid grid-cols-1 md:grid-cols-[1.6fr_1fr] gap-6 w-full">
+        <div data-stagger=".stat-card" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             <!-- Card 1: Años Experiencia (destacada) -->
             <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-accent)] backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 40%);">
                 <span class="font-mono text-xs text-[var(--color-text-muted)]">años_experiencia</span>
-                <span data-counter="1+" class="font-mono text-[64px] md:text-[88px] font-bold text-[var(--color-text)] leading-none">1+</span>
-                <span class="font-body text-sm text-[var(--color-accent)]">++ formación continua</span>
+                <div class="flex items-end gap-4">
+                    <span data-counter="1+" class="font-mono text-[64px] md:text-[88px] font-bold text-[var(--color-text)] leading-none">1+</span>
+                </div>
             </div>
 
-            <!-- Columna derecha: Tecnologías + Servidores apiladas -->
-            <div class="flex flex-col gap-6">
-                <div class="stat-card flex-1 flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">tecnologías</span>
-                    <span data-counter="10+" class="font-mono text-[32px] font-bold text-[var(--color-text)]">10+</span>
-                    <span class="font-body text-xs text-[var(--color-accent)]">++ python, django, react, docker...</span>
-                </div>
-
-                <div class="stat-card flex-1 flex flex-col gap-3 p-6 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">servidores_activos</span>
-                    <span class="font-mono text-[32px] font-bold text-[var(--color-text)]">1 VPS</span>
-                    <span class="font-body text-xs text-[var(--color-accent)]">++ minecraft + web + más</span>
+            <!-- Card 2: Tecnologías -->
+            <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+                <span class="font-mono text-xs text-[var(--color-text-muted)]">tecnologías</span>
+                <div class="flex items-center gap-6">
+                    <img src="/icons/devicon/n8n.svg" alt="N8N" class="w-14 h-14 md:w-20 md:h-20" />
+                    <img src="/icons/devicon/linux.svg" alt="Linux" class="w-14 h-14 md:w-20 md:h-20" />
                 </div>
             </div>
         </div>
