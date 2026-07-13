@@ -1,48 +1,50 @@
 ---
 import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import ZenithHeader from '../components/console/ZenithHeader.astro';
-import ConsoleFooter from '../components/console/ConsoleFooter.astro';
-import HubBackground from '../components/react/HubBackground.jsx';
+import ZenithFooter from '../components/console/ZenithFooter.astro';
 import NameOriginNote from '../components/react/NameOriginNote.jsx';
 ---
 
 <ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
-    <div class="fixed inset-0 -z-10 opacity-25 pointer-events-none">
-        <HubBackground client:idle />
-    </div>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+        .font-soft {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
 
     <ZenithHeader />
 
     <main class="w-full">
-        <!-- Hero: centrado, wordmark a dos tonos, gateway a las 3 rutas justo debajo -->
+        <!-- Hero: wordmark a dos tonos, gateway a las 3 rutas justo debajo -->
         <section class="px-5 md:px-10 py-[70px] md:py-[110px] w-full">
             <div data-reveal class="flex flex-col items-center text-center gap-6 max-w-[720px] mx-auto">
-                <h1 class="font-mono font-normal text-[52px] md:text-[88px] leading-[0.95] tracking-tight">
+                <h1 class="font-soft font-extrabold text-[48px] md:text-[80px] leading-[1.05] tracking-tight">
                     <span class="text-[var(--color-text)]">Zenith</span><span class="text-[var(--color-accent)]">Seed</span>
                 </h1>
-                <p class="font-body text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[480px]">
-                    programación, videojuegos y aprender en público. este es el punto de partida.
+                <p class="font-soft text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[480px]">
+                    Programación, videojuegos y aprender en público. Este es el punto de partida.
                 </p>
             </div>
 
             <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto mt-16">
-                <a href="/porfolio" class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// profesional</span>
-                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">porfolio</h2>
-                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">el lado profesional, proyectos, experiencia y stack.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">ver porfolio →</span>
+                <a href="/porfolio" class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
+                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Profesional</span>
+                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">Porfolio</h2>
+                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">El lado profesional, proyectos, experiencia y stack.</p>
+                    <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Ver porfolio →</span>
                 </a>
-                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// videojuegos y opinión</span>
-                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithgames</h2>
-                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">crítica y opinión de videojuegos.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
+                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
+                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Videojuegos y opinión</span>
+                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithGames</h2>
+                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">Crítica y opinión de videojuegos.</p>
+                    <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Leer blog →</span>
                 </a>
-                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// técnico, sin humo</span>
-                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithtech</h2>
-                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">lo técnico explicado simple.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
+                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
+                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Técnico, sin humo</span>
+                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithTech</h2>
+                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">Lo técnico explicado simple.</p>
+                    <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Leer blog →</span>
                 </a>
             </div>
         </section>
@@ -51,16 +53,16 @@ import NameOriginNote from '../components/react/NameOriginNote.jsx';
         <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-10 lg:gap-16 max-w-[980px] mx-auto items-start">
                 <div>
-                    <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-8">// quién soy</h2>
+                    <h2 class="font-soft font-semibold text-sm text-[var(--color-text-title)] mb-8">Quién soy</h2>
                     <div class="flex flex-col gap-6 max-w-[680px]">
-                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                            programar me interesó desde muy pequeño. con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. estudié el grado superior dam (desarrollo de aplicaciones multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
+                        <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            Programar me interesó desde muy pequeño. Con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. Estudié el grado superior DAM (Desarrollo de Aplicaciones Multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
                         </p>
-                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                            en el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con ia.
+                        <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            En el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. Pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. Me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con IA.
                         </p>
-                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                            ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
+                        <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            Ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. Creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
                         </p>
                     </div>
                 </div>
@@ -72,11 +74,11 @@ import NameOriginNote from '../components/react/NameOriginNote.jsx';
 
         <!-- Visión de futuro: cierre editorial centrado -->
         <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
-            <p data-scramble class="font-mono font-normal text-[20px] md:text-[28px] leading-[1.4] tracking-tight text-[var(--color-text)] max-w-[720px] mx-auto text-center">
-                este sitio recogerá lo que vaya descubriendo por el camino. si monto mi propio modelo de ia, si creo un modelo 3d, si encuentro algo que merezca la pena contar, quedará aquí. un diario técnico que baja a tierra conceptos que desde fuera parecen complejos, para que quien lo lea pueda aplicarlos.
+            <p data-scramble class="font-soft font-medium text-[20px] md:text-[28px] leading-[1.5] tracking-tight text-[var(--color-text)] max-w-[720px] mx-auto text-center">
+                Este sitio recogerá lo que vaya descubriendo por el camino. Si monto mi propio modelo de IA, si creo un modelo 3D, si encuentro algo que merezca la pena contar, quedará aquí. Un diario técnico que baja a tierra conceptos que desde fuera parecen complejos, para que quien lo lea pueda aplicarlos.
             </p>
         </section>
     </main>
 
-    <ConsoleFooter />
+    <ZenithFooter />
 </ConsoleLayout>
