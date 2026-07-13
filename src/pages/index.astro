@@ -3,6 +3,7 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import ZenithHeader from '../components/console/ZenithHeader.astro';
 import ConsoleFooter from '../components/console/ConsoleFooter.astro';
 import HubBackground from '../components/react/HubBackground.jsx';
+import NameOriginNote from '../components/react/NameOriginNote.jsx';
 ---
 
 <ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
@@ -46,27 +47,25 @@ import HubBackground from '../components/react/HubBackground.jsx';
             </div>
         </section>
 
-        <!-- Por qué ZenithSeed: cita editorial centrada -->
+        <!-- Quién soy: prosa, con la nota del origen del nombre flotando al lado como un post-it -->
         <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
-            <p data-scramble class="font-mono font-normal text-[24px] md:text-[34px] leading-[1.35] tracking-tight text-[var(--color-text)] max-w-[760px] mx-auto text-center">
-                zenith es el nombre de la espada más épica de uno de mis juegos favoritos, terraria. seed es la semilla, el inicio de cualquier universo, mundo o vida.
-            </p>
-        </section>
-
-        <!-- Quién soy: prosa centrada -->
-        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
-            <div class="max-w-[680px] mx-auto">
-                <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-8">// quién soy</h2>
-                <div class="flex flex-col gap-6">
-                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                        programar me interesó desde muy pequeño. con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. estudié el grado superior dam (desarrollo de aplicaciones multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
-                    </p>
-                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                        en el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con ia.
-                    </p>
-                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                        ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
-                    </p>
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_240px] gap-10 lg:gap-16 max-w-[980px] mx-auto items-start">
+                <div>
+                    <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-8">// quién soy</h2>
+                    <div class="flex flex-col gap-6 max-w-[680px]">
+                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            programar me interesó desde muy pequeño. con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. estudié el grado superior dam (desarrollo de aplicaciones multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
+                        </p>
+                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            en el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con ia.
+                        </p>
+                        <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                            ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
+                        </p>
+                    </div>
+                </div>
+                <div class="mx-auto lg:mx-0 lg:mt-8">
+                    <NameOriginNote client:visible />
                 </div>
             </div>
         </section>
