@@ -3,6 +3,7 @@ import ConsoleLayout from '../../layouts/ConsoleLayout.astro';
 import McTopBar from '../../components/console/McTopBar.astro';
 import McHero from '../../components/console/McHero.astro';
 import DocFooter from '../../components/console/DocFooter.astro';
+import ProjectSidebar from '../../components/react/ProjectSidebar.jsx';
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
 
@@ -97,7 +98,7 @@ const htmlContent = fetchError || !markdownContent
   : marked.parse(markdownContent);
 ---
 
-<ConsoleLayout title="minecraft_server/ — sebas">
+<ConsoleLayout title="minecraft_server/ | sebas">
     <McTopBar />
     <McHero />
     
@@ -106,18 +107,15 @@ const htmlContent = fetchError || !markdownContent
             
             <!-- Sidebar (Sticky on Desktop) -->
             <aside class="hidden xl:block w-[200px] flex-shrink-0 sticky top-[100px]">
-                <div class="flex flex-col gap-1">
-                    <span class="font-mono text-[11px] text-[#555555] mb-2">// contenido</span>
-                    <div class="h-px bg-[var(--color-stroke)] w-full mb-1"></div>
-                    {headings.map((heading, i) => (
-                        <a href={`#${heading.id}`} class={`sidebar-link font-mono text-xs py-1.5 transition-colors ${i === 0 ? 'font-medium text-[var(--color-accent)] active' : 'text-[#8B939F] hover:text-[var(--color-text)]'}`}>
-                            {heading.text.toLowerCase()}
-                        </a>
-                    ))}
-                    {headings.length === 0 && (
+                {headings.length > 0 ? (
+                    <ProjectSidebar client:load headings={headings} accentColor="var(--color-accent)" />
+                ) : (
+                    <div class="flex flex-col gap-1">
+                        <span class="font-mono text-[11px] text-[#555555] mb-2">// contenido</span>
+                        <div class="h-px bg-[var(--color-stroke)] w-full mb-1"></div>
                         <span class="font-mono text-[10px] text-[#555555] italic">sin índice</span>
-                    )}
-                </div>
+                    </div>
+                )}
             </aside>
 
             <main id="markdown-content" class="w-full flex-grow flex flex-col pb-12 overflow-x-auto min-w-0 prose prose-p:text-[var(--color-text-muted)] prose-headings:font-mono prose-headings:text-[var(--color-text)] prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:text-[var(--color-accent)]/80 prose-code:text-[var(--color-accent)] prose-code:bg-[var(--color-surface-dark)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-medium prose-code:before:content-none prose-code:after:content-none prose-pre:bg-[var(--color-surface-dark)] prose-pre:border prose-pre:border-[var(--color-stroke)] prose-hr:border-[var(--color-stroke)] prose-td:border-[var(--color-stroke)] prose-th:border-[var(--color-stroke)] prose-strong:text-[var(--color-text)] prose-ul:text-[var(--color-text-muted)] prose-li:text-[var(--color-text-muted)] max-w-none prose-table:overflow-x-auto prose-table:block w-full prose-headings:mt-6 prose-headings:mb-4 prose-p:my-2 prose-ul:my-2 prose-li:my-0.5 prose-hr:my-8 prose-img:rounded-xl">
@@ -375,59 +373,15 @@ const htmlContent = fetchError || !markdownContent
     });
 
     document.addEventListener('astro:page-load', () => {
-        setupIntersectionObserver();
         initMermaid();
         themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     });
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            setupIntersectionObserver();
             initMermaid();
         });
     } else {
-        setupIntersectionObserver();
         initMermaid();
-    }
-
-    function setupIntersectionObserver() {
-        const links = document.querySelectorAll('.sidebar-link');
-        if (!links.length) return;
-
-        const setActive = (id) => {
-            links.forEach(link => {
-                link.classList.remove('text-[var(--color-accent)]', 'font-medium', 'active');
-                link.classList.add('text-[#8B939F]');
-                if (link.getAttribute('href') === `#${id}`) {
-                    link.classList.remove('text-[#8B939F]');
-                    link.classList.add('text-[var(--color-accent)]', 'font-medium', 'active');
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActive(entry.target.id);
-                }
-            });
-        }, { rootMargin: '-60px 0px -80% 0px' });
-
-        document.querySelectorAll('#markdown-content h2').forEach(h2 => {
-            observer.observe(h2);
-        });
-
-        // Fallback: when near the bottom of the page, activate last sidebar link
-        window.addEventListener('scroll', () => {
-            const scrollBottom = window.scrollY + window.innerHeight;
-            const pageHeight = document.documentElement.scrollHeight;
-            if (pageHeight - scrollBottom < 80) {
-                const lastLink = links[links.length - 1];
-                if (lastLink) {
-                    const lastId = lastLink.getAttribute('href')?.replace('#', '');
-                    if (lastId) setActive(lastId);
-                }
-            }
-        }, { passive: true });
     }
 </script>

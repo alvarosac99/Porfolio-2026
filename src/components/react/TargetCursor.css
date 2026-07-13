@@ -1,0 +1,97 @@
+.cursor-target,
+.cursor-target * {
+  cursor: none !important;
+}
+
+header,
+header *,
+footer,
+footer * {
+  cursor: auto !important;
+}
+
+body:has(header:hover) .target-cursor-wrapper,
+body:has(footer:hover) .target-cursor-wrapper {
+  opacity: 0;
+}
+
+.target-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.15s ease;
+}
+
+.target-cursor-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.target-cursor-corner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  will-change: transform, border-radius;
+  transition: border-radius 0.15s ease;
+}
+
+.corner-tl {
+  transform: translate(-150%, -150%);
+}
+
+.corner-tr {
+  transform: translate(50%, -150%);
+}
+
+.corner-br {
+  transform: translate(50%, 50%);
+}
+
+.corner-bl {
+  transform: translate(-150%, 50%);
+}
+
+/* Al enganchar un target: brackets en L abrazando la selección */
+.target-cursor-wrapper.is-locked .target-cursor-corner {
+  width: 12px;
+  height: 12px;
+  border-width: 3px;
+  border-radius: 0;
+}
+
+.target-cursor-wrapper.is-locked .corner-tl {
+  border-right: none;
+  border-bottom: none;
+}
+
+.target-cursor-wrapper.is-locked .corner-tr {
+  border-left: none;
+  border-bottom: none;
+}
+
+.target-cursor-wrapper.is-locked .corner-br {
+  border-left: none;
+  border-top: none;
+}
+
+.target-cursor-wrapper.is-locked .corner-bl {
+  border-right: none;
+  border-top: none;
+}

@@ -1,5 +1,5 @@
 {
-  "version": "2.8",
+  "version": "2.10",
   "children": [
     {
       "type": "frame",
@@ -155,7 +155,23 @@
                       "ref": "jtvOo",
                       "x": 0,
                       "y": 0,
-                      "name": "trig1"
+                      "name": "trig1",
+                      "width": "fit_content",
+                      "height": "fit_content",
+                      "descendants": {
+                        "R9AEz": {
+                          "x": 12,
+                          "y": 6.5
+                        },
+                        "JWg3W": {
+                          "x": 32,
+                          "y": 6
+                        },
+                        "99PbZ": {
+                          "x": 85,
+                          "y": 7.5
+                        }
+                      }
                     }
                   ]
                 }
@@ -520,14 +536,40 @@
                       "fontWeight": "normal"
                     },
                     {
-                      "type": "text",
-                      "id": "FRuxz",
-                      "name": "tl12",
-                      "fill": "#FAFAFA",
-                      "content": "ubicación: oviedo, asturias",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 13,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "v8ZaC",
+                      "name": "console-loc-row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Tqwgu",
+                          "fill": "#FAFAFA",
+                          "content": "ubicación: ",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "jQ3fr",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#00D4AA"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wBa7Y",
+                          "fill": "#FAFAFA",
+                          "content": "oviedo, asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
@@ -2920,16 +2962,24 @@
                         "fill": "#3D3048"
                       },
                       "name": "trig2",
+                      "width": "fit_content",
+                      "height": "fit_content",
                       "descendants": {
                         "R9AEz": {
-                          "fill": "#AE9EA8"
+                          "fill": "#AE9EA8",
+                          "x": 12,
+                          "y": 6.5
                         },
                         "JWg3W": {
                           "content": "favorito",
-                          "fill": "#AE9EA8"
+                          "fill": "#AE9EA8",
+                          "x": 32,
+                          "y": 6
                         },
                         "99PbZ": {
-                          "fill": "#AE9EA8"
+                          "fill": "#AE9EA8",
+                          "x": 91,
+                          "y": 7.5
                         }
                       }
                     }
@@ -3251,14 +3301,40 @@
                       "fontWeight": "normal"
                     },
                     {
-                      "type": "text",
-                      "id": "YBkm9",
-                      "name": "tl12",
-                      "fill": "#FAFAFA",
-                      "content": "ubicación: oviedo, asturias",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 13,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "hTPMo",
+                      "name": "fav-loc-row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mt6MQ",
+                          "fill": "#FAFAFA",
+                          "content": "ubicación: ",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "oTLzU",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FF7A42"
+                        },
+                        {
+                          "type": "text",
+                          "id": "bHPmk",
+                          "fill": "#FAFAFA",
+                          "content": "oviedo, asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
@@ -5635,9 +5711,13 @@
                     "fill": "#3D3048"
                   },
                   "name": "mt1",
+                  "width": "fit_content",
+                  "height": "fit_content",
                   "descendants": {
                     "R9AEz": {
-                      "fill": "#AE9EA8"
+                      "fill": "#AE9EA8",
+                      "x": 12,
+                      "y": 6
                     },
                     "JWg3W": {
                       "enabled": false
@@ -8755,16 +8835,24 @@
                         "fill": "#D8D0D5"
                       },
                       "name": "trig3",
+                      "width": "fit_content",
+                      "height": "fit_content",
                       "descendants": {
                         "R9AEz": {
-                          "fill": "#4A4044"
+                          "fill": "#4A4044",
+                          "x": 12,
+                          "y": 6.5
                         },
                         "JWg3W": {
                           "content": "favorito",
-                          "fill": "#4A4044"
+                          "fill": "#4A4044",
+                          "x": 32,
+                          "y": 6
                         },
                         "99PbZ": {
-                          "fill": "#4A4044"
+                          "fill": "#4A4044",
+                          "x": 91,
+                          "y": 7.5
                         }
                       }
                     }
@@ -9130,14 +9218,40 @@
                       "fontWeight": "normal"
                     },
                     {
-                      "type": "text",
-                      "id": "RFUhK",
-                      "name": "tl12",
-                      "fill": "#1A1118",
-                      "content": "ubicación: oviedo, asturias",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 13,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "JNviz",
+                      "name": "fl-claro-loc-row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "4rAy6",
+                          "fill": "#1A1118",
+                          "content": "ubicación: ",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "icon_font",
+                          "id": "wCtpA",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#E8612A"
+                        },
+                        {
+                          "type": "text",
+                          "id": "xyl1v",
+                          "fill": "#1A1118",
+                          "content": "oviedo, asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
@@ -11456,9 +11570,13 @@
                     "fill": "#D8D0D5"
                   },
                   "name": "mt2",
+                  "width": "fit_content",
+                  "height": "fit_content",
                   "descendants": {
                     "R9AEz": {
-                      "fill": "#6B5F65"
+                      "fill": "#6B5F65",
+                      "x": 12,
+                      "y": 6
                     },
                     "JWg3W": {
                       "enabled": false
@@ -22172,17 +22290,16 @@
                   "type": "frame",
                   "id": "paNSb",
                   "name": "contact-block",
-                  "width": 211,
-                  "height": 122,
+                  "width": "fill_container",
+                  "height": 165,
                   "fill": "#FFFFFF",
                   "cornerRadius": 4,
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 6,
                   "padding": [
-                    0,
-                    10
+                    5,
+                    15
                   ],
-                  "justifyContent": "space_around",
                   "children": [
                     {
                       "type": "text",
@@ -22203,37 +22320,144 @@
                       "fill": "#D6CFC8"
                     },
                     {
-                      "type": "text",
-                      "id": "y2ugE",
-                      "name": "c_phone",
-                      "fill": "#111110",
-                      "content": "+34 613 779 910",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 13,
-                      "fontWeight": "600"
+                      "type": "frame",
+                      "id": "z9hfo",
+                      "name": "row-phone",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "YxgSP",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "phone",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kQqpH",
+                          "fill": "#111110",
+                          "content": "+34 613 779 910",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
                     },
                     {
-                      "type": "text",
-                      "id": "BM3Js",
-                      "name": "c_email",
-                      "fill": "#4B5563",
-                      "textGrowth": "fixed-width-height",
-                      "width": 228,
-                      "height": 13,
-                      "content": "sebas@zenithseed.dev",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 9,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "N0WoV",
+                      "name": "row-mail",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "9yLqI",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zIgjZ",
+                          "fill": "#4B5563",
+                          "content": "sebas@zenithseed.dev",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     },
                     {
-                      "type": "text",
-                      "id": "imIga",
-                      "name": "c_web",
-                      "fill": "#0000eebd",
-                      "content": "https://zenithseed.dev",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 11,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "Al1k4",
+                      "name": "row-web",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "BwMVF",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "globe",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "VFLrC",
+                          "fill": "#0000eebd",
+                          "content": "zenithseed.dev",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PqTvk",
+                      "name": "row-github",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "LGolK",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "github",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NtEJT",
+                          "fill": "#0000eebd",
+                          "content": "https://github.com/alvarosac99",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kJ2Av",
+                      "name": "row-linkedin",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "5Jwbv",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "linkedin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "C0lB0",
+                          "fill": "#0000eebd",
+                          "content": "Sebastián Acosta Cortizas",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -22242,14 +22466,14 @@
                   "id": "D8kvi",
                   "name": "skills-block",
                   "width": "fill_container",
-                  "height": 325,
+                  "height": 360,
                   "fill": "#FFFFFF",
                   "cornerRadius": 4,
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 6,
                   "padding": [
                     0,
-                    10
+                    15
                   ],
                   "children": [
                     {
@@ -22872,7 +23096,7 @@
                           "id": "Q7cUF",
                           "name": "hw_txt",
                           "fill": "#111110",
-                          "content": "// Hardware y otros",
+                          "content": "// Otros",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 13,
                           "fontWeight": "700"
@@ -22880,20 +23104,82 @@
                       ]
                     },
                     {
-                      "type": "text",
-                      "id": "mHi2n",
-                      "name": "sk_hw",
-                      "rotation": -1.1927080055488188e-15,
-                      "fill": "#111110",
-                      "textGrowth": "fixed-width-height",
-                      "width": "fit_content(228)",
-                      "height": "fit_content(100)",
-                      "content": "Soporte técnico y helpdesk\n\nMontaje y diagnóstico de equipos\n\nEdición de vídeo (Premiere)\n\nERP Dolibarr · Ciberseguridad",
-                      "lineHeight": 1.03,
-                      "textAlignVertical": "middle",
-                      "fontFamily": "IBM Plex Mono",
-                      "fontSize": 12,
-                      "fontWeight": "normal"
+                      "type": "frame",
+                      "id": "eawY2",
+                      "name": "hw_list",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "18Tfu",
+                          "fill": "#111110",
+                          "content": "· Soporte técnico y Helpdesk",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hw6TP",
+                          "fill": "#111110",
+                          "content": "· Montaje y diagnóstico de equipos",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "P8ozB",
+                          "fill": "#111110",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "· Web Scraping (Selenium)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "coUBn",
+                          "fill": "#111110",
+                          "content": "· Edición de vídeo (Adobe Premiere)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ECR4A",
+                          "fill": "#111110",
+                          "content": "· ERP Dolibarr · Ciberseguridad",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "S2Xas",
+                          "fill": "#111110",
+                          "content": "· Integración de IA en proyectos",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vlZ9d",
+                          "fill": "#111110",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "· Testing y automatización (Playwright)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -22902,14 +23188,14 @@
                   "id": "2RyJI",
                   "name": "soft-block",
                   "width": "fill_container",
-                  "height": 191,
+                  "height": 170,
                   "fill": "#FFFFFF",
                   "cornerRadius": 4,
                   "layout": "vertical",
-                  "gap": 8,
+                  "gap": 4,
                   "padding": [
                     0,
-                    10
+                    15
                   ],
                   "children": [
                     {
@@ -23014,7 +23300,7 @@
                   "gap": 8,
                   "padding": [
                     0,
-                    10
+                    15
                   ],
                   "children": [
                     {
@@ -23246,7 +23532,7 @@
                           "id": "8Hc64",
                           "name": "exp1_desc",
                           "fill": "#4B5563",
-                          "content": "// Mantenimiento y soporte técnico a usuarios y equipos\n// Edición audiovisual corporativa (Premiere, After Effects)\n// Desarrollo y personalización de ERP Dolibarr\n// Gestión de máquinas virtuales (Proxmox, VMware)\n// Implementación de medidas de ciberseguridad\n// Mejora y automatización de procesos internos\n// Experiencia dando formaciones tanto internas como externas",
+                          "content": "// Mantenimiento y soporte técnico a usuarios y equipos\n// Edición audiovisual corporativa (Premiere, After Effects)\n// Desarrollo y personalización de ERP Dolibarr\n// Gestión de máquinas virtuales (Proxmox, VMware)\n// Implementación de medidas de ciberseguridad\n// Mejora y automatización de procesos internos\n// Programador principal — Proyecto DATA-X\n// Formaciones en ciberseguridad (internas y externas)",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 11,
                           "fontWeight": "normal"
@@ -23534,7 +23820,7 @@
                   "id": "TYNc2",
                   "name": "proj-block",
                   "width": "fill_container",
-                  "height": 237,
+                  "height": 320,
                   "fill": "#FFFFFF",
                   "cornerRadius": 4,
                   "layout": "vertical",
@@ -23596,6 +23882,34 @@
                               "fontFamily": "IBM Plex Mono",
                               "fontSize": 13,
                               "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "HWuOq",
+                              "name": "link-box",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "5Y55Q",
+                                  "width": 12,
+                                  "height": 12,
+                                  "iconFontName": "link",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EA580C"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "HU6Sl",
+                                  "fill": "#0000eebd",
+                                  "content": "games.zenithseed.dev",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 9,
+                                  "fontWeight": "normal"
+                                }
+                              ]
                             }
                           ]
                         },
@@ -23757,6 +24071,104 @@
                           "name": "p3_tags",
                           "fill": "#EA580C",
                           "content": "[java]  [scripts]  [voicechat]  [mods]  [docker]",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xCwcz",
+                      "name": "pr3",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jkj3Y",
+                      "name": "p4",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "o0EaR",
+                          "name": "dx_row",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 7,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "rJ3L1",
+                              "name": "dx_ic",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "compass",
+                              "iconFontFamily": "lucide",
+                              "fill": "#8B5CF6"
+                            },
+                            {
+                              "type": "text",
+                              "id": "k0LJ6",
+                              "name": "dx_txt",
+                              "fill": "#111110",
+                              "content": "DATA-X  —  Herramienta de validación UNE",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "a9zHa",
+                              "name": "link-box",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "Cgccs",
+                                  "width": 12,
+                                  "height": 12,
+                                  "iconFontName": "link",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EA580C"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "OZGdo",
+                                  "fill": "#0000eebd",
+                                  "content": "datax.castroalonso.com",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 9,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "EgCDU",
+                          "name": "p4_desc",
+                          "fill": "#4B5563",
+                          "content": "// Validación de normativa UNE en espacios de datos con modelos de IA integrados.\n// Programador principal del proyecto en Castroalonso.",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4DXAs",
+                          "name": "p4_tags",
+                          "fill": "#EA580C",
+                          "content": "[python]  [IA]  [normativa UNE]  [data spaces]",
                           "fontFamily": "IBM Plex Mono",
                           "fontSize": 11,
                           "fontWeight": "normal"
@@ -23952,6 +24364,2333 @@
               "fontFamily": "IBM Plex Mono",
               "fontSize": 15,
               "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "tHcGj",
+      "x": -2331,
+      "y": 7511,
+      "name": "CV Profesional — Sebastián Acosta Cortizas",
+      "width": 794,
+      "height": 1123,
+      "fill": "#FFFFFF",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "WPuVt",
+          "name": "header-bar",
+          "width": "fill_container",
+          "height": 35,
+          "fill": "#1A1207",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "APKYX",
+              "name": "cv_label",
+              "fill": "#9CA3AF",
+              "content": "Sebastián Acosta Cortizas — Curriculum Vitae",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "DwaAX",
+              "name": "cv_year",
+              "fill": "#9CA3AF",
+              "content": "2026",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZGwz2",
+          "name": "content",
+          "clip": true,
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#FFFFFF",
+          "gap": 20,
+          "padding": [
+            20,
+            22
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "wQb6U",
+              "name": "left-col",
+              "width": 238,
+              "height": 966,
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                10,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "S5mV8",
+                  "name": "photo-block",
+                  "width": "fill_container",
+                  "height": 185,
+                  "layout": "vertical",
+                  "padding": [
+                    10,
+                    0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "XtM2h",
+                      "name": "profile-photo-square",
+                      "width": 220,
+                      "height": 220,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./fotocara.jpeg",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": 4,
+                      "stroke": {
+                        "thickness": 0
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gw7Kb",
+                  "name": "contact-block",
+                  "width": "fill_container",
+                  "height": 132,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    5,
+                    15
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sqavq",
+                      "name": "c_label",
+                      "fill": "#EA580C",
+                      "content": "CONTACTO",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XXxvU",
+                      "name": "c_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zJkGa",
+                      "name": "row-phone",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "8DEGk",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "phone",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "OFOFe",
+                          "fill": "#111110",
+                          "content": "+34 613 779 910",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5pL72",
+                      "name": "row-mail",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "KG2y5",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "mail",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "w7D1I",
+                          "fill": "#4B5563",
+                          "content": "sebas@zenithseed.dev",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JBrFS",
+                      "name": "row-web",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "rvgzS",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "globe",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "BQVrw",
+                          "fill": "#0000eebd",
+                          "content": "zenithseed.dev",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xfAld",
+                      "name": "row-github",
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "4ggrN",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "github",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YuKgW",
+                          "fill": "#0000eebd",
+                          "content": "github.com/alvarosac99",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "UW4kM",
+                          "name": "hidden-link-li-2",
+                          "opacity": 0,
+                          "fill": "#FFFFFF",
+                          "content": " https://www.linkedin.com/in/sebasti%C3%A1n-acosta-cortizas/",
+                          "fontFamily": "Inter",
+                          "fontSize": 1,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zkPAM",
+                          "name": "hidden-gh-link",
+                          "opacity": 0,
+                          "fill": "#FFFFFF",
+                          "content": " https://github.com/alvarosac99",
+                          "fontFamily": "Inter",
+                          "fontSize": 1,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "J8e0u",
+                      "name": "row-linkedin",
+                      "width": 212,
+                      "height": 15,
+                      "fill": "#00000000",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "n494g",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "linkedin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "m4LSR",
+                          "fill": "#0000eebd",
+                          "content": "Sebastián Acosta Cortizas",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 9,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HY7Fw",
+                          "name": "hidden-link-li",
+                          "opacity": 0,
+                          "fill": "#FFFFFF",
+                          "content": " https://www.linkedin.com/in/sebasti%C3%A1n-acosta-cortizas/",
+                          "fontFamily": "Inter",
+                          "fontSize": 1,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PY6bA",
+                  "name": "skills-block",
+                  "width": "fill_container",
+                  "height": 360,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    0,
+                    15
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bvnz5",
+                      "name": "sk_label",
+                      "fill": "#EA580C",
+                      "content": "HABILIDADES TÉCNICAS",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5bKPX",
+                      "name": "sk_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MYVZx",
+                      "name": "prog_row",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "OTVWE",
+                          "name": "prog_ic",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "chevrons-left-right",
+                          "iconFontFamily": "lucide",
+                          "fill": "#6366F1"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Fnci0",
+                          "name": "prog_txt",
+                          "fill": "#111110",
+                          "content": "Programación",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Hays5",
+                      "name": "prog_tags",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        0,
+                        5
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "wo6Se",
+                          "name": "row1",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "M6Vbx",
+                              "name": "py",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "3K15D",
+                                  "name": "py2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#3776AB",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "yQqWX",
+                                  "name": "py_txt",
+                                  "fill": "#111110",
+                                  "content": "Python",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "fkbtW",
+                              "name": "dj",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "NNNbA",
+                                  "name": "dj_dot",
+                                  "fill": "#092E20",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Nbgz2",
+                                  "name": "dj_txt",
+                                  "fill": "#111110",
+                                  "content": "Django",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "p92vs",
+                              "name": "re",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "8sGln",
+                                  "name": "re2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#61DAFB",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "w2oNu",
+                                  "name": "re_txt",
+                                  "fill": "#111110",
+                                  "content": "React",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "kmxP1",
+                          "name": "row2",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "AfIgq",
+                              "name": "ph",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "YyhEi",
+                                  "name": "ph_dot",
+                                  "fill": "#777BB4",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "0vHpf",
+                                  "name": "ph_txt",
+                                  "fill": "#111110",
+                                  "content": "PHP",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Ex6Jb",
+                              "name": "jv",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "tdLNT",
+                                  "name": "jv2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#EA2D2E",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "iPG0l",
+                                  "name": "jv_txt",
+                                  "fill": "#111110",
+                                  "content": "Java",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "rX2we",
+                              "name": "js",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "6m5FD",
+                                  "name": "js_dot",
+                                  "fill": "#F7DF1E",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "kouiv",
+                                  "name": "js_txt",
+                                  "fill": "#111110",
+                                  "content": "JavaScript",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "WKhWt",
+                          "name": "row3",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Su829",
+                              "name": "ht",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "F5Hy1",
+                                  "name": "ht_dot",
+                                  "fill": "#E34F26",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "xToaW",
+                                  "name": "ht_txt",
+                                  "fill": "#111110",
+                                  "content": "HTML/CSS",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "7lseO",
+                              "name": "sq",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "bZwEX",
+                                  "name": "sq2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#4479A1",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "532Ym",
+                                  "name": "sq_txt",
+                                  "fill": "#111110",
+                                  "content": "SQL",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "2yLND",
+                              "name": "ba",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "utX59",
+                                  "name": "ba_dot",
+                                  "fill": "#4EAA25",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "2rzl3",
+                                  "name": "ba_txt",
+                                  "fill": "#111110",
+                                  "content": "Bash",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "NGY6K",
+                              "name": "gt",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "s5xCc",
+                                  "name": "gt_dot",
+                                  "fill": "#F05032",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "X5jXk",
+                                  "name": "gt_txt",
+                                  "fill": "#111110",
+                                  "content": "Git",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Pra2u",
+                      "name": "sk1",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "LL2Bn",
+                      "name": "sys_row",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "dHd6L",
+                          "name": "sys_ic",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "server-cog",
+                          "iconFontFamily": "lucide",
+                          "fill": "#06B6D4"
+                        },
+                        {
+                          "type": "text",
+                          "id": "TmBPs",
+                          "name": "sys_txt",
+                          "fill": "#111110",
+                          "content": "Sistemas e Infraestructura",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O1YDU",
+                      "name": "sys_tags",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "padding": [
+                        0,
+                        5
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "o8aJv",
+                          "name": "srow1",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "MGzWd",
+                              "name": "lx",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "ONMiG",
+                                  "name": "lx2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#FCC624",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "0NnoZ",
+                                  "name": "lx_txt",
+                                  "fill": "#111110",
+                                  "content": "Linux",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "D23Oq",
+                              "name": "dk",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "utCMv",
+                                  "name": "dk_dot",
+                                  "fill": "#2496ED",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "2lyO8",
+                                  "name": "dk_txt",
+                                  "fill": "#111110",
+                                  "content": "Docker",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "gEeQi",
+                              "name": "ng",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "HVssr",
+                                  "name": "ng_dot",
+                                  "fill": "#009639",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "JSXxL",
+                                  "name": "ng_txt",
+                                  "fill": "#111110",
+                                  "content": "Nginx",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "MFtFS",
+                          "name": "srow2",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "tEfsv",
+                              "name": "cf",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "iDK90",
+                                  "name": "cf2_dot",
+                                  "width": 11,
+                                  "height": 11,
+                                  "fill": "#F48120",
+                                  "cornerRadius": 5
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "YNOKH",
+                                  "name": "cf_txt",
+                                  "fill": "#111110",
+                                  "content": "Cloudflare",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Q1Tot",
+                              "name": "px",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "ellipse",
+                                  "id": "lrEWa",
+                                  "name": "px_dot",
+                                  "fill": "#E57000",
+                                  "width": 7,
+                                  "height": 7
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "rIYLt",
+                                  "name": "px_txt",
+                                  "fill": "#111110",
+                                  "content": "Proxmox/VMware",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X2QSM",
+                      "name": "sk2",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Drv0y",
+                      "name": "hw_row",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "gap": 5,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "dHnPl",
+                          "name": "hw_ic",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "disc-3",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F59E0B"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Xe50x",
+                          "name": "hw_txt",
+                          "fill": "#111110",
+                          "content": "Otros",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "0Pin2",
+                      "name": "hw_list",
+                      "width": "fill_container",
+                      "height": 163,
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yzyij",
+                          "fill": "#111110",
+                          "content": "· Soporte técnico y Helpdesk",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YLFIH",
+                          "fill": "#111110",
+                          "content": "· Montaje y diagnóstico de equipos",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "6eHre",
+                          "fill": "#111110",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "· Web Scraping (Selenium)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oTiky",
+                          "fill": "#111110",
+                          "content": "· Edición de vídeo (Adobe Premiere)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Zj7oI",
+                          "fill": "#111110",
+                          "content": "· ERP Dolibarr · Ciberseguridad",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vfeRt",
+                          "fill": "#111110",
+                          "content": "· Integración de IA en proyectos",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "G2PU4",
+                          "fill": "#111110",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "· Testing y automatización (Playwright)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z8CNq",
+                  "name": "soft-block",
+                  "width": "fill_container",
+                  "height": 170,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": [
+                    0,
+                    15
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "8Y3Sg",
+                      "name": "soft_label",
+                      "fill": "#EA580C",
+                      "content": "PERFIL PERSONAL",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "uzMXH",
+                      "name": "soft_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "text",
+                      "id": "oWa5k",
+                      "name": "s1",
+                      "fill": "#111110",
+                      "content": "· Sociable",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KSIPk",
+                      "name": "s2",
+                      "fill": "#111110",
+                      "content": "· Comunicación efectiva",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Xl5bu",
+                      "name": "s3",
+                      "fill": "#111110",
+                      "content": "· Adaptabilidad",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "XofHY",
+                      "name": "s4",
+                      "fill": "#111110",
+                      "content": "· Aprendizaje continuo",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pM5kb",
+                      "name": "s5",
+                      "fill": "#111110",
+                      "content": "· Trabajo en equipo",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LOhdm",
+                      "name": "s6",
+                      "fill": "#111110",
+                      "content": "· Resiliencia",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "2QIFP",
+                      "name": "s7",
+                      "fill": "#111110",
+                      "content": "· Formaciones",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sFBRT",
+                  "name": "lang-block",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    15
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "4OnTe",
+                      "name": "lang_label",
+                      "fill": "#EA580C",
+                      "content": "IDIOMAS",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qZnHn",
+                      "name": "lang_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yJpDN",
+                      "name": "lang1",
+                      "fill": "#111110",
+                      "content": "Español  [nativo]",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fdf8z",
+                      "name": "lang2",
+                      "fill": "#111110",
+                      "content": "Inglés    [medio]",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GoljZ",
+              "name": "col-separator",
+              "width": 1,
+              "height": "fill_container",
+              "fill": "#C9BFB5"
+            },
+            {
+              "type": "frame",
+              "id": "kFyLZ",
+              "name": "right-col",
+              "width": 470,
+              "height": 1027,
+              "fill": "#00000000",
+              "layout": "vertical",
+              "gap": 14,
+              "padding": [
+                10,
+                5
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rUwk2",
+                  "name": "header-professional",
+                  "width": 477,
+                  "height": 121,
+                  "fill": "#FFF8F3",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    5
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JlF1M",
+                      "name": "name_txt",
+                      "fill": "#000000ff",
+                      "content": "Sebastián Acosta Cortizas",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 31,
+                      "fontWeight": "500",
+                      "letterSpacing": -0.5,
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "DalEN",
+                      "name": "title_txt",
+                      "fill": "#6B5C52",
+                      "content": "DESARROLLADOR MULTIPLATAFORMA  ·  CONSULTOR TI",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 12,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "vC26c",
+                      "name": "desc_txt",
+                      "fill": "#9C8B80",
+                      "textGrowth": "fixed-width-height",
+                      "width": "fill_container",
+                      "height": 27,
+                      "content": "Desarrollador con experiencia en aplicaciones web, sistemas y soporte técnico.",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "7Qw5g",
+                      "name": "location-row",
+                      "gap": 6,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "jtc0h",
+                          "width": 12,
+                          "height": 12,
+                          "iconFontName": "map-pin",
+                          "iconFontFamily": "lucide",
+                          "fill": "#EA580C"
+                        },
+                        {
+                          "type": "text",
+                          "id": "aQ5NR",
+                          "fill": "#9C8B80",
+                          "content": "Oviedo, Asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3F5p4",
+                      "name": "h_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EA580C"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4cxoZ",
+                      "name": "testNode",
+                      "fill": "#FF0000",
+                      "content": "TEST LINK",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "i01H1",
+                  "name": "exp-block",
+                  "width": "fill_container",
+                  "height": 269,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "justifyContent": "space_around",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tM06o",
+                      "name": "exp_label",
+                      "fill": "#EA580C",
+                      "content": "EXPERIENCIA LABORAL",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X9kOh",
+                      "name": "exp_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "msX3O",
+                      "name": "exp1",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "opQ8Q",
+                          "name": "exp1_header",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Btmwu",
+                              "name": "ca_row",
+                              "width": "fill_container",
+                              "fill": "#00000000",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "Zyvlc",
+                                  "name": "ca_ic",
+                                  "width": 20,
+                                  "height": 20,
+                                  "iconFontName": "security",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "#05aaff"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "zIQBy",
+                                  "name": "ca_txt",
+                                  "fill": "#111110",
+                                  "content": "Castroalonso | Consultor TI",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 14,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "lFVDc",
+                              "name": "exp1_date",
+                              "fill": "#EA580C",
+                              "content": "2025 — actualidad",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "6DSu9",
+                          "name": "exp1_loc",
+                          "fill": "#6B7280",
+                          "content": "Gijón, Asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "koYRy",
+                          "name": "exp1_desc",
+                          "fill": "#4B5563",
+                          "content": "Mantenimiento y soporte técnico a usuarios y equipos\nEdición audiovisual corporativa (Premiere, After Effects)\nDesarrollo y personalización de ERP Dolibarr\nGestión de máquinas virtuales (Proxmox, VMware)\nImplementación de medidas de ciberseguridad\nMejora y automatización de procesos internos\nProgramador principal — Proyecto DATA-X\nFormaciones en ciberseguridad (internas y externas)",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ewCTS",
+                      "name": "ex1",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FeUdc",
+                      "name": "exp2",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "3mAo5",
+                          "name": "exp2_header",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "KA2az",
+                              "name": "hos_row",
+                              "width": "fill_container",
+                              "fill": "#00000000",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "IhbBW",
+                                  "name": "hos_ic",
+                                  "width": 20,
+                                  "height": 20,
+                                  "iconFontName": "coffee",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "#D97706"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "p5wkt",
+                                  "name": "hos_txt",
+                                  "fill": "#111110",
+                                  "content": "Hostelería y Construcción",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 14,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "mlw1o",
+                              "name": "exp2_date",
+                              "fill": "#6B7280",
+                              "content": "2022 — 2024",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "jiAKA",
+                          "name": "exp2_loc",
+                          "fill": "#6B7280",
+                          "content": "Asturias",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "R82QH",
+                          "name": "exp2_desc",
+                          "fill": "#4B5563",
+                          "content": "Trabajo en equipo en hostelería y construcción\nAdaptación rápida a entornos y ritmos exigentes\nResponsabilidad, puntualidad y actitud proactiva",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RHxad",
+                  "name": "edu-block",
+                  "width": "fill_container",
+                  "height": 117,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "justifyContent": "space_around",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "2C6Kg",
+                      "name": "edu_label",
+                      "fill": "#EA580C",
+                      "content": "FORMACIÓN ACADÉMICA",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "9sZrQ",
+                      "name": "edu_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jaWFA",
+                      "name": "edu1",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "lAtaP",
+                          "name": "edu1_header",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "A6ZhE",
+                              "name": "dam_row",
+                              "width": "fill_container",
+                              "fill": "#00000000",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "DlL55",
+                                  "name": "dam_ic",
+                                  "width": 20,
+                                  "height": 20,
+                                  "iconFontName": "devices",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "#3B82F6"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "EmxpM",
+                                  "name": "dam_txt",
+                                  "fill": "#111110",
+                                  "content": "Desarrollo de Aplicaciones Multiplataforma",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "Kxagk",
+                              "name": "edu1_tag",
+                              "fill": "#EA580C",
+                              "content": "[CFGS]",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "uETmu",
+                          "name": "edu1_place",
+                          "fill": "#6B7280",
+                          "content": "I.E.S. Doctor Fleming, Oviedo",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SeVjz",
+                      "name": "ed1",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "naY3s",
+                      "name": "edu2",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Tb7Bu",
+                          "name": "edu2_header",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "IwQ1b",
+                              "name": "bach_row",
+                              "width": "fill_container",
+                              "fill": "#00000000",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "JaEXS",
+                                  "name": "bach_ic",
+                                  "width": 20,
+                                  "height": 20,
+                                  "iconFontName": "book_2",
+                                  "iconFontFamily": "Material Symbols Rounded",
+                                  "fill": "#10B981"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "htuAS",
+                                  "name": "bach_txt",
+                                  "fill": "#111110",
+                                  "content": "Bachillerato de Humanidades",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 13,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rAdGq",
+                              "name": "edu2_tag",
+                              "fill": "#6B7280",
+                              "content": "[Bach]",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "ow37w",
+                          "name": "edu2_place",
+                          "fill": "#6B7280",
+                          "content": "I.E.S. Pérez de Ayala, Oviedo",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WSmY2",
+                  "name": "proj-block",
+                  "width": "fill_container",
+                  "height": 320,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "justifyContent": "space_around",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "h00xF",
+                      "name": "proj_label",
+                      "fill": "#EA580C",
+                      "content": "PROYECTOS DESTACADOS",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Qyks2",
+                      "name": "proj_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "2juDT",
+                      "name": "p1",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "zj0QH",
+                          "name": "g_row",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 7,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "8vXFi",
+                              "name": "g_ic",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "videogame_asset",
+                              "iconFontFamily": "Material Symbols Sharp",
+                              "fill": "#EF4444"
+                            },
+                            {
+                              "type": "text",
+                              "id": "XfHm4",
+                              "name": "g_txt",
+                              "fill": "#111110",
+                              "content": "GameS — Proyecto fin de curso",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "tmwk0",
+                              "name": "link-box",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "QONAU",
+                                  "width": 12,
+                                  "height": 12,
+                                  "iconFontName": "link",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EA580C"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "JC9iz",
+                                  "name": "gs_link",
+                                  "fill": "#0000eebd",
+                                  "content": "games.zenithseed.dev",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 9,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "1o5aS",
+                                  "name": "hidden-gs-link",
+                                  "opacity": 0,
+                                  "fill": "#FFFFFF",
+                                  "content": " https://games.zenithseed.dev",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 1,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "QVrv9",
+                          "name": "p1_desc",
+                          "fill": "#4B5563",
+                          "content": "Plataforma web para gestionar y descubrir videojuegos.\nBúsqueda avanzada, historial de precios, recomendaciones.",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uxVVV",
+                          "name": "p1_tags",
+                          "fill": "#EA580C",
+                          "content": "[React]  [Django]  [Python]  [MySQL]  [Redis]  [Docker]",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rjzYZ",
+                      "name": "pr1",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3C3Ei",
+                      "name": "p2",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "sHhWJ",
+                          "name": "v_row",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 7,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "sGdco",
+                              "name": "v_ic",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "server",
+                              "iconFontFamily": "feather",
+                              "fill": "#2496ED"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ptyF1",
+                              "name": "v_txt",
+                              "fill": "#111110",
+                              "content": "Infraestructura Web Propia",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "iey4E",
+                          "name": "p2_desc",
+                          "fill": "#4B5563",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Servidor VPS configurado desde cero con hosting web,\ncorreo, copias de seguridad y gestor de contraseñas.",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WtGkE",
+                          "name": "p2_tags",
+                          "fill": "#EA580C",
+                          "content": "[Linux]  [Docker]  [Nginx]  [Automatización]",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AWbLO",
+                      "name": "pr2",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ToOks",
+                      "name": "p3",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "hjXjs",
+                          "name": "mc_row",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 7,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "q5Zyr",
+                              "name": "mc_ic",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "cube-fill",
+                              "iconFontFamily": "phosphor",
+                              "fill": "#22C55E"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Sbch7",
+                              "name": "mc_txt",
+                              "fill": "#111110",
+                              "content": "Gestor de Comunidad Online",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "hkCWs",
+                          "name": "p3_desc",
+                          "fill": "#4B5563",
+                          "content": "Plataforma multijugador con plugins personalizados,\nvoz integrada y gestión continua de usuarios.",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mbERz",
+                          "name": "p3_tags",
+                          "fill": "#EA580C",
+                          "content": "[Java]  [Scripting]  [Docker]  [Administración]",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "3vBI4",
+                      "name": "pr3",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#EDE8E3"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "c4YCm",
+                      "name": "p4",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "fCSVC",
+                          "name": "dx_row",
+                          "width": "fill_container",
+                          "fill": "#00000000",
+                          "gap": 7,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "679vk",
+                              "name": "dx_ic",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "compass",
+                              "iconFontFamily": "lucide",
+                              "fill": "#8B5CF6"
+                            },
+                            {
+                              "type": "text",
+                              "id": "VWj8J",
+                              "name": "dx_txt",
+                              "fill": "#111110",
+                              "content": "DATA-X — Cumplimiento normativo",
+                              "fontFamily": "IBM Plex Mono",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "e3mq4",
+                              "name": "link-box",
+                              "fill": "#00000000",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon_font",
+                                  "id": "PbZIB",
+                                  "width": 12,
+                                  "height": 12,
+                                  "iconFontName": "link",
+                                  "iconFontFamily": "lucide",
+                                  "fill": "#EA580C"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "2CQUW",
+                                  "name": "dx_link",
+                                  "fill": "#0000eebd",
+                                  "content": "datax.castroalonso.com",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 9,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "obELB",
+                                  "name": "hidden-dx-link",
+                                  "opacity": 0,
+                                  "fill": "#FFFFFF",
+                                  "content": " https://datax.castroalonso.com",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 1,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "NOsK8",
+                          "name": "p4_desc",
+                          "fill": "#4B5563",
+                          "textGrowth": "fixed-width",
+                          "width": 391,
+                          "content": "Validación de normativa UNE en espacios de datos con modelos de IA integrados.\nProgramador principal del proyecto.",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LLFbi",
+                          "name": "p4_tags",
+                          "fill": "#EA580C",
+                          "content": "[Python]  [IA]  [Normativa UNE]  [Data Spaces]",
+                          "fontFamily": "IBM Plex Mono",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Svyeo",
+                  "name": "extra-block",
+                  "width": "fill_container",
+                  "height": 123,
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 4,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oQljh",
+                      "name": "extra_label",
+                      "fill": "#EA580C",
+                      "content": "INTERESES",
+                      "fontFamily": "IBM Plex Mono",
+                      "fontSize": 11,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "5eK5o",
+                      "name": "extra_div",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#D6CFC8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vsGEk",
+                      "name": "extra_row",
+                      "width": "fill_container",
+                      "fill": "#00000000",
+                      "gap": 24,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "FBIAI",
+                          "name": "extra_row",
+                          "width": "fill_container",
+                          "fill": "transparent",
+                          "gap": 24,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "nrrv2",
+                              "name": "col_a",
+                              "width": "fill_container",
+                              "fill": "transparent",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "J3g8q",
+                                  "name": "i1",
+                                  "fill": "#111110",
+                                  "content": "· Linux & homelab",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "fxuAr",
+                                  "name": "i2",
+                                  "fill": "#111110",
+                                  "content": "· Videojuegos & retro",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "RW59c",
+                                  "name": "i3",
+                                  "fill": "#111110",
+                                  "content": "· Servidores y redes",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "ta3Pu",
+                                  "name": "hw",
+                                  "fill": "#111110",
+                                  "content": "· Electrónica & cacharreo",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "xG3tl",
+                              "name": "col_b",
+                              "width": "fill_container",
+                              "fill": "transparent",
+                              "layout": "vertical",
+                              "gap": 6,
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "DFk0r",
+                                  "name": "i4",
+                                  "fill": "#111110",
+                                  "content": "· Ciberseguridad",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "vnMVm",
+                                  "name": "i5",
+                                  "fill": "#111110",
+                                  "content": "· Microsoldadura",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Q4aCb",
+                                  "name": "i6",
+                                  "fill": "#111110",
+                                  "content": "· Edición de vídeos",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "eLefC",
+                                  "name": "music",
+                                  "fill": "#111110",
+                                  "content": "· Guitarra & música",
+                                  "fontFamily": "IBM Plex Mono",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XH6pc",
+          "name": "cv-footer",
+          "width": "fill_container",
+          "height": 40,
+          "fill": "#1A1207",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "AobZ3",
+              "name": "ft_left",
+              "fill": "#9CA3AF",
+              "content": "2026",
+              "textAlignVertical": "middle",
+              "fontFamily": "IBM Plex Mono",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "05KC0",
+              "name": "ft_right_row",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZGKQR",
+                  "fill": "#9CA3AF",
+                  "content": "sebas@zenithseed.dev",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "3ZKDZ",
+                  "fill": "#9CA3AF",
+                  "content": "  ·  ",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "7BvMr",
+                  "fill": "#9CA3AF",
+                  "content": "613 779 910",
+                  "fontFamily": "IBM Plex Mono",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
             }
           ]
         }

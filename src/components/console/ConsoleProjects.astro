@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="projects" class="py-8 md:py-[60px] px-5 md:px-10 lg:px-20 xl:px-[120px] w-full border-t border-[var(--color-stroke)]">
+<section id="projects" class="py-8 md:py-[60px] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] w-full border-t border-[var(--color-stroke)]">
     <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-8">
         <div class="flex items-center gap-3">
@@ -15,7 +15,7 @@
 
     <div data-stagger=":scope > a, :scope > div" class="flex flex-col gap-6">
         <!-- Row 1: Full Width Project - Games -->
-        <a href="/projects/games" class="block w-full border border-[var(--color-stroke)] group hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+        <a href="/projects/games" class="cursor-target block w-full border border-[var(--color-stroke)] group hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
             <div class="h-[200px] w-full bg-[#050505] relative overflow-hidden flex items-center justify-center border-b border-[var(--color-stroke)] group-hover:border-[var(--color-accent)]/50 transition-colors">
                 <!-- Imagen de fondo (humo/fuego) -->
                 <img src="/assets/games/img-2.jpg" alt="Fondo GameS" loading="lazy" data-parallax="0.08" class="absolute inset-0 w-full h-full scale-110 object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-700 mix-blend-screen" />
@@ -31,7 +31,7 @@
             <div class="p-6 sm:px-8 md:px-10 md:py-8 flex flex-col gap-3">
                 <span class="font-mono text-[28px] font-bold text-[var(--color-accent)]">01</span>
                 <h3 class="font-mono font-bold text-base text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">games/ - proyecto fin de curso</h3>
-                <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">plataforma web integral para descubrir, organizar y gestionar videojuegos, con búsqueda avanzada, historial de precios y recomendaciones personalizadas.</p>
+                <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">plataforma web integral para descubrir, organizar y gestionar videojuegos, con búsqueda avanzada, historial de precios y recomendaciones personalizadas.</p>
                 <div class="flex gap-2 mt-2">
                     <span class="text-[11px] font-mono text-[#61DAFB]">[react]</span>
                     <span class="text-[11px] font-mono text-[#10B981]">[django]</span>
@@ -58,7 +58,7 @@
                 <div class="p-6 sm:px-8 md:px-10 md:py-8 flex flex-col gap-3 flex-grow">
                     <span class="font-mono text-[28px] font-bold text-[var(--color-accent)]">02</span>
                     <h3 class="font-mono font-bold text-base text-[var(--color-text)]">servidor vps/</h3>
-                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">servidor privado virtual configurado desde cero con linux. hosting de aplicaciones web, servidor de minecraft y otros servicios.</p>
+                    <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">servidor privado virtual configurado desde cero con linux. hosting de aplicaciones web, servidor de minecraft y otros servicios.</p>
                     <div class="flex gap-2 mt-auto">
                         <span class="text-[11px] font-mono text-[var(--color-accent)]">[linux]</span>
                         <span class="text-[11px] font-mono text-[var(--color-accent)]">[docker]</span>
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Right Project - Minecraft Server -->
-            <a href="/projects/minecraft" class="block border border-[var(--color-stroke)] group hover:border-[var(--color-accent)] transition-colors flex flex-col backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <a href="/projects/minecraft" class="cursor-target block border border-[var(--color-stroke)] group hover:border-[var(--color-accent)] transition-colors flex flex-col backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
                 <div class="h-[200px] w-full bg-[#050505] relative overflow-hidden flex-shrink-0 flex items-center justify-center border-b border-[var(--color-stroke)] group-hover:border-[var(--color-accent)]/50 transition-colors group">
                     <!-- Fondo base (Luminoso pero oscuro que se aleja) sin opacidades ni gradientes CSS -->
                     <img src="/assets/minecraft/minecraft_bg_luminous.png" alt="Minecraft Night Background" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-100 scale-110 group-hover:scale-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
@@ -81,7 +81,7 @@
                 <div class="p-6 sm:px-8 md:px-10 md:py-8 flex flex-col gap-3 flex-grow">
                     <span class="font-mono text-[28px] font-bold text-[var(--color-accent)]">03</span>
                     <h3 class="font-mono font-bold text-base text-[var(--color-text)]">minecraft_server/</h3>
-                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">servidor de minecraft desplegado en el vps. configuración completa de plugins, optimización de rendimiento y gestión de comunidad.</p>
+                    <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.5] w-full">servidor de minecraft desplegado en el vps. configuración completa de plugins, optimización de rendimiento y gestión de comunidad.</p>
                     <div class="flex gap-2 mt-auto">
                         <span class="text-[11px] font-mono text-[var(--color-accent)]">[java]</span>
                         <span class="text-[11px] font-mono text-[#C76D2B]">[forge]</span>

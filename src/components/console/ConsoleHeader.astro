@@ -7,14 +7,14 @@ import ThemeDropdown from './ThemeDropdown.astro';
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
         <span class="font-mono font-bold text-2xl text-[var(--color-accent)]">&gt;</span>
-        <span class="font-mono font-medium text-lg text-[var(--color-text)]">sebas</span>
+        <span class="font-mono font-medium text-lg text-[var(--color-text)]">porfolio</span>
     </a>
 
     <!-- Nav & Actions -->
     <div class="flex items-center gap-8">
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
-            <a href="#about" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">sobre_mí</a>
+            <a href="#about" data-coming-soon class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">sobre_mí</a>
             <a href="#projects" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">proyectos</a>
             <a href="#experience" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">experiencia</a>
             <a href="#skills" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">aptitudes</a>
@@ -54,7 +54,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
     >
         <div class="flex flex-col p-5 gap-4">
             <nav class="flex flex-col gap-4">
-                <a href="#about" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">sobre_mí</a>
+                <a href="#about" data-coming-soon class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">sobre_mí</a>
                 <a href="#projects" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">proyectos</a>
                 <a href="#experience" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">experiencia</a>
                 <a href="#skills" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">aptitudes</a>
@@ -118,12 +118,12 @@ import ThemeDropdown from './ThemeDropdown.astro';
         });
     });
 
-    // Inicialización del tooltip de "Próximamente" para el nav
-    function initAboutTooltip() {
-        let tooltip = document.getElementById('about-tooltip');
+    // Inicialización del tooltip de "Próximamente" para enlaces aún no construidos
+    function initComingSoonTooltip() {
+        let tooltip = document.getElementById('coming-soon-tooltip');
         if (!tooltip) {
             tooltip = document.createElement('div');
-            tooltip.id = 'about-tooltip';
+            tooltip.id = 'coming-soon-tooltip';
             tooltip.className = 'fixed pointer-events-none z-[99999] bg-[var(--color-surface)] text-[var(--color-accent)] font-mono text-xs px-2.5 py-1.5 rounded border border-[var(--color-stroke)] shadow-lg transition-[opacity,transform] duration-300 ease-out origin-top-left flex items-center gap-2';
             tooltip.innerHTML = '<span class="animate-pulse">⏳</span> próximamente...';
             document.body.appendChild(tooltip);
@@ -131,7 +131,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
 
         let hideTimeout;
 
-        document.querySelectorAll('a[href="#about"]').forEach(link => {
+        document.querySelectorAll('[data-coming-soon]').forEach(link => {
             // Removemos escuchas viejas por si acaso (clonando) o nos aseguramos de no duplicar
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -161,10 +161,10 @@ import ThemeDropdown from './ThemeDropdown.astro';
     }
 
     // Ejecutar inyección del tooltip
-    document.addEventListener('astro:page-load', initAboutTooltip);
+    document.addEventListener('astro:page-load', initComingSoonTooltip);
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAboutTooltip);
+        document.addEventListener('DOMContentLoaded', initComingSoonTooltip);
     } else {
-        initAboutTooltip();
+        initComingSoonTooltip();
     }
 </script>

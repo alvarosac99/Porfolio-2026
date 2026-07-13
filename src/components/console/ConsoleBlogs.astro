@@ -1,0 +1,41 @@
+---
+---
+
+<section id="blogs" class="py-8 md:py-[60px] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] w-full">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-8">
+        <div class="flex items-center gap-3">
+            <span class="font-mono font-bold text-[32px] text-[var(--color-accent)]">&gt;</span>
+            <h2 class="font-mono font-bold text-[28px] text-[var(--color-text)]">blogs</h2>
+        </div>
+        <p class="font-mono text-xs text-[var(--color-accent)]">
+            $ ls ~/blogs/
+        </p>
+    </div>
+
+    <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- ZenithGames -->
+        <a href="#" data-coming-soon class="cursor-target group block p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <div class="flex flex-col gap-4">
+                <span class="font-mono text-xs text-[var(--color-text-muted)]">// videojuegos y opinión</span>
+                <h3 class="font-mono font-bold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithGames</h3>
+                <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">
+                    críticas y reflexiones sobre los juegos que me marcan, sin filtros ni notas de redacción, con el gusto de siempre, escrito en primera persona.
+                </p>
+                <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit">leer blog →</span>
+            </div>
+        </a>
+
+        <!-- ZenithTech -->
+        <a href="#" data-coming-soon class="cursor-target group block p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <div class="flex flex-col gap-4">
+                <span class="font-mono text-xs text-[var(--color-text-muted)]">// técnico, sin humo</span>
+                <h3 class="font-mono font-bold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithTech</h3>
+                <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">
+                    reduzco a lo simple cosas técnicas que parecen complejas, porque con ia e internet, hoy cualquiera puede montarlas si sabe por dónde empezar.
+                </p>
+                <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit">leer blog →</span>
+            </div>
+        </a>
+    </div>
+</section>

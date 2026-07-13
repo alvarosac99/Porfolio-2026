@@ -4,14 +4,22 @@
 <script>
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { animate, onScroll, scrambleText } from 'animejs';
 
     gsap.registerPlugin(ScrollTrigger);
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Contenido ya visible en el primer pintado no debe animarse: el usuario
+    // tiene que ver el estado final directamente, sin "asentarse" en pantalla.
+    function isInInitialViewport(el: HTMLElement) {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+
     function initReveal() {
         document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
-            if (prefersReducedMotion) {
+            if (prefersReducedMotion || isInInitialViewport(el)) {
                 gsap.set(el, { opacity: 1, y: 0 });
                 return;
             }
@@ -32,7 +40,7 @@
             const children = container.querySelectorAll<HTMLElement>(selector);
             if (children.length === 0) return;
 
-            if (prefersReducedMotion) {
+            if (prefersReducedMotion || isInInitialViewport(container)) {
                 gsap.set(children, { opacity: 1, y: 0 });
                 return;
             }
@@ -62,7 +70,7 @@
             const endValue = parseInt(match[1], 10);
             const suffix = match[2];
 
-            if (prefersReducedMotion) {
+            if (prefersReducedMotion || isInInitialViewport(el)) {
                 el.textContent = target;
                 return;
             }
@@ -83,6 +91,33 @@
                         },
                     });
                 },
+            });
+        });
+    }
+
+    function initScramble() {
+        if (prefersReducedMotion) return;
+
+        document.querySelectorAll<HTMLElement>('[data-scramble]').forEach((el) => {
+            // scrambleText() returns a (target, index, targets, prevTween) => spec factory.
+            // Calling it directly gives back { duration, ease, modifier } and we drive the
+            // DOM write ourselves (el.textContent), since "text" is not a built-in animatable
+            // DOM property in anime.js v4 without registering a custom adapter.
+            const spec = scrambleText({ chars: 'lowercase', duration: 800 })(el, 0, [el], null);
+            const state = { p: spec.from };
+
+            animate(state, {
+                p: spec.to,
+                duration: spec.duration,
+                delay: spec.delay,
+                ease: spec.ease,
+                onUpdate: () => {
+                    el.textContent = spec.modifier(state.p);
+                },
+                autoplay: onScroll({
+                    enter: 'bottom-=10% top',
+                    once: true,
+                }),
             });
         });
     }
@@ -124,6 +159,7 @@
         initReveal();
         initStagger();
         initCounter();
+        initScramble();
         initParallax();
         initScrollProgress();
     }

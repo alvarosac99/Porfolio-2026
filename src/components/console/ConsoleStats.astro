@@ -1,75 +1,36 @@
 ---
+import TechLoop from '../react/TechLoop.jsx';
 ---
 
-<section id="stats" class="py-8 md:py-[60px] px-5 md:px-10 lg:px-20 xl:px-[120px] w-full">
-    <div class="flex flex-col gap-8 w-full">
+<section id="stats" class="py-6 md:py-8 px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] w-full">
+    <div class="flex flex-col gap-5 w-full">
         <!-- Header -->
         <div class="flex items-center justify-between w-full">
             <h2 class="font-mono text-xs text-[var(--color-text-title)]">// stats</h2>
         </div>
 
         <!-- Intro animada -->
-        <p id="stats-intro" class="font-body text-[var(--color-text-muted)] text-xs md:text-sm leading-[1.6] w-full">
-            llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3d, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social. me comprometo a construir cosas que aporten algo real al mundo.
+        <p data-scramble class="font-body text-[var(--color-text-muted)] text-xs md:text-sm leading-[1.6] w-full">
+            llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3D, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social. me comprometo a construir cosas que aporten algo real al mundo.
         </p>
 
         <!-- Stats Cards: asimétrico, una card destacada + dos apiladas -->
-        <div data-stagger=".stat-card" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            <!-- Card 1: Años Experiencia (destacada) -->
-            <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-accent)] backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 40%);">
-                <span class="font-mono text-xs text-[var(--color-text-muted)]">años_experiencia</span>
+        <div data-stagger=".stat-card" class="flex flex-col md:flex-row gap-6 w-full">
+            <!-- Card 1: Años Experiencia (destacada, ancho mínimo) -->
+            <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-accent)] backdrop-blur-sm md:w-fit" style="background-color: color-mix(in srgb, var(--color-surface), transparent 40%);">
+                <span class="font-mono text-xs text-[var(--color-text-muted)] whitespace-nowrap">años_experiencia</span>
                 <div class="flex items-end gap-4">
                     <span data-counter="1+" class="font-mono text-[64px] md:text-[88px] font-bold text-[var(--color-text)] leading-none">1+</span>
                 </div>
             </div>
 
-            <!-- Card 2: Tecnologías -->
-            <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+            <!-- Card 2: Tecnologías (ocupa el resto) -->
+            <div class="stat-card flex flex-col justify-between gap-6 p-8 md:p-10 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm flex-1 min-w-0" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
                 <span class="font-mono text-xs text-[var(--color-text-muted)]">tecnologías</span>
-                <div class="flex items-center gap-6">
-                    <img src="/icons/devicon/n8n.svg" alt="N8N" class="w-14 h-14 md:w-20 md:h-20" />
-                    <img src="/icons/devicon/linux.svg" alt="Linux" class="w-14 h-14 md:w-20 md:h-20" />
+                <div class="w-full overflow-hidden" style="height: 88px;">
+                    <TechLoop client:visible />
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-<script>
-    import { animate, onScroll, scrambleText } from 'animejs';
-
-    function initIntro() {
-        const el = document.getElementById('stats-intro');
-        if (!el) return;
-
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) return;
-
-        // scrambleText() returns a (target, index, targets, prevTween) => spec factory.
-        // Calling it directly gives back { duration, ease, modifier } and we drive the
-        // DOM write ourselves (el.textContent), since "text" is not a built-in animatable
-        // DOM property in anime.js v4 without registering a custom adapter.
-        const spec = scrambleText({ chars: 'lowercase', duration: 800 })(el, 0, [el], null);
-        const state = { p: spec.from };
-
-        animate(state, {
-            p: spec.to,
-            duration: spec.duration,
-            delay: spec.delay,
-            ease: spec.ease,
-            onUpdate: () => {
-                el.textContent = spec.modifier(state.p);
-            },
-            autoplay: onScroll({
-                enter: 'bottom-=10% top',
-                once: true,
-            }),
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initIntro);
-    } else {
-        initIntro();
-    }
-</script>

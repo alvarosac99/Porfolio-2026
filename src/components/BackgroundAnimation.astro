@@ -1,6 +1,10 @@
 ---
+import Silk from './react/Silk.jsx';
 ---
 
+<div style="position: fixed; inset: 0; z-index: -1; opacity: 0.12; pointer-events: none;">
+    <Silk client:idle speed={12} scale={1.1} color="#7B7481" noiseIntensity={2.5} rotation={0.15} />
+</div>
 <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
 
 <script>
@@ -9,7 +13,7 @@
 
     // ── Config ──
     // ── Config ──
-    const PARTICLE_COUNT = 80;
+    const PARTICLE_COUNT = 40;
     const CONNECTION_RADIUS = 120;
     const ATTRACTION_RADIUS = 180;
     const IDLE_SPEED = 0.3;

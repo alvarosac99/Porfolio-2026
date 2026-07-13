@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="contact" class="py-12 md:py-[80px] px-5 md:px-10 lg:px-20 xl:px-[120px] w-full border-t border-[var(--color-stroke)] bg-[var(--color-surface-dark)] relative overflow-hidden">
+<section id="contact" class="py-12 md:py-[80px] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] w-full border-t border-[var(--color-stroke)] bg-[var(--color-surface-dark)] relative overflow-hidden">
     <div data-reveal class="flex flex-col items-center gap-8 text-center">
         <!-- Prompt -->
         <p class="font-mono font-bold text-[32px] text-[var(--color-accent)]">
@@ -14,15 +14,15 @@
         </h2>
 
         <!-- Description -->
-        <p class="font-body text-base text-[var(--color-text-muted)] leading-[1.6] max-w-[700px]">
+        <p data-scramble class="font-body text-base text-[var(--color-text-muted)] leading-[1.6] max-w-[700px]">
             // siempre abierto a nuevas oportunidades, proyectos interesantes y colaboraciones. no dudes en contactarme.
         </p>
 
         <!-- CTA Button -->
         <div class="flex items-center gap-4">
-            <a 
-                href="mailto:sebas@zenithseed.dev" 
-                class="flex items-center justify-center bg-[var(--color-accent)] text-[#0D0B0E] px-8 py-4 font-mono text-sm font-medium hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150"
+            <a
+                href="mailto:sebas@zenithseed.dev"
+                class="cursor-target flex items-center justify-center bg-[var(--color-accent)] text-[#0D0B0E] px-8 py-4 font-mono text-sm font-medium hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150"
             >
                 $ enviar_email
             </a>
