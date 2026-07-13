@@ -5,80 +5,75 @@ import ConsoleFooter from '../components/console/ConsoleFooter.astro';
 import HubBackground from '../components/react/HubBackground.jsx';
 ---
 
-<ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" showCursor>
-    <div class="fixed inset-0 -z-10 opacity-30 pointer-events-none">
+<ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
+    <div class="fixed inset-0 -z-10 opacity-25 pointer-events-none">
         <HubBackground client:idle />
     </div>
 
     <ZenithHeader />
 
     <main class="w-full">
-        <!-- Hero: wordmark a dos tonos, sin eyebrow, sin recargar -->
-        <section class="px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] py-[80px] md:py-[160px] w-full">
-            <div data-reveal class="flex flex-col gap-6 max-w-[900px]">
-                <h1 class="font-mono font-normal text-[64px] md:text-[112px] leading-[0.95] tracking-tight">
-                    <span class="text-[var(--color-text)]">zenith</span><span class="text-[var(--color-accent)]">seed</span>
+        <!-- Hero: centrado, wordmark a dos tonos, gateway a las 3 rutas justo debajo -->
+        <section class="px-5 md:px-10 py-[70px] md:py-[110px] w-full">
+            <div data-reveal class="flex flex-col items-center text-center gap-6 max-w-[720px] mx-auto">
+                <h1 class="font-mono font-normal text-[52px] md:text-[88px] leading-[0.95] tracking-tight">
+                    <span class="text-[var(--color-text)]">Zenith</span><span class="text-[var(--color-accent)]">Seed</span>
                 </h1>
-                <p class="font-body text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[520px]">
+                <p class="font-body text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[480px]">
                     programación, videojuegos y aprender en público. este es el punto de partida.
                 </p>
-                <a href="#explorar" class="cursor-target mt-2 flex items-center justify-center w-fit rounded-full border border-[var(--color-stroke)] px-6 py-3 font-mono text-sm text-[var(--color-text)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors">
-                    explorar
+            </div>
+
+            <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto mt-16">
+                <a href="/porfolio" class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// profesional</span>
+                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">porfolio</h2>
+                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">el lado profesional, proyectos, experiencia y stack.</p>
+                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">ver porfolio →</span>
+                </a>
+                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// videojuegos y opinión</span>
+                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithgames</h2>
+                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">crítica y opinión de videojuegos.</p>
+                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
+                </a>
+                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors backdrop-blur-sm" style="background-color: color-mix(in srgb, var(--color-surface), transparent 70%);">
+                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// técnico, sin humo</span>
+                    <h2 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithtech</h2>
+                    <p class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">lo técnico explicado simple.</p>
+                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
                 </a>
             </div>
         </section>
 
-        <!-- Por qué zenithseed: cita editorial, columna única, sin etiqueta lateral -->
-        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] py-[70px] md:py-[130px] w-full">
-            <p data-scramble class="font-mono font-normal text-[26px] md:text-[38px] leading-[1.3] tracking-tight text-[var(--color-text)] max-w-[820px]">
+        <!-- Por qué ZenithSeed: cita editorial centrada -->
+        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
+            <p data-scramble class="font-mono font-normal text-[24px] md:text-[34px] leading-[1.35] tracking-tight text-[var(--color-text)] max-w-[760px] mx-auto text-center">
                 zenith es el nombre de la espada más épica de uno de mis juegos favoritos, terraria. seed es la semilla, el inicio de cualquier universo, mundo o vida.
             </p>
         </section>
 
-        <!-- Quién soy: prosa, encabezado encima del texto, no al lado -->
-        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] py-[70px] md:py-[130px] w-full">
-            <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-8">// quién soy</h2>
-            <div class="flex flex-col gap-6 max-w-[680px]">
-                <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                    programar me interesó desde muy pequeño. con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. estudié el grado superior dam (desarrollo de aplicaciones multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
-                </p>
-                <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                    en el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con ia.
-                </p>
-                <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
-                    ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
-                </p>
+        <!-- Quién soy: prosa centrada -->
+        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
+            <div class="max-w-[680px] mx-auto">
+                <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-8">// quién soy</h2>
+                <div class="flex flex-col gap-6">
+                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                        programar me interesó desde muy pequeño. con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. estudié el grado superior dam (desarrollo de aplicaciones multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
+                    </p>
+                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                        en el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con ia.
+                    </p>
+                    <p data-scramble class="font-body text-[var(--color-text-muted)] text-base leading-[1.7]">
+                        ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Explorar: tarjetas hub, grid, tercera familia de layout -->
-        <section id="explorar" class="border-t border-[var(--color-stroke)] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] py-[70px] md:py-[130px] w-full">
-            <h2 class="font-mono text-xs text-[var(--color-text-title)] mb-10">// explorar</h2>
-            <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="/porfolio" class="cursor-target group flex flex-col gap-4 p-8 border-t border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// profesional</span>
-                    <h3 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">porfolio</h3>
-                    <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">el lado profesional, proyectos, experiencia y stack.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">ver porfolio →</span>
-                </a>
-                <a href="#" data-coming-soon class="cursor-target group flex flex-col gap-4 p-8 border-t border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// videojuegos y opinión</span>
-                    <h3 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithgames</h3>
-                    <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">crítica y opinión de videojuegos.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
-                </a>
-                <a href="#" data-coming-soon class="cursor-target group flex flex-col gap-4 p-8 border-t border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors">
-                    <span class="font-mono text-xs text-[var(--color-text-muted)]">// técnico, sin humo</span>
-                    <h3 class="font-mono font-normal text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">zenithtech</h3>
-                    <p data-scramble class="font-body text-[13px] text-[var(--color-text-muted)] leading-[1.6]">lo técnico explicado simple.</p>
-                    <span class="font-mono text-xs text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">leer blog →</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Visión de futuro: cierre editorial, misma familia visual que "por qué", cierra el arco -->
-        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 lg:px-20 xl:px-[max(120px,calc((100vw-1400px)/2))] py-[70px] md:py-[130px] w-full">
-            <p data-scramble class="font-mono font-normal text-[22px] md:text-[30px] leading-[1.4] tracking-tight text-[var(--color-text)] max-w-[780px]">
+        <!-- Visión de futuro: cierre editorial centrado -->
+        <section class="border-t border-[var(--color-stroke)] px-5 md:px-10 py-[70px] md:py-[110px] w-full">
+            <p data-scramble class="font-mono font-normal text-[20px] md:text-[28px] leading-[1.4] tracking-tight text-[var(--color-text)] max-w-[720px] mx-auto text-center">
                 este sitio recogerá lo que vaya descubriendo por el camino. si monto mi propio modelo de ia, si creo un modelo 3d, si encuentro algo que merezca la pena contar, quedará aquí. un diario técnico que baja a tierra conceptos que desde fuera parecen complejos, para que quien lo lea pueda aplicarlos.
             </p>
         </section>
