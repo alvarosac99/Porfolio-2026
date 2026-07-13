@@ -1,0 +1,52 @@
+---
+interface Props {
+    activeCategory?: 'todo' | 'tech' | 'juegos';
+}
+
+const { activeCategory = 'todo' } = Astro.props;
+
+const links = [
+    { label: 'Todo', cat: 'todo' },
+    { label: 'Tech', cat: 'tech' },
+    { label: 'Juegos', cat: 'juegos' }
+];
+---
+
+<header class="w-full border-b border-[var(--blog-hairline)] px-5 md:px-10 lg:px-16">
+    <div class="max-w-[1200px] mx-auto h-16 flex items-center justify-between gap-6">
+        <a href="/blog" class="flex items-center gap-2 flex-shrink-0">
+            <span class="text-[var(--blog-accent)] font-extrabold text-xl leading-none">&gt;</span>
+            <span class="font-extrabold text-lg leading-none">Zenith</span>
+            <span class="font-normal text-lg leading-none text-[var(--blog-ink-muted)]">Blog</span>
+        </a>
+
+        <nav class="hidden sm:flex items-center gap-5">
+            {links.map(link => (
+                <a
+                    href={link.cat === 'todo' ? '/blog' : `/blog?cat=${link.cat}`}
+                    class:list={[
+                        'blog-nav-link text-[15px] font-semibold pb-1 border-b-2 transition-colors',
+                        activeCategory === link.cat
+                            ? 'text-[var(--blog-ink)] border-[var(--blog-accent)]'
+                            : 'text-[var(--blog-ink)] border-transparent hover:border-[var(--blog-accent)]'
+                    ]}
+                >
+                    {link.label}
+                </a>
+            ))}
+        </nav>
+
+        <button
+            type="button"
+            id="blog-search-trigger"
+            class="flex items-center gap-2 text-[15px] font-semibold text-[var(--blog-ink)] hover:text-[var(--blog-accent)] transition-colors flex-shrink-0"
+            aria-label="Buscar en el blog"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
+            </svg>
+            <span class="hidden md:inline">Buscar</span>
+            <kbd class="hidden md:inline text-[11px] font-mono font-normal text-[var(--blog-ink-muted)] border border-[var(--blog-hairline)] px-1.5 py-0.5">⌘K</kbd>
+        </button>
+    </div>
+</header>

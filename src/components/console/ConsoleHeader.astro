@@ -5,7 +5,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
 
 <header class="h-14 md:h-[72px] border-b border-[var(--color-stroke)] bg-[var(--color-bg)] sticky top-0 z-50 px-5 md:px-[60px] flex items-center justify-between w-full relative">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 group">
+    <a href="/" class="cursor-target flex items-center gap-3 group">
         <span class="font-mono font-bold text-2xl text-[var(--color-accent)]">&gt;</span>
         <span class="font-mono font-medium text-lg text-[var(--color-text)]">porfolio</span>
     </a>
@@ -14,16 +14,15 @@ import ThemeDropdown from './ThemeDropdown.astro';
     <div class="flex items-center gap-8">
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
-            <a href="#about" data-coming-soon class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">sobre_mí</a>
-            <a href="#projects" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">proyectos</a>
-            <a href="#experience" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">experiencia</a>
-            <a href="#skills" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">aptitudes</a>
-            <a href="#contact" class="font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">contacto</a>
+            <a href="#projects" class="cursor-target font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">proyectos</a>
+            <a href="#experience" class="cursor-target font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">experiencia</a>
+            <a href="#skills" class="cursor-target font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">aptitudes</a>
+            <a href="#contact" class="cursor-target font-mono text-[13px] text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors">contacto</a>
         </nav>
 
         <!-- CTA & Theme -->
         <div class="hidden md:flex items-center gap-4">
-            <a href="#contact" class="flex items-center justify-center bg-[var(--color-accent)] px-5 py-2.5 hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150">
+            <a href="#contact" class="cursor-target flex items-center justify-center bg-[var(--color-accent)] px-5 py-2.5 hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150">
                 <span class="font-mono font-medium text-xs text-[#0D0B0E]">$ contactar</span>
             </a>
             
@@ -54,11 +53,10 @@ import ThemeDropdown from './ThemeDropdown.astro';
     >
         <div class="flex flex-col p-5 gap-4">
             <nav class="flex flex-col gap-4">
-                <a href="#about" data-coming-soon class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">sobre_mí</a>
-                <a href="#projects" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">proyectos</a>
-                <a href="#experience" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">experiencia</a>
-                <a href="#skills" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">aptitudes</a>
-                <a href="#contact" class="mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">contacto</a>
+                <a href="#projects" class="cursor-target mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">proyectos</a>
+                <a href="#experience" class="cursor-target mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">experiencia</a>
+                <a href="#skills" class="cursor-target mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">aptitudes</a>
+                <a href="#contact" class="cursor-target mobile-nav-link font-mono text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">contacto</a>
             </nav>
             
             <div class="w-full h-px bg-[var(--color-stroke)] my-2"></div>
@@ -71,7 +69,7 @@ import ThemeDropdown from './ThemeDropdown.astro';
                 </div>
             </div>
 
-            <a href="#contact" class="mobile-nav-link mt-4 flex items-center justify-center bg-[var(--color-accent)] w-full py-3 rounded hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150">
+            <a href="#contact" class="cursor-target mobile-nav-link mt-4 flex items-center justify-center bg-[var(--color-accent)] w-full py-3 rounded hover:opacity-90 active:scale-[0.97] transition-[opacity,transform] duration-150">
                 <span class="font-mono font-medium text-[13px] text-[#0D0B0E]">$ contactar</span>
             </a>
         </div>

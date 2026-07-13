@@ -1,0 +1,83 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogHeader from '../../components/blog/BlogHeader.astro';
+import BlogSearch from '../../components/blog/BlogSearch.jsx';
+import { posts } from '../../data/blogPosts.js';
+
+const catParam = Astro.url.searchParams.get('cat');
+const activeCategory = catParam === 'tech' || catParam === 'juegos' ? catParam : 'todo';
+
+const filtered = activeCategory === 'todo' ? posts : posts.filter(p => p.category === activeCategory);
+const [featured, ...rest] = filtered;
+
+const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
+---
+
+<BlogLayout title="Zenith Blog | Álvaro Sebastián Acosta">
+    <BlogHeader activeCategory={activeCategory} />
+
+    <main class="flex-grow w-full px-5 md:px-10 lg:px-16 py-12 md:py-16">
+        <div class="max-w-[1200px] mx-auto">
+            <p class="text-[15px] text-[var(--blog-ink-muted)] max-w-[540px] mb-12">
+                Videojuegos y crítica sin filtros, y lo técnico explicado sin humo. Un blog, dos obsesiones.
+            </p>
+
+            {featured ? (
+                <>
+                    <a href={`/blog/${featured.slug}`} class="group block mb-12">
+                        <div class="w-full aspect-[16/7] overflow-hidden">
+                            <img
+                                src={featured.cover}
+                                alt=""
+                                loading="lazy"
+                                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                            />
+                        </div>
+                        <div class="flex flex-col gap-3 mt-6 max-w-[760px]">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[featured.category]}</span>
+                                <span class="text-[14px] text-[var(--blog-ink-muted)]">{featured.dateLabel}</span>
+                            </div>
+                            <h1 class="text-[28px] md:text-[40px] font-bold leading-[1.2]">{featured.title}</h1>
+                            <p class="text-[16px] text-[var(--blog-ink-muted)] leading-[1.5] max-w-[620px]">{featured.excerpt}</p>
+                        </div>
+                    </a>
+
+                    {rest.length > 0 && (
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+                            {rest.map(post => (
+                                <a href={`/blog/${post.slug}`} class="group block">
+                                    <div class="w-full aspect-[4/3] overflow-hidden">
+                                        <img
+                                            src={post.cover}
+                                            alt=""
+                                            loading="lazy"
+                                            class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                                        />
+                                    </div>
+                                    <div class="flex items-center gap-2.5 mt-5">
+                                        <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[post.category]}</span>
+                                        <span class="text-[14px] text-[var(--blog-ink-muted)]">{post.dateLabel}</span>
+                                    </div>
+                                    <h2 class="text-[18px] md:text-[20px] font-semibold leading-snug mt-2">{post.title}</h2>
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </>
+            ) : (
+                <p class="text-[15px] text-[var(--blog-ink-muted)] mb-12">Todavía no hay artículos en esta categoría.</p>
+            )}
+
+            <div class="h-px w-full bg-[var(--blog-hairline)] mb-6"></div>
+
+            <div class="flex justify-end">
+                <a href="/porfolio#blogs" class="text-[15px] font-semibold text-[var(--blog-accent)] hover:opacity-80 transition-opacity inline-flex items-center gap-1.5">
+                    Volver al porfolio <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <BlogSearch posts={posts} client:idle />
+</BlogLayout>

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+    --blog-paper: #faf6f0;
+    --blog-paper-raised: #ffffff;
+    --blog-ink: #1a1510;
+    --blog-ink-muted: #6b6255;
+    --blog-hairline: #e6ddd0;
+    --blog-accent: #ff7a42;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--blog-paper);
+    color: var(--blog-ink);
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+}

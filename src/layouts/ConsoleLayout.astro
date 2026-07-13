@@ -1,5 +1,6 @@
 ---
 import '@fontsource/jetbrains-mono';
+import '@fontsource/jetbrains-mono/700.css';
 import '@fontsource/ibm-plex-mono';
 import '../styles/global.css';
 import BackgroundAnimation from '../components/BackgroundAnimation.astro';
@@ -43,7 +44,7 @@ const { title, showCursor = false, background = 'particles' } = Astro.props;
                 client:load
                 targetSelector=".cursor-target"
                 spinDuration={2}
-                hideDefaultCursor={false}
+                hideDefaultCursor={true}
                 parallaxOn={false}
                 cursorColor="var(--color-text)"
                 cursorColorOnTarget="var(--color-accent)"

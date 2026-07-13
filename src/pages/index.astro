@@ -4,6 +4,7 @@ import ZenithHeader from '../components/console/ZenithHeader.astro';
 import ZenithFooter from '../components/console/ZenithFooter.astro';
 import NameOriginNote from '../components/react/NameOriginNote.jsx';
 import HubBackground from '../components/react/HubBackground.jsx';
+import SeedText from '../components/react/SeedText.jsx';
 ---
 
 <ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
@@ -24,31 +25,26 @@ import HubBackground from '../components/react/HubBackground.jsx';
         <!-- Hero: wordmark a dos tonos, gateway a las 3 rutas justo debajo -->
         <section class="px-5 md:px-10 py-[70px] md:py-[110px] w-full">
             <div data-reveal class="flex flex-col items-center text-center gap-6 max-w-[720px] mx-auto">
-                <h1 class="font-soft font-extrabold text-[48px] md:text-[80px] leading-[1.05] tracking-tight">
-                    <span class="text-[var(--color-text)]">Zenith</span><span class="text-[var(--color-accent)]">Seed</span>
+                <h1 class="w-full">
+                    <span class="sr-only">ZenithSeed</span>
+                    <SeedText text="ZenithSeed" client:load />
                 </h1>
                 <p class="font-soft text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[480px]">
                     Programación, videojuegos y aprender en público. Este es el punto de partida.
                 </p>
             </div>
 
-            <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1100px] mx-auto mt-16">
-                <a href="/porfolio" class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
+            <div data-stagger=":scope > a" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[760px] mx-auto mt-16">
+                <a href="/porfolio" class="group flex flex-col gap-4 p-8 rounded-sm border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
                     <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Profesional</span>
                     <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">Porfolio</h2>
                     <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">El lado profesional, proyectos, experiencia y stack.</p>
                     <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Ver porfolio →</span>
                 </a>
-                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
-                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Videojuegos y opinión</span>
-                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithGames</h2>
-                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">Crítica y opinión de videojuegos.</p>
-                    <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Leer blog →</span>
-                </a>
-                <a href="#" data-coming-soon class="group flex flex-col gap-4 p-8 rounded-2xl border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
-                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Técnico, sin humo</span>
-                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">ZenithTech</h2>
-                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">Lo técnico explicado simple.</p>
+                <a href="/blog" class="group flex flex-col gap-4 p-8 rounded-sm border border-[var(--color-stroke)] hover:border-[var(--color-accent)] transition-colors" style="background-color: color-mix(in srgb, var(--color-surface), transparent 60%);">
+                    <span class="font-soft text-xs font-medium text-[var(--color-text-muted)]">Videojuegos y tech, sin humo</span>
+                    <h2 class="font-soft font-semibold text-2xl text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">Zenith Blog</h2>
+                    <p class="font-soft text-[13px] text-[var(--color-text-muted)] leading-[1.6]">Crítica de videojuegos y lo técnico explicado simple.</p>
                     <span class="font-soft text-xs font-medium text-[var(--color-accent)] group-hover:translate-x-1 transition-transform inline-block w-fit mt-2">Leer blog →</span>
                 </a>
             </div>
@@ -61,10 +57,10 @@ import HubBackground from '../components/react/HubBackground.jsx';
                     <h2 class="font-soft font-semibold text-sm text-[var(--color-text-title)] mb-8">Quién soy</h2>
                     <div class="flex flex-col gap-6 max-w-[680px]">
                         <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
-                            Programar me interesó desde muy pequeño. Con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. Estudié el grado superior DAM (Desarrollo de Aplicaciones Multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
+                            Programar me interesó desde muy pequeño gracias a los videojuegos. Con ocho años ya desmontaba y montaba mi propio ordenador, y esa curiosidad por entender cómo funcionan las cosas nunca se fue. Estudié el grado superior DAM (Desarrollo de Aplicaciones Multiplataforma) y, aunque al principio programar me costó y no sentí que fuera lo mío, con el tiempo descubrí cómo aplicarlo a lo que de verdad me gusta.
                         </p>
                         <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
-                            En el trabajo, programar a veces se complica por burocracia que poco tiene que ver con escribir código. Pero crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio es lo que me sigue pareciendo divertido, fascinante y emocionante. Me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con IA.
+                            En el trabajo también disfruto programar, aunque a veces cae en tareas más repetitivas. Por eso en casa sigo con mis propios proyectos, crear videojuegos, montar mis propias páginas web, apoyarme en recursos que otros ya han compartido y mezclarlos con mi propio criterio. Hacerlo por cuenta propia le da otra vida, es lo que más me sigue pareciendo divertido, fascinante y emocionante. Me gusta cacharrear con equipos, redes, desplegar servicios y automatizar procesos con IA.
                         </p>
                         <p data-scramble class="font-soft text-[var(--color-text-muted)] text-base leading-[1.7]">
                             Ahora mismo estoy centrado en hacer mis propios videojuegos y aplicaciones. Creo que la informática, entendida como arte y como herramienta, es uno de los medios más potentes que tenemos hoy para avanzar y para ayudar a que otros avancen también.

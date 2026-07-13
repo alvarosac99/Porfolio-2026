@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import './StickerPeel.css';
@@ -26,6 +26,26 @@ const StickerPeel = ({
   const draggableInstanceRef = useRef(null);
 
   const defaultPadding = 10;
+  const [isDetached, setIsDetached] = useState(false);
+  const [isGone, setIsGone] = useState(false);
+
+  const handleClick = () => {
+    if (isDetached || isGone) return;
+    setIsDetached(true);
+    draggableInstanceRef.current?.disable();
+    // Deja que el peel al 100% (clip-path, transition CSS de 0.6s) se vea
+    // antes de que la pegatina salga volando y desaparezca del todo.
+    gsap.delayedCall(0.55, () => {
+      gsap.to(dragTargetRef.current, {
+        y: '+=120',
+        rotation: gsap.utils.random(-35, 35),
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power1.in',
+        onComplete: () => setIsGone(true)
+      });
+    });
+  };
 
   useEffect(() => {
     const target = dragTargetRef.current;
@@ -178,8 +198,14 @@ const StickerPeel = ({
     ]
   );
 
+  if (isGone) return null;
+
   return (
-    <div className={`draggable ${className}`} ref={dragTargetRef} style={cssVars}>
+    <div
+      className={`draggable ${className}`}
+      ref={dragTargetRef}
+      style={{ ...cssVars, pointerEvents: isDetached ? 'none' : undefined }}
+    >
       <svg width="0" height="0">
         <defs>
           <filter id="pointLight">
@@ -230,7 +256,11 @@ const StickerPeel = ({
         </defs>
       </svg>
 
-      <div className="sticker-container" ref={containerRef}>
+      <div
+        className={`sticker-container${isDetached ? ' is-detached' : ''}`}
+        ref={containerRef}
+        onClick={handleClick}
+      >
         <div className="sticker-main">
           <div className="sticker-lighting">
             <img

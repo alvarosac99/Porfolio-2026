@@ -1,14 +1,14 @@
 import StickerPeel from './StickerPeel';
 
 const NOTE_LINES = [
-  'Zenith es el nombre',
-  'de la espada más épica',
-  'de uno de mis juegos',
-  'favoritos, Terraria.',
+  'Zenith: cenit, punto',
+  'más alto del cielo.',
+  'Seed: semilla, inicio.',
   '',
-  'Seed es la semilla,',
-  'el inicio de cualquier',
-  'universo, mundo o vida.'
+  'Juntos: principio',
+  'del fin.',
+  'Motivo de esta página:',
+  'acabar lo que empiezo.'
 ];
 
 function buildNoteSvg() {
@@ -20,9 +20,9 @@ function buildNoteSvg() {
 
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="320" height="340" viewBox="0 0 320 340">
-      <rect x="4" y="4" width="312" height="332" fill="#F5D949" />
-      <polygon points="280,332 316,332 316,296" fill="#E0C23D" />
-      <text font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" font-size="22" fill="#3A3320">${tspans}</text>
+      <rect x="4" y="4" width="312" height="332" fill="#E8DCC0" />
+      <polygon points="280,336 316,336 316,300" fill="#D4C6A0" />
+      <text font-family="'Segoe Print','Bradley Hand','Comic Sans MS',cursive" font-size="22" fill="#2A2015">${tspans}</text>
     </svg>
   `.trim();
 

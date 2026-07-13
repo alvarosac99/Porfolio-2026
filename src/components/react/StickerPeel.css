@@ -108,6 +108,22 @@
   top: calc(-100% + 2 * var(--sticker-peelback-active) - 1px);
 }
 
+/* Clic: despega la pegatina del todo (100%), gana al hover/active porque
+   viene después en la cascada con la misma especificidad. */
+.sticker-container.is-detached .sticker-main {
+  clip-path: polygon(var(--sticker-start) 100%, var(--sticker-end) 100%, var(--sticker-end) var(--sticker-end), var(--sticker-start) var(--sticker-end));
+}
+
+.sticker-container.is-detached .flap {
+  clip-path: polygon(
+    var(--sticker-start) var(--sticker-start),
+    var(--sticker-end) var(--sticker-start),
+    var(--sticker-end) 100%,
+    var(--sticker-start) 100%
+  );
+  top: calc(-100% + 200% - 1px);
+}
+
 .flap-lighting {
   filter: url(#pointLightFlipped);
 }

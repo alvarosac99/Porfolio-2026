@@ -253,7 +253,16 @@ const LogoLoop = memo(
           />
         );
         const itemAriaLabel = isNodeItem ? (item.ariaLabel ?? item.title) : (item.alt ?? item.title);
-        const itemContent = item.href ? (
+        const itemContent = item.onClick ? (
+          <button
+            type="button"
+            className="logoloop__link cursor-target"
+            aria-label={itemAriaLabel || 'logo'}
+            onClick={item.onClick}
+          >
+            {content}
+          </button>
+        ) : item.href ? (
           <a
             className="logoloop__link"
             href={item.href}

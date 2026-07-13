@@ -1,18 +1,10 @@
-.cursor-target,
-.cursor-target * {
+/* Solo oculta el cursor nativo cuando TargetCursor está montado de verdad
+   (existe .target-cursor-wrapper en el DOM). Sin esto, páginas que importan
+   este CSS pero no renderizan <TargetCursor> (showCursor=false) dejan botones
+   con cursor:none y ningún cursor custom que lo sustituya. */
+body:has(.target-cursor-wrapper) .cursor-target,
+body:has(.target-cursor-wrapper) .cursor-target * {
   cursor: none !important;
-}
-
-header,
-header *,
-footer,
-footer * {
-  cursor: auto !important;
-}
-
-body:has(header:hover) .target-cursor-wrapper,
-body:has(footer:hover) .target-cursor-wrapper {
-  opacity: 0;
 }
 
 .target-cursor-wrapper {

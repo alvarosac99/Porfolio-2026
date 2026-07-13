@@ -6,11 +6,11 @@ import TechLoop from '../react/TechLoop.jsx';
     <div class="flex flex-col gap-5 w-full">
         <!-- Header -->
         <div class="flex items-center justify-between w-full">
-            <h2 class="font-mono text-xs text-[var(--color-text-title)]">// stats</h2>
+            <h2 class="font-mono text-xs text-[var(--color-text-title)]">// sobre mí</h2>
         </div>
 
-        <!-- Intro animada -->
-        <p data-scramble class="font-body text-[var(--color-text-muted)] text-xs md:text-sm leading-[1.6] w-full">
+        <!-- Intro animada: clic en una tecnología de la lista de abajo cambia este texto -->
+        <p data-scramble data-tech-intro class="font-body text-[var(--color-text-muted)] text-xs md:text-sm leading-[1.6] w-full">
             llevo más de un año de experiencia en el sector, y siempre tengo algún proyecto entre manos. ahora mismo estoy aprendiendo modelaje 3D, antes fue montar un servidor desde cero, y en paralelo sigo metido en un proyecto de impacto social. me comprometo a construir cosas que aporten algo real al mundo.
         </p>
 
@@ -34,3 +34,28 @@ import TechLoop from '../react/TechLoop.jsx';
         </div>
     </div>
 </section>
+
+<script>
+    import { animate, scrambleText } from 'animejs';
+
+    const intro = document.querySelector<HTMLElement>('[data-tech-intro]');
+
+    if (intro) {
+        window.addEventListener('tech-select', ((e: CustomEvent<{ name: string; opinion?: string }>) => {
+            const opinion = e.detail?.opinion;
+            if (!opinion) return;
+
+            const spec = scrambleText({ chars: 'lowercase', duration: 600, text: opinion })(intro, 0, [intro], null);
+            const state = { p: spec.from };
+
+            animate(state, {
+                p: spec.to,
+                duration: spec.duration,
+                ease: spec.ease,
+                onUpdate: () => {
+                    intro.textContent = spec.modifier(state.p);
+                }
+            });
+        }) as EventListener);
+    }
+</script>

@@ -9,5 +9,5 @@ export default function HubBackground() {
     if (accent) setColor(accent);
   }, []);
 
-  return <Plasma color={color} speed={0.5} direction="forward" scale={1.3} opacity={0.35} mouseInteractive={true} />;
+  return <Plasma color={color} speed={0.5} direction="forward" scale={1.3} opacity={0.6} mouseInteractive={true} />;
 }

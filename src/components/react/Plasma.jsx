@@ -108,11 +108,15 @@ export const Plasma = ({
         antialias: false,
         dpr: Math.min(window.devicePixelRatio || 1, 2)
       });
-    } catch {
+    } catch (err) {
+      console.warn('Plasma: no se pudo crear el contexto WebGL2, fondo desactivado.', err);
       return;
     }
     const gl = renderer.gl;
-    if (!gl) return;
+    if (!gl) {
+      console.warn('Plasma: WebGL2 no soportado en este navegador, fondo desactivado.');
+      return;
+    }
     const canvas = gl.canvas;
     canvas.style.display = 'block';
     canvas.style.width = '100%';
