@@ -122,6 +122,45 @@
         });
     }
 
+    // Tooltip "Próximamente" para enlaces aún no construidos (p.ej. blogs)
+    function initComingSoonTooltip() {
+        let tooltip = document.getElementById('coming-soon-tooltip');
+        if (!tooltip) {
+            tooltip = document.createElement('div');
+            tooltip.id = 'coming-soon-tooltip';
+            tooltip.className = 'fixed pointer-events-none z-[99999] bg-[var(--color-surface)] text-[var(--color-accent)] font-mono text-xs px-2.5 py-1.5 rounded border border-[var(--color-stroke)] shadow-lg transition-[opacity,transform] duration-300 ease-out origin-top-left flex items-center gap-2';
+            tooltip.innerHTML = '<span class="animate-pulse">⏳</span> próximamente...';
+            document.body.appendChild(tooltip);
+        }
+
+        let hideTimeout: ReturnType<typeof setTimeout>;
+
+        document.querySelectorAll<HTMLElement>('[data-coming-soon]').forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const mouseEvent = e as MouseEvent;
+
+                tooltip.style.transition = 'none';
+                tooltip.style.opacity = '0';
+                tooltip.style.transform = `translate(${mouseEvent.clientX}px, ${mouseEvent.clientY}px) scale(0.8)`;
+
+                void tooltip.offsetWidth; // Reflow
+
+                tooltip.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                tooltip.style.opacity = '1';
+                tooltip.style.transform = `translate(${mouseEvent.clientX + 10}px, ${mouseEvent.clientY + 15}px) scale(1)`;
+
+                clearTimeout(hideTimeout);
+                hideTimeout = setTimeout(() => {
+                    tooltip.style.transition = 'all 0.3s ease-in';
+                    tooltip.style.opacity = '0';
+                    tooltip.style.transform = `translate(${mouseEvent.clientX + 10}px, ${mouseEvent.clientY + 25}px) scale(0.8)`;
+                }, 1200);
+            });
+        });
+    }
+
     function initParallax() {
         document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
             if (prefersReducedMotion) return;
@@ -160,6 +199,7 @@
         initStagger();
         initCounter();
         initScramble();
+        initComingSoonTooltip();
         initParallax();
         initScrollProgress();
     }

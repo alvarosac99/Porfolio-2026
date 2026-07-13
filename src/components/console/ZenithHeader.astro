@@ -1,0 +1,16 @@
+---
+import ThemeTrigger from './ThemeTrigger.astro';
+import ThemeDropdown from './ThemeDropdown.astro';
+---
+
+<header class="h-14 md:h-[72px] px-5 md:px-[60px] flex items-center justify-between w-full relative">
+    <a href="/" class="flex items-center gap-3 group">
+        <span class="font-mono font-bold text-2xl text-[var(--color-accent)]">&gt;</span>
+        <span class="font-mono font-medium text-lg text-[var(--color-text)]">zenithseed</span>
+    </a>
+
+    <div class="flex items-center relative">
+        <ThemeTrigger />
+        <ThemeDropdown />
+    </div>
+</header>
