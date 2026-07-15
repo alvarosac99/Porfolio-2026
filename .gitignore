@@ -4,3 +4,5 @@ dist
 .vercel
 logs
 docs/fotocara.jpeg
+public/icons/devicon/png
+.claude/settings.local.json
