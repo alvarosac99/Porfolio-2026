@@ -254,8 +254,15 @@ class Scene3D {
   }
 
   animate() {
+    // Cap a 30fps: cada frame hace getImageData + reescribe un <pre> enorme
+    // (repaint en hilo principal). A 60fps atasca toda la página.
+    const frameInterval = 1000 / 30;
+    let last = 0;
     const loop = () => {
       this.raf = requestAnimationFrame(loop);
+      const now = performance.now();
+      if (now - last < frameInterval) return;
+      last = now;
       this.render();
     };
     loop();

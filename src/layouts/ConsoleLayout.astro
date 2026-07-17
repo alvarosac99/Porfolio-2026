@@ -5,7 +5,7 @@ import '@fontsource/ibm-plex-mono';
 import '../styles/global.css';
 import BackgroundAnimation from '../components/BackgroundAnimation.astro';
 import ScrollFX from '../components/ScrollFX.astro';
-import TargetCursor from '../components/react/TargetCursor.jsx';
+import CursorLayer from '../components/react/CursorLayer.jsx';
 
 interface Props {
 	title: string;
@@ -21,7 +21,7 @@ const { title, showCursor = false, background = 'particles' } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Porfolio de Álvaro Sebastián Acosta" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +40,7 @@ const { title, showCursor = false, background = 'particles' } = Astro.props;
         {background === 'particles' && <BackgroundAnimation />}
         <ScrollFX />
         {showCursor && (
-            <TargetCursor
+            <CursorLayer
                 client:load
                 targetSelector=".cursor-target"
                 spinDuration={2}

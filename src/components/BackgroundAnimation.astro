@@ -1,14 +1,22 @@
 ---
-import Silk from './react/Silk.jsx';
+import SilkBackground from './react/SilkBackground.jsx';
 ---
 
 <div style="position: fixed; inset: 0; z-index: -1; opacity: 0.12; pointer-events: none;">
-    <Silk client:idle speed={12} scale={1.1} color="#7B7481" noiseIntensity={2.5} rotation={0.15} />
+    <SilkBackground client:idle speed={12} scale={1.1} color="#7B7481" noiseIntensity={2.5} rotation={0.15} />
 </div>
 <canvas id="particle-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
 
 <script>
     const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+
+    // Partículas interactivas por ratón: sin sentido en táctil y caras en GPU
+    // débil. En móvil / reduced-motion no arrancamos el canvas.
+    const coarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (coarsePointer || reducedMotion) {
+        canvas.style.display = 'none';
+    } else {
     const ctx = canvas.getContext('2d')!;
 
     // ── Config ──
@@ -420,10 +428,11 @@ import Silk from './react/Silk.jsx';
 
 
 
-        requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
     }
 
     // ── Init ──
+    let rafId = 0;
     resize();
     createParticles();
     
@@ -443,5 +452,17 @@ import Silk from './react/Silk.jsx';
         attributes: true,
         attributeFilter: ['data-theme']
     });
-    requestAnimationFrame(animate);
+
+    // Pausa el bucle cuando la pestaña no está visible: ahorra batería/CPU.
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            cancelAnimationFrame(rafId);
+        } else {
+            cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(animate);
+        }
+    });
+
+    rafId = requestAnimationFrame(animate);
+    }
 </script>

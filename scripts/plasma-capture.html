@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><style>html,body{margin:0;padding:0;background:#000;overflow:hidden}#c{display:block;width:100vw;height:100vh}</style></head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// Plasma en WebGL2 crudo (mismo shader que Plasma.jsx, 60 iteraciones para
+// calidad offline). Sin dependencias externas: se renderiza y Playwright graba.
+const ACCENT = [0xff/255, 0x7a/255, 0x42/255];
+const SPEED = 0.5 * 0.4, SCALE = 1.3;
+
+const canvas = document.getElementById('c');
+const gl = canvas.getContext('webgl2', { alpha:false, antialias:true });
+
+const vsrc = `#version 300 es
+precision highp float;
+const vec2 pos[3] = vec2[3](vec2(-1.,-1.), vec2(3.,-1.), vec2(-1.,3.));
+void main(){ gl_Position = vec4(pos[gl_VertexID], 0., 1.); }`;
+
+const fsrc = `#version 300 es
+precision highp float;
+uniform vec2 iResolution; uniform float iTime; uniform vec3 uCustomColor;
+uniform float uSpeed; uniform float uScale; out vec4 fragColor;
+void mainImage(out vec4 o, vec2 C){
+  vec2 center = iResolution.xy*0.5;
+  C = (C-center)/uScale + center;
+  float i,d,z,T = iTime*uSpeed;
+  vec3 O,p,S;
+  for(vec2 r=iResolution.xy,Q; ++i<60.; O += o.w/d*o.xyz){
+    p = z*normalize(vec3(C-.5*r,r.y)); p.z -= 4.; S = p; d = p.y-T;
+    p.x += .4*(1.+p.y)*sin(d+p.x*0.1)*cos(.34*d+p.x*0.05);
+    Q = p.xz *= mat2(cos(p.y+vec4(0,11,33,0)-T));
+    z += d = abs(sqrt(length(Q*Q))-.25*(5.+S.y))/3.+8e-4;
+    o = 1.+sin(S.y+p.z*.5+S.z-length(S-p)+vec4(2,1,0,8));
+  }
+  o.xyz = tanh(O/1e4);
+}
+bool f1(float x){ return !(isnan(x)||isinf(x)); }
+vec3 san(vec3 c){ return vec3(f1(c.r)?c.r:0.,f1(c.g)?c.g:0.,f1(c.b)?c.b:0.); }
+void main(){
+  vec4 o = vec4(0.); mainImage(o, gl_FragCoord.xy);
+  vec3 rgb = san(o.rgb);
+  float intensity = (rgb.r+rgb.g+rgb.b)/3.;
+  vec3 col = intensity*uCustomColor;
+  // Fondo negro sólido con el plasma encima (para grabar sin canal alfa).
+  fragColor = vec4(col, 1.);
+}`;
+
+function compile(type, src){
+  const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s);
+  if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s));
+  return s;
+}
+const prog = gl.createProgram();
+gl.attachShader(prog, compile(gl.VERTEX_SHADER, vsrc));
+gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fsrc));
+gl.linkProgram(prog);
+if(!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+gl.useProgram(prog);
+
+const uRes = gl.getUniformLocation(prog, 'iResolution');
+const uTime = gl.getUniformLocation(prog, 'iTime');
+const uCol = gl.getUniformLocation(prog, 'uCustomColor');
+const uSpeed = gl.getUniformLocation(prog, 'uSpeed');
+const uScale = gl.getUniformLocation(prog, 'uScale');
+gl.uniform3fv(uCol, ACCENT);
+gl.uniform1f(uSpeed, SPEED);
+gl.uniform1f(uScale, SCALE);
+
+function size(){
+  const w = window.innerWidth, h = window.innerHeight;
+  canvas.width = w; canvas.height = h;
+  gl.viewport(0,0,w,h);
+  gl.uniform2f(uRes, w, h);
+}
+window.addEventListener('resize', size); size();
+
+const FPS = 30;
+let recording = false;
+
+function drawAtTime(seconds){
+  gl.uniform1f(uTime, seconds);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+}
+
+// Preview en vivo con reloj real.
+const t0 = performance.now();
+function preview(t){
+  if (recording) return;
+  drawAtTime((t - t0) * 0.001);
+  requestAnimationFrame(preview);
+}
+requestAnimationFrame(preview);
+window.__ready = true;
+
+// ── Grabación determinista (GPU real, p.ej. Windows) ──
+// Timestep FIJO: iTime = frame/FPS, y empujamos cada frame al stream con
+// requestFrame(). Nada depende del reloj ni del jitter de rAF, así el vídeo
+// sale a 30fps constante y fluido. Bitrate alto para no tener banding en los
+// gradientes suaves del plasma.
+// Uso: abre en Chrome/Edge (ventana MAXIMIZADA y en primer plano), pulsa R.
+function record(seconds = 20){
+  if (recording) return;
+  recording = true;
+  const totalFrames = seconds * FPS;
+  const stream = canvas.captureStream(0); // 0 = solo frames manuales
+  const track = stream.getVideoTracks()[0];
+  const rec = new MediaRecorder(stream, { mimeType: 'video/webm;codecs=vp9', videoBitsPerSecond: 20_000_000 });
+  const chunks = [];
+  rec.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+  rec.onstop = () => {
+    const blob = new Blob(chunks, { type: 'video/webm' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'plasma.webm';
+    a.click();
+    recording = false;
+    btn.textContent = 'Grabar de nuevo (R)';
+    requestAnimationFrame(preview);
+  };
+  rec.start();
+
+  // Pacing por reloj real (timestamps del stream ~30fps uniformes = duración y
+  // velocidad correctas), pero el CONTENIDO avanza por contador (f/FPS) así no
+  // hay saltos aunque un frame real se retrase.
+  let f = 0, lastIdx = -1;
+  const start = performance.now();
+  const step = () => {
+    if (f >= totalFrames){ rec.stop(); return; }
+    const idx = Math.floor(((performance.now() - start) / 1000) * FPS);
+    if (idx > lastIdx){
+      lastIdx = idx;
+      drawAtTime(f / FPS);
+      track.requestFrame();
+      btn.textContent = 'Grabando… ' + Math.ceil((totalFrames - f) / FPS) + 's';
+      f++;
+    }
+    requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const btn = document.createElement('button');
+btn.textContent = 'Grabar 20s y descargar (R)';
+Object.assign(btn.style, { position:'fixed', top:'12px', left:'12px', zIndex:9, padding:'8px 12px', font:'14px monospace', cursor:'pointer' });
+btn.onclick = () => record(20);
+document.body.appendChild(btn);
+addEventListener('keydown', e => { if (e.key.toLowerCase() === 'r') record(20); });
+</script>
+</body>
+</html>

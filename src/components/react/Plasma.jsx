@@ -43,7 +43,7 @@ void mainImage(out vec4 o, vec2 C) {
   float i, d, z, T = iTime * uSpeed * uDirection;
   vec3 O, p, S;
 
-  for (vec2 r = iResolution.xy, Q; ++i < 60.; O += o.w/d*o.xyz) {
+  for (vec2 r = iResolution.xy, Q; ++i < 30.; O += o.w/d*o.xyz) {
     p = z*normalize(vec3(C-.5*r,r.y));
     p.z -= 4.;
     S = p;
@@ -106,7 +106,7 @@ export const Plasma = ({
         webgl: 2,
         alpha: true,
         antialias: false,
-        dpr: Math.min(window.devicePixelRatio || 1, 2)
+        dpr: 1
       });
     } catch (err) {
       console.warn('Plasma: no se pudo crear el contexto WebGL2, fondo desactivado.', err);
@@ -177,8 +177,15 @@ export const Plasma = ({
     let isVisible = true;
     const t0 = performance.now();
 
+    // Cap a 30fps: el shader es caro y a 60fps satura la GPU sin ganancia visual.
+    const frameInterval = 1000 / 30;
+    let lastFrame = 0;
+
     const loop = t => {
       if (contextLost || !isVisible) return;
+      raf = requestAnimationFrame(loop);
+      if (t - lastFrame < frameInterval) return;
+      lastFrame = t;
       let timeValue = (t - t0) * 0.001;
       if (direction === 'pingpong') {
         const pingpongDuration = 10;
@@ -193,7 +200,6 @@ export const Plasma = ({
         program.uniforms.iTime.value = timeValue;
       }
       renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
     };
 
     const handleContextLost = e => {

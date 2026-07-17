@@ -3,8 +3,7 @@ import ConsoleLayout from '../layouts/ConsoleLayout.astro';
 import ZenithHeader from '../components/console/ZenithHeader.astro';
 import ZenithFooter from '../components/console/ZenithFooter.astro';
 import NameOriginNote from '../components/react/NameOriginNote.jsx';
-import HubBackground from '../components/react/HubBackground.jsx';
-import SeedText from '../components/react/SeedText.jsx';
+import SeedWordmark from '../components/react/SeedWordmark.jsx';
 ---
 
 <ConsoleLayout title="ZenithSeed | Álvaro Sebastián Acosta" background="none">
@@ -15,9 +14,38 @@ import SeedText from '../components/react/SeedText.jsx';
         }
     </style>
 
-    <div class="fixed inset-0 -z-10 pointer-events-none">
-        <HubBackground client:idle />
+    <!-- Fondo: vídeo pre-renderizado del shader Plasma. Decode por hardware,
+         cero WebGL/JS en runtime. Base de gradiente para first-paint y para
+         quien pide reduced-motion (el vídeo se oculta). -->
+    <div class="hub-bg fixed inset-0 -z-10 pointer-events-none" aria-hidden="true">
+        <video
+            class="hub-bg-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            src="/assets/bg/plasma.webm"
+        ></video>
     </div>
+    <style>
+        .hub-bg {
+            background: radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--color-accent), transparent 86%) 0%, transparent 55%);
+        }
+        .hub-bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.75;
+            /* El vídeo está bakeado naranja-sobre-negro. Con screen, el negro
+               se vuelve transparente y solo brillan las vetas: replica el
+               alpha aditivo del shader Plasma original. */
+            mix-blend-mode: screen;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hub-bg-video { display: none; }
+        }
+    </style>
 
     <ZenithHeader />
 
@@ -27,7 +55,7 @@ import SeedText from '../components/react/SeedText.jsx';
             <div data-reveal class="flex flex-col items-center text-center gap-6 max-w-[720px] mx-auto">
                 <h1 class="w-full">
                     <span class="sr-only">ZenithSeed</span>
-                    <SeedText text="ZenithSeed" client:load />
+                    <SeedWordmark text="ZenithSeed" client:load />
                 </h1>
                 <p class="font-soft text-base md:text-lg text-[var(--color-text-muted)] leading-[1.6] max-w-[480px]">
                     Programación, videojuegos y aprender en público. Este es el punto de partida.
