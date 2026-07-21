@@ -1,0 +1,133 @@
+---
+// Overlay de transición entre páginas. En cada carga pinta "ZENITHSEED" y
+// colorea las letras de izquierda a derecha; al terminar se desvanece y deja
+// ver la página. Es CSS puro (auto-oculta), así que funciona aunque el JS
+// falle. El JS solo añade la salida: al pulsar un enlace interno vuelve a
+// cubrir antes de navegar, para que la transición sea de ida y vuelta.
+const word = 'ZENITHSEED';
+const splitAt = 6; // "ZENITH" (texto) + "SEED" (acento)
+const letters = word.split('');
+---
+
+<div id="page-transition" class="pt-overlay" aria-hidden="true">
+    <div class="pt-word" role="img" aria-label="ZenithSeed">
+        {letters.map((ch, i) => (
+            <span class={`pt-letter ${i >= splitAt ? 'pt-accent' : ''}`} style={`--i:${i}`}>{ch}</span>
+        ))}
+    </div>
+</div>
+
+<style>
+    .pt-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Colores de marca fijos: el overlay debe verse igual en cualquier
+           tema y también en layouts sin variables (blog). */
+        background: #0E0C10;
+        animation: ptOverlayOut 1.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .pt-word {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        font-size: clamp(2rem, 9vw, 5rem);
+        line-height: 1;
+        display: flex;
+    }
+
+    .pt-letter {
+        color: #FFF5F0;
+        opacity: 0.1;
+        transform: translateY(0.08em);
+        animation: ptLetterIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        /* Cascada izquierda→derecha: cada letra arranca 68ms después */
+        animation-delay: calc(var(--i) * 68ms);
+        will-change: opacity, transform;
+    }
+
+    .pt-accent { color: #FF7A42; }
+
+    @keyframes ptLetterIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes ptOverlayOut {
+        0%, 68% { opacity: 1; visibility: visible; }
+        100% { opacity: 0; visibility: hidden; }
+    }
+
+    /* Salida al navegar: vuelve a cubrir rápido antes del cambio de página */
+    .pt-overlay.pt-leaving {
+        animation: none;
+        opacity: 0;
+        visibility: visible;
+        transition: opacity 0.28s ease;
+    }
+    .pt-overlay.pt-leaving.pt-cover { opacity: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .pt-letter {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+        .pt-overlay { animation: ptOverlayOutReduced 0.5s ease forwards; }
+        @keyframes ptOverlayOutReduced {
+            0%, 40% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+    }
+</style>
+
+<script>
+    const overlay = document.getElementById('page-transition');
+    if (overlay) {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function isInternalNav(a: HTMLAnchorElement): boolean {
+            if (a.target === '_blank' || a.hasAttribute('download')) return false;
+            const href = a.getAttribute('href') || '';
+            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
+            const url = new URL(a.href, location.href);
+            if (url.origin !== location.origin) return false;
+            // Mismo documento (solo cambia el hash): no hay navegación real
+            return url.pathname !== location.pathname || url.search !== location.search;
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            const a = (e.target as HTMLElement).closest('a');
+            if (!a || !isInternalNav(a as HTMLAnchorElement)) return;
+
+            e.preventDefault();
+            const href = (a as HTMLAnchorElement).href;
+
+            if (reduce) { location.href = href; return; }
+
+            overlay.classList.add('pt-leaving');
+            // Reflow para que la transición de opacidad arranque desde 0
+            void (overlay as HTMLElement).offsetWidth;
+            overlay.classList.add('pt-cover');
+            const go = () => { location.href = href; };
+            overlay.addEventListener('transitionend', go, { once: true });
+            // Fallback por si transitionend no dispara
+            setTimeout(go, 400);
+        });
+
+        // Al volver con el botón atrás (bfcache) el overlay quedaría cubriendo:
+        // reseteamos para que la página se vea.
+        window.addEventListener('pageshow', (e) => {
+            if ((e as PageTransitionEvent).persisted) {
+                overlay.classList.remove('pt-leaving', 'pt-cover');
+            }
+        });
+    }
+</script>

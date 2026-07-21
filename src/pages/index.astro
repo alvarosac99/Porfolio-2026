@@ -14,36 +14,15 @@ import SeedWordmark from '../components/react/SeedWordmark.jsx';
         }
     </style>
 
-    <!-- Fondo: vídeo pre-renderizado del shader Plasma. Decode por hardware,
-         cero WebGL/JS en runtime. Base de gradiente para first-paint y para
-         quien pide reduced-motion (el vídeo se oculta). -->
-    <div class="hub-bg fixed inset-0 -z-10 pointer-events-none" aria-hidden="true">
-        <video
-            class="hub-bg-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
-            src="/assets/bg/plasma.webm"
-        ></video>
-    </div>
+    <!-- Fondo estatico: gradiente de marca. Cero JS/WebGL/vídeo en runtime,
+         pinta en el first-paint y no consume batería ni GPU. -->
+    <div class="hub-bg fixed inset-0 -z-10 pointer-events-none" aria-hidden="true"></div>
     <style>
         .hub-bg {
-            background: radial-gradient(120% 120% at 50% 0%, color-mix(in srgb, var(--color-accent), transparent 86%) 0%, transparent 55%);
-        }
-        .hub-bg-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.75;
-            /* El vídeo está bakeado naranja-sobre-negro. Con screen, el negro
-               se vuelve transparente y solo brillan las vetas: replica el
-               alpha aditivo del shader Plasma original. */
-            mix-blend-mode: screen;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .hub-bg-video { display: none; }
+            background:
+                radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--color-accent), transparent 82%) 0%, transparent 55%),
+                radial-gradient(90% 70% at 85% 100%, color-mix(in srgb, var(--color-accent), transparent 92%) 0%, transparent 60%),
+                linear-gradient(180deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
         }
     </style>
 

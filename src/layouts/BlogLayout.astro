@@ -1,5 +1,6 @@
 ---
 import '../styles/blog.css';
+import PageTransition from '../components/PageTransition.astro';
 
 interface Props {
     title: string;
@@ -22,6 +23,7 @@ const { title } = Astro.props;
         <title>{title}</title>
     </head>
     <body class="min-h-screen flex flex-col">
+        <PageTransition />
         <slot />
     </body>
 </html>
