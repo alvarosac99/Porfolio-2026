@@ -13,9 +13,176 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Fade rápido del contenido al cargar una página del blog. La nav interna
+   (blog→blog) se salta el overlay grande de ZenithSeed (PageTransition.astro),
+   así que entrar a un artículo o cambiar de tab se siente rápido y suave, solo
+   este fade. Los saltos entre secciones siguen con el overlay grande. */
+@media (prefers-reduced-motion: no-preference) {
+    main {
+        animation: blogContentFade 0.22s ease both;
+    }
+}
+@keyframes blogContentFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 body {
     background: var(--blog-paper);
     color: var(--blog-ink);
     font-family: 'Manrope', sans-serif;
     margin: 0;
+}
+
+/* Cuerpo justificado: bloques rectos, look editorial. Con guionado (html
+   lang="es") para que al justificar pueda cortar palabras y no deje huecos
+   grandes. hyphenate-limit-chars deja partir palabras de 6+ letras. */
+article p {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 2;
+}
+
+/* Junto a imágenes flotantes la columna es estrecha y el justificado deja
+   huecos feos: ahí mejor alineado a la izquierda (ragged). El justificado
+   se mantiene en los párrafos a ancho completo. */
+.fig-flow p {
+    text-align: left;
+}
+
+/* Enfasis: un solo estilo de negrita, mismo color que el cuerpo */
+article p strong,
+article li strong {
+    font-weight: 700;
+    color: var(--blog-ink);
+}
+
+/* Cursiva: misma familia que el cuerpo (Manrope), sin serif */
+article p em,
+article li em {
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Figuras del cuerpo: imagen enmarcada + pie contextual */
+article figure {
+    margin: 0;
+}
+article figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--blog-hairline);
+    cursor: zoom-in;
+}
+
+/* Lightbox: al clicar una imagen del artículo se amplía (dialog nativo). */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    border: none;
+    padding: 0;
+    background: transparent;
+    width: fit-content;
+    height: fit-content;
+    max-width: 92vw;
+    max-height: 92vh;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+.lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+}
+/* Estado inicial: encaja en pantalla. Clic sobre la imagen amplía a tamaño
+   natural (.zoomed) y el diálogo hace scroll para leer el detalle. */
+.lightbox img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 92vw;
+    max-height: 92vh;
+    cursor: zoom-in;
+}
+.lightbox img.zoomed {
+    max-width: none;
+    max-height: none;
+    cursor: zoom-out;
+}
+article figure figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--blog-ink-muted);
+}
+
+/* ============================================================
+   Plantillas de imagen (elegir por contexto y proporción)
+   1. fig-full   -> ancha/densa (dashboards, gráficas). Bloque completo.
+   2. fig-flow   -> contenedor: mete dentro una figura flotante (fig-left/
+                    fig-right) + los párrafos que la envuelven. Ideal para
+                    imágenes ALTAS (capturas de móvil) para que no invadan.
+   3. fig-inline -> imagen pequeña, centrada, tamaño medio.
+   Todas admiten `reveal` para la animación de entrada.
+   ============================================================ */
+
+/* Bloque completo (default de <figure> ya es esto) */
+article figure.fig-full { width: 100%; }
+
+/* Contenedor de flujo: dentro, el float envuelve al texto */
+article .fig-flow { display: block; }
+article .fig-flow::after { content: ""; display: block; clear: both; }
+article .fig-flow p { margin: 0 0 1.1em; }
+article .fig-flow p:last-child { margin-bottom: 0; }
+
+article figure.fig-left,
+article figure.fig-right {
+    max-width: 320px;
+    margin-top: 4px;
+    margin-bottom: 14px;
+}
+article figure.fig-left  { float: left;  margin-right: 28px; }
+article figure.fig-right { float: right; margin-left: 28px; }
+
+/* Float más grande, cuando hay texto de sobra para envolverlo */
+article figure.fig-lg { max-width: 440px; }
+
+/* Imagen pequeña centrada */
+article figure.fig-inline {
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* En móvil los floats pasan a bloque completo (no invaden) */
+@media (max-width: 640px) {
+    article figure.fig-left,
+    article figure.fig-right,
+    article figure.fig-lg {
+        float: none;
+        max-width: 100%;
+        margin: 20px 0;
+    }
+}
+
+/* Placeholder de imagen (solo borrador/dev, se quita antes del deploy) */
+.img-suggest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 220px;
+    padding: 32px;
+    border: 2px dashed var(--blog-accent);
+    background: color-mix(in srgb, var(--blog-accent) 6%, var(--blog-paper));
+    color: var(--blog-ink-muted);
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.img-suggest b {
+    color: var(--blog-accent);
+    font-weight: 700;
 }

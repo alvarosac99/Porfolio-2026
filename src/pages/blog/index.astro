@@ -13,7 +13,7 @@ const [featured, ...rest] = filtered;
 const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
 ---
 
-<BlogLayout title="Zenith Blog | Álvaro Sebastián Acosta">
+<BlogLayout title="ZenithBlog | Álvaro Sebastián Acosta">
     <BlogHeader activeCategory={activeCategory} />
 
     <main class="flex-grow w-full px-5 md:px-10 lg:px-16 py-12 md:py-16">
@@ -37,6 +37,12 @@ const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
                             <div class="flex items-center gap-2.5">
                                 <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[featured.category]}</span>
                                 <span class="text-[14px] text-[var(--blog-ink-muted)]">{featured.dateLabel}</span>
+                                {featured.readingMin && (
+                                    <>
+                                        <span class="text-[14px] text-[var(--blog-ink-muted)]">·</span>
+                                        <span class="text-[14px] text-[var(--blog-ink-muted)]">{featured.readingMin} min de lectura</span>
+                                    </>
+                                )}
                             </div>
                             <h1 class="text-[28px] md:text-[40px] font-bold leading-[1.2]">{featured.title}</h1>
                             <p class="text-[16px] text-[var(--blog-ink-muted)] leading-[1.5] max-w-[620px]">{featured.excerpt}</p>
@@ -58,6 +64,9 @@ const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
                                     <div class="flex items-center gap-2.5 mt-5">
                                         <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[post.category]}</span>
                                         <span class="text-[14px] text-[var(--blog-ink-muted)]">{post.dateLabel}</span>
+                                        {post.readingMin && (
+                                            <span class="text-[13px] text-[var(--blog-ink-muted)]">· {post.readingMin} min</span>
+                                        )}
                                     </div>
                                     <h2 class="text-[18px] md:text-[20px] font-semibold leading-snug mt-2">{post.title}</h2>
                                 </a>

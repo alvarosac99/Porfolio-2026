@@ -40,6 +40,27 @@ Así el nivel de redacción sube y se pega cada vez más a su forma de escribir.
 Añadir arriba del todo (más reciente primero). No borrar reglas viejas salvo
 que Sebas las contradiga; si las contradice, reemplazar y anotar el cambio. -->
 
+- [2026-07-22] Nada de aparentar que sabe mucho ni de lucirse. No tiene NADA
+  que demostrar. El objetivo del blog es acercar a la gente lo que se puede
+  hacer y divertirse, no impresionar. Balance con la regla de "no proyectar
+  ignorancia": seguro y directo cuando sabe algo, pero sin flexear, sin "mira
+  lo que he montado", sin tono de experto que sienta cátedra. Escribe como
+  quien comparte algo chulo con un colega, no como quien exhibe un CV.
+- [2026-07-22] Nunca escribirle como que NO sabe algo. Sebas sabe de lo que
+  habla: nada de "formas hay, no lo dudo", "no sé bien cómo", "supongo que",
+  "igual me equivoco". No es arrogancia ni saberlo todo, es no proyectar
+  ignorancia sobre algo que domina. Si al redactar hace falta afirmar que no
+  sabe/no controla algo, PREGUNTARLE antes en vez de escribirlo. Cuando sabe la
+  respuesta, se dice directo y con seguridad, sin coletillas de duda.
+- [2026-07-22] Titulares (`h2`) concretos, nunca vagos ni de relleno. Prohibido
+  el patrón "La parte que...", "Lo que hace que...", "El truco de...". El título
+  dice QUÉ pasa en la sección ("Cada corrección se vuelve una regla"), no lo
+  teasea. Y no repetir la misma muletilla en título y cuerpo (si el cuerpo dice
+  "la parte que más me sirve", el título no puede empezar igual).
+- [2026-07-22] Evitar muletillas que huelen a IA: nada de "la parte honesta",
+  "ahora la parte X", "seamos sinceros", ni titulares tipo "Lo que se rompió".
+  Empezar directo por el hecho. Si un título necesita drama, mejor coloquial y
+  suyo ("Cuando algo petó") que plantilla neutra.
 - [2026-07-22] Los artículos pueden ir "a lo grande": no limitarse a lo mínimo,
   contar el sistema completo cuando el tema lo pide, sin inflar con humo.
 - [2026-07-22] Preferencia estética firme: cero guiones largos en los posts.

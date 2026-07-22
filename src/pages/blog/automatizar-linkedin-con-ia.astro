@@ -1,0 +1,148 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogHeader from '../../components/blog/BlogHeader.astro';
+import BlogSearch from '../../components/blog/BlogSearch.jsx';
+import { posts } from '../../data/blogPosts.js';
+
+const post = posts.find(p => p.slug === 'automatizar-linkedin-con-ia');
+const { title, category, dateLabel, cover, readingMin } = post;
+const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
+---
+
+<BlogLayout title={`${title} | ZenithBlog`}>
+    <BlogHeader activeCategory={category} />
+
+    <main class="flex-grow w-full px-5 md:px-10 lg:px-16 py-10 md:py-14">
+        <article class="max-w-[760px] mx-auto">
+            <a href="/blog" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--blog-ink-muted)] hover:text-[var(--blog-accent)] transition-colors mb-8">
+                <span aria-hidden="true">&lsaquo;</span> Volver al blog
+            </a>
+
+            <div class="flex items-center gap-2.5 mb-4">
+                <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[category]}</span>
+                <span class="text-[14px] text-[var(--blog-ink-muted)]">{dateLabel}</span>
+                {readingMin && (
+                    <>
+                        <span class="text-[14px] text-[var(--blog-ink-muted)]">·</span>
+                        <span class="text-[14px] text-[var(--blog-ink-muted)]">{readingMin} min de lectura</span>
+                    </>
+                )}
+            </div>
+
+            <h1 class="text-[30px] md:text-[42px] font-extrabold leading-[1.15] mb-8">{title}</h1>
+
+            <div class="w-full aspect-[16/7] overflow-hidden mb-10">
+                <img src={cover} alt="" class="w-full h-full object-cover" />
+            </div>
+
+            <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-[var(--blog-ink)]">
+                <p>
+                    Durante un tiempo tuve una idea fija: quería estar presente en LinkedIn y encima de las ofertas que salían, pero sin dedicarle media vida cada semana. Publicar con constancia cansa, y revisar treinta correos de ofertas para encontrar dos que valgan cansa todavía más. Así que monté un agente que hiciera el trabajo pesado por mí. Lo construí con <strong>OpenClaw</strong>, corre en mi VPS y hace tres cosas: me lee los correos y me arma un informe, me prepara los borradores de los posts y los publica <em>cuando yo doy el ok</em>. Por debajo no me caso con ningún modelo: tiro de OpenRouter y enchufo lo que me conviene en cada momento, <strong>DeepSeek</strong> u otro, según el trabajo y lo que me cueste.
+                </p>
+                <p>
+                    Antes de nada, lo importante: esto <em>no es un bot que spamea ni scrapea nada</em>. No publica nunca sin mi <strong>aprobación explícita</strong>, y cuando publica lo hace por la vía oficial. Es un ayudante que baja la fricción, no un piloto automático que habla por mí.
+                </p>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Me lee los correos y me monta un informe</h2>
+                <p>
+                    La parte que más me sirve <em>no son los posts, es el informe</em>. El agente entra por IMAP a mi correo (uso Stalwart self-hosted), lee los emails que me manda LinkedIn, filtra solo las empresas reales y con eso genera un PDF semanal. No es un resumen tonto: trae el encaje de mi perfil con el mercado, los gaps de mi portfolio, las ofertas remoto que de verdad cuadran conmigo, tendencias de skills que suben y bajan, salarios y un plan de acción priorizado.
+                </p>
+                <p>
+                    Lo bueno es que <strong>me dice qué me falta</strong>. Una de las recomendaciones de una semana fue "reforzar Python y el perfil de IA/LLMs en el CV", porque eran las skills que más aparecían en las ofertas que había encontrado. En vez de leer correos sueltos, abro un PDF que me señala dónde apretar. Eso vale más que cualquier post.
+                </p>
+                <p>
+                    Todo esto <strong>bebe de mis correos</strong>, nada más. Y como solo lee correos, el truco está en dejar bien configuradas las alertas y las ofertas de LinkedIn para ese usuario: si las alertas están afinadas, al buzón llega justo lo que me interesa. Suena a poco, pero <em>funciona muy bien</em>.
+                </p>
+                <p>
+                    Y esto va mucho más allá de LinkedIn. El correo es <strong>una mina que casi nadie aprovecha</strong>: cada día llegan ofertas, facturas, avisos, seguimientos, información que se queda ahí muerta en el buzón. Hoy cualquiera desde su casa puede apuntar algo parecido a su propio correo y sacarle partido para lo que necesite. No hace falta un montaje enorme ni ser nadie especial. Si el buzón ya tiene la información, <em>lo raro es no usarla</em>.
+                </p>
+                <p>
+                    Sí, se podría montar web scraping y tirar directamente de la web de LinkedIn. LinkedIn lo bloquea fuerte, sobre todo por IP de datacenter, que es justo lo que tiene un VPS. Se podría esquivar enrutando la salida del servidor y scrapeando por una IP residencial, la de los datos de mi móvil por ejemplo. Pero no lo hago. Elijo la <strong>vía lícita</strong>: el propio LinkedIn te deja crear alertas, así que para qué pelearme con el scraping cuando la puerta buena ya está abierta.
+                </p>
+                <figure class="fig-full">
+                    <img src="/assets/blog/automatizar-linkedin-con-ia/informe-posicionamiento.jpg" alt="Página del informe: 65% de encaje con el mercado y tabla de gaps del portfolio frente a ofertas reales" />
+                    <figcaption>Una página del informe semanal: el encaje con el mercado y la lista de gaps de mi portfolio ordenados por prioridad.</figcaption>
+                </figure>
+                <figure class="fig-full">
+                    <img src="/assets/blog/automatizar-linkedin-con-ia/informe-tendencias.jpg" alt="Página del informe: skills en alza y en baja, salarios de referencia y estadísticas del perfil de LinkedIn" />
+                    <figcaption>Otra página: qué skills suben y bajan en el mercado y las estadísticas de mi perfil. Lo que más me flipa está abajo a la derecha: la IA ve que pasé de un pico de 18.927 impresiones a 58 porque dejé de publicar, y avisa de que sin posts nuevos el algoritmo baja la visibilidad. De esto hablaré más adelante.</figcaption>
+                </figure>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Redacta los borradores, yo decido</h2>
+                <div class="fig-flow">
+                    <figure class="fig-left">
+                        <img src="/assets/blog/automatizar-linkedin-con-ia/discord-borradores.jpg" alt="Mensaje del bot Claw LinkedIn en Discord con la propuesta de post del martes lista para revisar" />
+                        <figcaption>Así me llega cada borrador: un mensaje del bot por Discord, solo texto, esperando mi "texto ok" antes de entrar en la cola.</figcaption>
+                    </figure>
+                    <p>
+                        Los lunes el agente me prepara tres borradores, uno para martes, otro para miércoles y otro para jueves. Me los pasa por Discord, solo texto. Yo leo, digo "texto ok" o pido cambios, y hasta que no valido <strong>no entra nada en la cola</strong>. Si un post no está completo, ese día simplemente no se publica y el hueco queda vacío. Prefiero no publicar a publicar algo que no he mirado.
+                    </p>
+                    <p>
+                        Las imágenes tienen una regla que me gusta: no ilustran la opinión del post, representan <em>el contrapunto, la otra cara de la moneda</em>. Si el post defiende algo, la imagen enseña la duda. Ayuda a que el post genere debate en vez de sonar a sermón.
+                    </p>
+                    <p>
+                        Y esas imágenes también las genera el agente. Por cada borrador llama a un modelo de imagen de Google, <strong>Gemini</strong>, a través de OpenRouter, con una plantilla de prompt fija para que todas tengan el mismo aire: una infografía flat en español, con un <em>avatar mío recurrente</em>, sudadera negra y franjas naranjas, y una paleta fija de azul, verde y ámbar. La plantilla obliga a variar la composición en cada una para que no salgan clavadas, y trae reglas duras, como que no aparezca ningún nombre ni dato personal dentro. La idea de fondo la pongo yo, el estilo lo pone siempre la misma plantilla.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Cómo publica de verdad</h2>
+                <p>
+                    La publicación es un script de Python con requests que habla con la API oficial de LinkedIn, el endpoint <code>v2/ugcPosts</code>, usando un token OAuth con el permiso <code>w_member_social</code>. Eso publica en mi perfil personal por la vía buena, sin cookies raras ni scraping. El script también parsea menciones que escribo como <code>@[Nombre](urn:li:organization:ID)</code> y las convierte en menciones reales, y si el post lleva imagen la registra y la sube antes de publicar.
+                </p>
+                <p>
+                    El resto es fontanería, y aquí está lo bonito. Los crons no son un <code>crontab</code> del sistema, van en el propio programador de OpenClaw, y un cron ahí no dispara solo un script: dispara al <strong>agente entero</strong> con una instrucción fija. Cada tarea es una expresión de cron más un prompt. Por ejemplo <code>0 8 * * 1</code> quiere decir <em>todos los lunes a las 8:00</em>: a esa hora OpenClaw arranca el agente y le toca leer los correos y montar el informe. Otro cron, también los lunes, le manda generar los tres borradores con sus imágenes. Y un tercero lanza la publicación martes, miércoles y jueves a las 9:13: lee el fichero de ese día en la cola y publica. Si no hay fichero, no pasa nada, no publica. Nada de magia, cosas que llevan décadas funcionando bien puestas en fila.
+                </p>
+                <figure class="fig-full reveal reveal-up">
+                    <img src="/assets/blog/automatizar-linkedin-con-ia/openclaw-crons.png" alt="Panel de tareas cron de OpenClaw con los trabajos programados del agente de LinkedIn" loading="lazy" />
+                    <figcaption>El panel de crons de OpenClaw. Aquí viven las tareas programadas, cada una con su horario: el informe semanal y la generación de borradores. Tapé los correos y las rutas internas, no hace falta enseñar eso.</figcaption>
+                </figure>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Cada corrección se vuelve una regla</h2>
+                <p>
+                    De todo el sistema, esto es lo que más me gusta. El agente guarda en un documento .md todas mis correcciones relevantes de estilo. Un día le dije que no me gustan los guiones largos en los posts, y esa regla quedó anotada. A partir de ahí, todos los borradores ya vienen sin guiones. Cada corrección que hago se convierte en una regla, y el siguiente primer borrador arranca más cerca de cómo escribo yo.
+                </p>
+                <p>
+                    Es un bucle de feedback sencillo pero potente: <em>cuanto más lo corrijo, menos lo corrijo</em>. Y no es exclusivo de LinkedIn. Este mismo blog usa la misma idea, un fichero de voz que crece cada vez que le digo cómo quiero que suene. La automatización no sustituye mi criterio, lo va absorbiendo.
+                </p>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Cuando algo petó</h2>
+                <p>
+                    No todo salió a la primera. Hubo una semana en la que el cron del martes se ejecutó sin ningún fichero en la cola y no publicó nada, y otra en la que se cruzaron las imágenes de día, una foto de infraestructura acabó en un post que hablaba de IA. Total que metí una validación obligatoria: antes de dar una semana por lista, se comprueba que están los <strong>seis ficheros</strong> de la semana, los tres textos y sus tres imágenes, que cada texto va con la suya y que ninguno se ha mezclado de día.
+                </p>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">El pico, y lo que me hace pensar</h2>
+                <p>
+                    El perfil venía de <strong>cero visibilidad</strong>, nadie me veía. Con este flujo, uno de los posts petó y llegó a unas <strong>19.000 impresiones</strong>, y a partir de ahí las siguientes ya se mueven en unas 500 por publicación en vez de quedarse en nada. Cuando vi ese salto sentí emoción de verdad: <em>lo que creía se estaba confirmando, era viable</em>. No lo cuento por el número, sino porque un pipeline sencillo, bien montado, movió un perfil que antes no leía nadie.
+                </p>
+                <div class="fig-flow">
+                    <figure class="fig-right fig-lg">
+                        <img src="/assets/blog/automatizar-linkedin-con-ia/linkedin-analytics.jpg" alt="Panel de analytics de LinkedIn con el pico de impresiones del post" />
+                        <figcaption>El panel de LinkedIn a 90 días: 25.496 impresiones en total, el pico del día que un post petó, y después un suelo de unas 500 por publicación en vez de cero.</figcaption>
+                    </figure>
+                    <p>
+                        Pongo esa captura por algo más que el número. Ese pico significa que con IA y automatización un perfil ha cogido <strong>algo de gancho</strong>, y eso da que pensar. Se me viene a la cabeza que la IA puede llevar sola una red social: en TikTok hay cuentas que solo suben contenido generado y hacen millones de visitas. En LinkedIn yo he probado <em>una versión pequeña de lo mismo</em>. Quién sabe, igual alguien ha hecho justo esto pero dejándolo en piloto automático, y por eso tiene hoy un perfil con nombre en la plataforma.
+                    </p>
+                    <p>
+                        Me motiva, veo un potencial enorme en desarrollar mis habilidades con la IA. Pero también me deja algo inquieto y me hace preguntarme si las redes no están llegando a un límite poco sano. Es un tema largo y no creo que este sea el sitio para abrirlo.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Cambio de rumbo</h2>
+                <p>
+                    Monté todo esto para armar un <strong>perfil potente en LinkedIn</strong>, y funciona. Pero las redes sociales no me van demasiado, y eso da para otro post. Usé LinkedIn así sobre todo para ver si era viable no quedarme atrás, y me ha gustado comprobar que lo es sin tener que meterme del todo en ese juego, que es justo lo que no me gusta.
+                </p>
+                <p>
+                    Y hay algo de fondo que me importa más: <strong>creo en la automatización</strong>, pero no en automatizar la imaginación. La publicación, el envío, la fontanería, todo eso sí. Las ideas no. Lo que de verdad quieres contar sale de ti, no de un modelo tirando solo, <em>al menos a día de hoy</em>. Por eso voy a guardar mis ideas en otro sitio, porque mis ideas, por lo que sea, sí me gustan.
+                </p>
+                <p>
+                    Donde sí me encaja la IA es en lo de después: <em>publicar, no pensar</em>. De hecho este mismo post sale así, con una <strong>skill que me hice</strong> para subir contenido a esta página. La idea es mía, la fontanería es suya.
+                </p>
+                <p>
+                    Así que cambio de rumbo: mi prioridad pasa a ser <strong>este blog</strong>, que sí es mío de verdad, sin algoritmo de por medio. LinkedIn se queda como megáfono, para avisar cada vez que publique algo aquí. Si te interesa lo que cuento, este es el sitio, y estaría bien que lo siguieras desde aquí.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <BlogSearch posts={posts} client:idle />
+</BlogLayout>

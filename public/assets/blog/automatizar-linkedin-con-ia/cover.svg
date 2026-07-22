@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-label="OpenClaw publica en LinkedIn">
+  <defs>
+    <style>.sans { font-family: "Manrope", "Segoe UI", system-ui, sans-serif; }</style>
+    <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fff4ec"/>
+      <stop offset="55%" stop-color="#faf6f0"/>
+      <stop offset="100%" stop-color="#f0e7db"/>
+    </radialGradient>
+    <linearGradient id="claw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2018"/>
+      <stop offset="100%" stop-color="#14100b"/>
+    </linearGradient>
+    <linearGradient id="lobster-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d4d"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <!-- Fondo con glow -->
+  <rect width="1600" height="700" fill="url(#glow)"/>
+
+  <!-- Blobs suaves de acento -->
+  <g filter="url(#soft)" opacity="0.5">
+    <circle cx="520" cy="240" r="130" fill="#ff7a42" opacity="0.22"/>
+    <circle cx="1090" cy="470" r="150" fill="#0a66c2" opacity="0.16"/>
+  </g>
+
+  <!-- Trama de puntos sutil -->
+  <g fill="#e2d7c7">
+    <circle cx="150" cy="120" r="3.5"/><circle cx="250" cy="120" r="3.5"/><circle cx="150" cy="220" r="3.5"/>
+    <circle cx="1450" cy="580" r="3.5"/><circle cx="1350" cy="580" r="3.5"/><circle cx="1450" cy="480" r="3.5"/>
+  </g>
+
+  <!-- ===== OpenClaw (izquierda) ===== -->
+  <g transform="translate(560,350)">
+    <rect x="-120" y="-120" width="240" height="240" rx="52" fill="url(#claw)"/>
+    <!-- logo oficial OpenClaw (openclaw.ai/favicon.svg) -->
+    <g transform="translate(-85,-85) scale(1.42)">
+      <path d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z" fill="url(#lobster-gradient)"/>
+      <path d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z" fill="url(#lobster-gradient)"/>
+      <path d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z" fill="url(#lobster-gradient)"/>
+      <path d="M45 15 Q35 5 30 8" stroke="#ff4d4d" stroke-width="3" stroke-linecap="round"/>
+      <path d="M75 15 Q85 5 90 8" stroke="#ff4d4d" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="45" cy="35" r="6" fill="#050810"/>
+      <circle cx="75" cy="35" r="6" fill="#050810"/>
+      <circle cx="46" cy="34" r="2.5" fill="#00e5cc"/>
+      <circle cx="76" cy="34" r="2.5" fill="#00e5cc"/>
+    </g>
+  </g>
+  <text x="560" y="530" text-anchor="middle" class="sans" font-size="30" font-weight="800" fill="#1a1510">OpenClaw</text>
+
+  <!-- ===== Flecha ===== -->
+  <g>
+    <line x1="720" y1="350" x2="1000" y2="350" stroke="#ff7a42" stroke-width="7" stroke-dasharray="16 18" stroke-linecap="round"/>
+    <path d="M992 328 L1036 350 L992 372 Z" fill="#ff7a42"/>
+  </g>
+
+  <!-- ===== LinkedIn (derecha) ===== -->
+  <g transform="translate(1040,230)">
+    <rect x="0" y="0" width="240" height="240" rx="52" fill="#0a66c2"/>
+    <circle cx="55" cy="70" r="18" fill="#ffffff"/>
+    <rect x="42" y="100" width="26" height="96" fill="#ffffff"/>
+    <path d="M88 196 V100 h26 v14 c8,-12 22,-18 36,-18 30,0 44,20 44,52 v48 h-26 v-44 c0,-18 -8,-28 -24,-28 -16,0 -30,10 -30,32 v40 z" fill="#ffffff"/>
+  </g>
+  <text x="1160" y="530" text-anchor="middle" class="sans" font-size="30" font-weight="800" fill="#1a1510">LinkedIn</text>
+
+  <!-- ===== Wordmark ===== -->
+  <text x="1520" y="656" text-anchor="end" class="sans" font-size="24" font-weight="800"><tspan fill="#1a1510">Zenith</tspan><tspan fill="#ff7a42">Blog</tspan></text>
+</svg>

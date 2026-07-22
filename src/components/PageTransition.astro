@@ -16,6 +16,17 @@ const letters = word.split('');
         ))}
     </div>
 </div>
+<script is:inline>
+    // Navegación interna del blog (blog→blog): no queremos el overlay grande
+    // de ZenithSeed, solo un fade rápido (ver blog.css). El flag lo pone el
+    // handler de clic de abajo antes de navegar.
+    try {
+        if (sessionStorage.getItem('ztBlogNav')) {
+            sessionStorage.removeItem('ztBlogNav');
+            document.getElementById('page-transition')?.classList.add('pt-skip');
+        }
+    } catch (e) {}
+</script>
 
 <style>
     .pt-overlay {
@@ -79,6 +90,10 @@ const letters = word.split('');
        salir ocultamos la palabra y cubrimos solo con el fondo. */
     .pt-overlay.pt-leaving .pt-word { opacity: 0; }
 
+    /* Navegación interna del blog: sin overlay grande, carga instantánea + el
+       fade rápido del contenido que vive en blog.css. */
+    .pt-overlay.pt-skip { display: none; animation: none; }
+
     @media (prefers-reduced-motion: reduce) {
         .pt-letter {
             opacity: 1;
@@ -112,6 +127,15 @@ const letters = word.split('');
             if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
             const a = (e.target as HTMLElement).closest('a');
             if (!a || !isInternalNav(a as HTMLAnchorElement)) return;
+
+            // Navegación dentro del blog (blog→blog): sin overlay grande. Deja
+            // que el navegador cargue normal (rápido) y marca un flag para que
+            // la página nueva se salte el overlay y solo haga el fade suave.
+            const target = new URL((a as HTMLAnchorElement).href, location.href);
+            if (location.pathname.startsWith('/blog') && target.pathname.startsWith('/blog')) {
+                try { sessionStorage.setItem('ztBlogNav', '1'); } catch (err) {}
+                return;
+            }
 
             e.preventDefault();
             const href = (a as HTMLAnchorElement).href;

@@ -1,6 +1,7 @@
 ---
 import '../styles/blog.css';
 import PageTransition from '../components/PageTransition.astro';
+import BlogFooter from '../components/blog/BlogFooter.astro';
 
 interface Props {
     title: string;
@@ -13,7 +14,7 @@ const { title } = Astro.props;
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Zenith Blog, de Álvaro Sebastián Acosta" />
+        <meta name="description" content="ZenithBlog, de Álvaro Sebastián Acosta" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,5 +26,25 @@ const { title } = Astro.props;
     <body class="min-h-screen flex flex-col">
         <PageTransition />
         <slot />
+        <BlogFooter />
+
+        <dialog id="lightbox" class="lightbox"><img alt="" /></dialog>
+        <script is:inline>
+            const dlg = document.getElementById('lightbox');
+            if (dlg) {
+                const dimg = dlg.querySelector('img');
+                document.addEventListener('click', (e) => {
+                    if (e.target.matches('article figure img')) {
+                        dimg.src = e.target.currentSrc || e.target.src;
+                        dimg.classList.remove('zoomed');
+                        dlg.showModal();
+                    } else if (e.target === dimg) {
+                        dimg.classList.toggle('zoomed');
+                    } else if (dlg.open) {
+                        dlg.close();
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
