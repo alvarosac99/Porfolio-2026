@@ -30,7 +30,13 @@ Go through every concrete technical claim, number, tool name, and version the us
 - Never pad the post with invented specifics (fake benchmark numbers, fake dates, fake tool names) to make it sound more complete. If a section is thin, keep it short rather than inventing filler.
 
 ### 3. Draft in their voice
-This is the most important step. Ground every draft in what's already been established about how this person actually writes and talks about their work (read `src/components/react/TechLoop.jsx` for their real first-person tech opinions, and the "Quién soy" prose in `src/pages/index.astro` for their long-form voice, before drafting). Concretely:
+This is the most important step.
+
+**3a. Read `VOZ.md` (in this skill folder) FIRST, every time.** It is the single source of truth for tone: a fixed core plus a growing "Reglas aprendidas" list. It overrides the generic guidance below whenever they conflict. Still cross-check against how this person actually writes (read `src/components/react/TechLoop.jsx` for their real first-person tech opinions, and the "Quién soy" prose in `src/pages/index.astro` for their long-form voice) before drafting.
+
+**3b. Keep `VOZ.md` alive (the feedback loop).** Whenever Sebas gives a new instruction about tone, style, wording, structure, or something he wants changed in how posts read, append it to the "Reglas aprendidas" section of `VOZ.md` (most recent first, dated `[AAAA-MM-DD]`) BEFORE you finish the task. If a new instruction contradicts an old rule, replace the old one and note the change. This is what makes the writing adapt to him over time. Do it even for small corrections ("no me gusta esta palabra", "más corto", "no empieces así").
+
+Concretely, the tone is:
 - First person, informal-technical Spanish, humble and matter-of-fact — never salesy, never "revolucionario/innovador/game-changer".
 - Short, direct sentences over long compound ones. Contractions and casual connectors are fine ("total que", "así que", "al final").
 - **No em-dashes or en-dashes anywhere** — use a period, comma, or colon instead. This applies to headings, body, everything.
