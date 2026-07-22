@@ -40,6 +40,10 @@ Así el nivel de redacción sube y se pega cada vez más a su forma de escribir.
 Añadir arriba del todo (más reciente primero). No borrar reglas viejas salvo
 que Sebas las contradiga; si las contradice, reemplazar y anotar el cambio. -->
 
+- [2026-07-22] No abusar del tag "sin humo". Es el ángulo del blog, pero
+  repetirlo (en el mismo post, y menos en el post de LinkedIn que lo promociona)
+  cansa. Usarlo como mucho una vez, o directamente no usarlo si ya se entiende
+  el tono. Mismo criterio para cualquier muletilla de marca.
 - [2026-07-22] Nada de aparentar que sabe mucho ni de lucirse. No tiene NADA
   que demostrar. El objetivo del blog es acercar a la gente lo que se puede
   hacer y divertirse, no impresionar. Balance con la regla de "no proyectar
