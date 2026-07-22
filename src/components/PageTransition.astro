@@ -72,6 +72,12 @@ const letters = word.split('');
         transition: opacity 0.28s ease;
     }
     .pt-overlay.pt-leaving.pt-cover { opacity: 1; }
+    /* Al navegar, las letras del overlay ya están animadas a opacidad 1 (la
+       animación de entrada terminó hace rato). Si dejáramos verlas, la
+       cubierta de salida mostraría "ZenithSeed" entero un instante antes de
+       que la página nueva recargue y repinte las siluetas: ese destello. Al
+       salir ocultamos la palabra y cubrimos solo con el fondo. */
+    .pt-overlay.pt-leaving .pt-word { opacity: 0; }
 
     @media (prefers-reduced-motion: reduce) {
         .pt-letter {
