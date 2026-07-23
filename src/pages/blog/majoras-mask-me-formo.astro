@@ -2,6 +2,7 @@
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import BlogHeader from '../../components/blog/BlogHeader.astro';
 import BlogSearch from '../../components/blog/BlogSearch.jsx';
+import BlogRelated from '../../components/blog/BlogRelated.astro';
 import { posts } from '../../data/blogPosts.js';
 
 const post = posts.find(p => p.slug === 'majoras-mask-me-formo');
@@ -195,6 +196,8 @@ const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
             </div>
         </article>
     </main>
+
+    <BlogRelated posts={posts} currentSlug="majoras-mask-me-formo" />
 
     <BlogSearch posts={posts} client:idle />
 </BlogLayout>

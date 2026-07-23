@@ -1,0 +1,55 @@
+---
+// Sección "Sigue leyendo": recomienda otros artículos del sitio.
+// Renderiza todas las cards de los demás posts y un script en cliente
+// las baraja y deja solo `count` en cada carga (aleatorio de verdad por visita).
+const { posts, currentSlug, count = 3 } = Astro.props;
+
+const others = posts.filter(p => p.slug !== currentSlug);
+const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
+---
+
+{others.length > 0 && (
+    <section class="max-w-[1200px] mx-auto w-full px-5 md:px-10 lg:px-16 pb-16">
+        <div class="h-px w-full bg-[var(--blog-hairline)] mb-8"></div>
+        <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mb-8">Sigue leyendo</h2>
+
+        <div class="blog-related grid grid-cols-1 md:grid-cols-3 gap-5" data-count={count}>
+            {others.map(post => (
+                <a href={`/blog/${post.slug}`} class="group block">
+                    <div class="w-full aspect-[4/3] overflow-hidden">
+                        <img
+                            src={post.cover}
+                            alt=""
+                            loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                        />
+                    </div>
+                    <div class="flex items-center gap-2.5 mt-5">
+                        <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[post.category]}</span>
+                        <span class="text-[14px] text-[var(--blog-ink-muted)]">{post.dateLabel}</span>
+                        {post.readingMin && (
+                            <span class="text-[13px] text-[var(--blog-ink-muted)]">· {post.readingMin} min</span>
+                        )}
+                    </div>
+                    <h3 class="text-[18px] md:text-[20px] font-semibold leading-snug mt-2">{post.title}</h3>
+                </a>
+            ))}
+        </div>
+    </section>
+)}
+
+<script>
+    // Baraja las cards y deja solo `count` en cada carga.
+    document.querySelectorAll('.blog-related').forEach(grid => {
+        const count = parseInt(grid.getAttribute('data-count') || '3', 10);
+        const cards = Array.from(grid.children);
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+        cards.forEach((card, idx) => {
+            if (idx < count) grid.appendChild(card);
+            else card.remove();
+        });
+    });
+</script>
