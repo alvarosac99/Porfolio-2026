@@ -45,11 +45,11 @@ article p {
     hyphenate-limit-chars: 6 3 2;
 }
 
-/* Junto a imágenes flotantes la columna es estrecha y el justificado deja
-   huecos feos: ahí mejor alineado a la izquierda (ragged). El justificado
-   se mantiene en los párrafos a ancho completo. */
+/* Junto a imágenes flotantes la columna es estrecha, pero con el guionado
+   (hyphens: auto, lang="es") el justificado ya no deja huecos: se mantiene el
+   look editorial recto también al lado de las figuras. */
 .fig-flow p {
-    text-align: left;
+    text-align: justify;
 }
 
 /* Enfasis: un solo estilo de negrita, mismo color que el cuerpo */
@@ -76,6 +76,17 @@ article figure img {
     height: auto;
     border: 1px solid var(--blog-hairline);
     cursor: zoom-in;
+}
+
+/* Recortes PNG sin fondo (personajes, sprites): sin borde ni caja, ocupan
+   solo su tamaño natural y se anclan al texto como un recorte, no como foto.
+   Combinar con fig-left/fig-right/fig-inline igual que el resto. */
+article figure.fig-cutout img {
+    width: auto;
+    max-width: 100%;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Lightbox: al clicar una imagen del artículo se amplía (dialog nativo). */
@@ -149,6 +160,17 @@ article figure.fig-right { float: right; margin-left: 28px; }
 /* Float más grande, cuando hay texto de sobra para envolverlo */
 article figure.fig-lg { max-width: 440px; }
 
+/* Float más pequeño, para variar el ritmo visual entre imágenes */
+article figure.fig-sm { max-width: 240px; }
+
+/* Float mínimo: artwork muy vertical junto a un párrafo, para que la altura
+   de la imagen no supere a la del texto y no deje hueco al lado. */
+article figure.fig-xs { max-width: 190px; }
+
+/* Float aún más pequeño: artwork muy alto (ratio > 1.5) al lado de un párrafo
+   corto. Usar con un pie de foto breve (una línea) para no crear torre. */
+article figure.fig-xxs { max-width: 150px; }
+
 /* Imagen pequeña centrada */
 article figure.fig-inline {
     max-width: 440px;
@@ -160,7 +182,8 @@ article figure.fig-inline {
 @media (max-width: 640px) {
     article figure.fig-left,
     article figure.fig-right,
-    article figure.fig-lg {
+    article figure.fig-lg,
+    article figure.fig-sm {
         float: none;
         max-width: 100%;
         margin: 20px 0;

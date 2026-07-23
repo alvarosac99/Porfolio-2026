@@ -9,7 +9,9 @@ export default defineConfig({
   adapter: vercel(),
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    // Permite acceder al dev server por hostname (p. ej. MagicDNS de Tailscale).
+    server: { allowedHosts: ['zenithseed', '.ts.net', 'localhost'] }
   },
 
   integrations: [react()]

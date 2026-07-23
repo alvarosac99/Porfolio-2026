@@ -1,0 +1,200 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogHeader from '../../components/blog/BlogHeader.astro';
+import BlogSearch from '../../components/blog/BlogSearch.jsx';
+import { posts } from '../../data/blogPosts.js';
+
+const post = posts.find(p => p.slug === 'majoras-mask-me-formo');
+const { title, category, dateLabel, cover, readingMin } = post;
+const categoryLabel = { tech: 'Tech', juegos: 'Juegos' };
+---
+
+<BlogLayout title={`${title} | ZenithBlog`}>
+    <BlogHeader activeCategory={category} />
+
+    <main class="flex-grow w-full px-5 md:px-10 lg:px-16 py-10 md:py-14">
+        <article class="max-w-[760px] mx-auto">
+            <a href="/blog" class="inline-flex items-center gap-1.5 text-[14px] font-semibold text-[var(--blog-ink-muted)] hover:text-[var(--blog-accent)] transition-colors mb-8">
+                <span aria-hidden="true">&lsaquo;</span> Volver al blog
+            </a>
+
+            <div class="flex items-center gap-2.5 mb-4">
+                <span class="text-[11px] font-bold uppercase tracking-wide text-[var(--blog-accent)]">{categoryLabel[category]}</span>
+                <span class="text-[14px] text-[var(--blog-ink-muted)]">{dateLabel}</span>
+                {readingMin && (
+                    <>
+                        <span class="text-[14px] text-[var(--blog-ink-muted)]">·</span>
+                        <span class="text-[14px] text-[var(--blog-ink-muted)]">{readingMin} min de lectura</span>
+                    </>
+                )}
+            </div>
+
+            <h1 class="text-[30px] md:text-[42px] font-extrabold leading-[1.15] mb-8">{title}</h1>
+
+            <div class="w-full aspect-[16/7] overflow-hidden mb-10">
+                <img src={cover} alt="" class="w-full h-full object-cover" />
+            </div>
+
+            <div class="flex flex-col gap-6 text-[17px] md:text-[18px] leading-[1.75] text-[var(--blog-ink)]">
+                <p>
+                    Hay un juego al que sigo volviendo, y ni siquiera me tocaba por generación. Yo soy del 2005 y Majora’s Mask salió en el 2000, así que cuando llegó a mí ya era viejo. Lo pillé en la <strong>Consola Virtual de la Wii</strong> sin buscarlo, estaba en la tienda y me puse. Me enganchó de una forma que todavía me dura. Me lo he pasado un montón de veces y hoy, con casi 21 años, me sigue enseñando cosas.
+                </p>
+                <p>
+                    Un poco de contexto por si no lo conoces. Majora’s Mask es la <strong>secuela directa de Ocarina of Time</strong>, aquel Zelda que para mucha gente es intocable. Controlas a Link justo después de aquello: había salvado Hyrule siendo adulto, y aunque al final Zelda lo devuelve a su cuerpo de niño, todo lo que vivió sigue dentro de él. No es un crío cualquiera. Es un niño que ya sabe lo que es perder, y lo que es <em>salvar un mundo entero</em>. Ese peso lo arrastra durante todo el juego.
+                </p>
+                <figure class="fig-inline reveal reveal-up">
+                    <img src="/assets/blog/majoras-mask-me-formo/zelda-link.png" alt="Zelda entrega la ocarina a Link en un recuerdo de Ocarina of Time" />
+                    <figcaption>El recuerdo de Ocarina: Zelda le enseña la Canción del Tiempo antes de devolverlo a su cuerpo de niño. Todo lo que Link arrastra empieza aquí.</figcaption>
+                </figure>
+                <div class="fig-flow">
+                    <figure class="fig-right fig-xxs fig-cutout reveal reveal-right">
+                        <img src="/assets/blog/majoras-mask-me-formo/deku-link.png" alt="Link convertido en Deku, sosteniendo una flor" />
+                        <figcaption>Un Deku de madera. Así vas casi todo el arranque.</figcaption>
+                    </figure>
+                    <p>
+                        El juego arranca cuando pierde a Navi, su hada, y sale a buscarla. En el camino, un ser llamado Skull Kid le roba la ocarina y lo maldice: lo convierte en un <strong>Deku</strong>, una criatura de madera pequeña e indefensa. Y para colmo, la luna está cayendo. Faltan tres días para que se estrelle contra el pueblo y lo borre todo. Link se libra tocando la Canción del Tiempo, la que le enseñó Zelda, que rebobina esos tres días una y otra vez. Ahí empieza el juego de verdad: repites los mismos tres días en bucle para ir arreglando, poco a poco, las historias de la gente.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">El sufrimiento como algo de cada día</h2>
+                <p>
+                    A una edad muy temprana, este juego me puso de frente ante el sufrimiento. <strong>Mucho sufrimiento</strong>. Y no de forma gratuita: ninguna otra obra pensada para niños que yo recuerde lo trata con tanta dignidad, tanto cariño y tanto tacto. Baila justo en el límite de traumatizarte. Hay escenas escalofriantes casi mires donde mires, y aun así nunca se siente cruel por serlo.
+                </p>
+                <div class="fig-flow">
+                    <figure class="fig-left reveal">
+                        <img src="/assets/blog/majoras-mask-me-formo/luna.png" alt="La luna con cara sonriente cayendo sobre el pueblo" />
+                        <figcaption>La luna. Tres días para que caiga sobre el pueblo, y esa cara mirándote sin parar desde el cielo.</figcaption>
+                    </figure>
+                    <p>
+                        Me marca sobre todo cómo pinta el fin del mundo. Todo ocurre en Termina, el mundo donde acaba Link, durante un carnaval, el <strong>Carnaval del Tiempo</strong>, y esos tres días son la cuenta atrás para celebrarlo. La luna cae, es el problema más grande imaginable, y cada uno reacciona distinto. Unos huyen. Link lucha. Una hermana mayor abraza a la pequeña para que pase la última noche sin miedo. Otra mujer se queda en la posada esperando a alguien que no llega, aunque el mundo se acabe. Y los que preparan el carnaval siguen montándolo como si nada, decididos a celebrarlo aunque el cielo se les venga encima.
+                    </p>
+                    <p>
+                        Y no es tan triste como suena: <strong>todos cargamos con algo, y está bien</strong>. Aquí nadie te sienta a explicártelo. Lo vas viendo tú, una tragedia pequeña detrás de otra, y al final se te queda la misma imagen de casi toda esa gente. Siguen. Con la luna encima, siguen.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Las historias que se me quedaron dentro</h2>
+                <p>
+                    De Majora’s Mask casi todo el mundo te habla de lo mismo, de <strong>Anju y Kafei</strong>. La dejo aparte a propósito. Es la más cuidada del juego: una historia de amor en tiempo real durante los tres días, en la que tú llevas cartas de uno a otro hasta que se reencuentran en la <strong>última noche</strong>, con la luna cayendo, y deciden esperar el final juntos en vez de huir. Es preciosa. Pero a mí me marcaron más las otras.
+                </p>
+                <div class="fig-flow">
+                    <figure class="fig-right fig-xxs fig-cutout reveal reveal-right">
+                        <img src="/assets/blog/majoras-mask-me-formo/hermanas.png" alt="Cremia y Romani, las dos hermanas del rancho" />
+                        <figcaption>Romani, a la derecha, con su hermana mayor Cremia.</figcaption>
+                    </figure>
+                    <p>
+                        En el rancho está <strong>Romani</strong>, una niña que avisa de que cada noche vienen unos "aliens" a llevarse las vacas, y nadie la cree. Te toca a ti. Te entrena esa tarde con el arco y de noche defendéis el establo juntos. Si fallas, por la mañana las vacas ya no están, y a ella se la han llevado también: vuelve ida, sin acordarse de nada. Es la sensación de ser el único que escucha a alguien a quien todos ignoran. Y si aguantáis la noche, al amanecer te lo agradece como si le hubieras salvado la vida entera. Detrás está su hermana mayor, <strong>Cremia</strong>, que la cuida como puede y le sostiene el mundo para que Romani no tenga que verlo caer.
+                    </p>
+                </div>
+                <div class="fig-flow">
+                    <figure class="fig-left fig-xxs fig-cutout reveal">
+                        <img src="/assets/blog/majoras-mask-me-formo/pamela.png" alt="Pamela, la niña del cañón de Ikana" />
+                        <figcaption>Pamela, la niña del cañón de Ikana.</figcaption>
+                    </figure>
+                    <p>
+                        En el cañón de Ikana está <strong>Pamela</strong>, una niña que vive con su padre, un investigador de lo paranormal, en una casa con una caja de música. A él una maldición lo va convirtiendo en un Gibdo, un muerto viviente, y ella lo encierra abajo y lo esconde para protegerlo. Está sola con eso, aterrada de que alguien se entere y se lo lleven. Se pasa el día vigilando la puerta, y si te acercas te suplica que no le hagas nada. Tú rompes la maldición con la <strong>Canción de Curación</strong>, una melodía que te enseña el vendedor de máscaras al principio del juego. Cuando el padre vuelve en sí y la abraza, ella ni entiende qué ha pasado. Lo que queda es una máscara <em>"llena del amor de un padre y una hija"</em>. Cuando leí eso de crío se me quedó grabado.
+                    </p>
+                </div>
+                <div class="fig-flow">
+                    <figure class="fig-right fig-sm reveal reveal-right">
+                        <img src="/assets/blog/majoras-mask-me-formo/mono.png" alt="El mono atado en el palacio Deku" />
+                        <figcaption>El mono, atado en el palacio. El rey lo culpa de que su hija haya desaparecido y quiere hervirlo vivo, aunque no ha hecho nada.</figcaption>
+                    </figure>
+                    <p>
+                        Luego está el <strong>reino Deku</strong>, la primera zona. El agua está envenenada y la luna va a caer sobre todos en tres días. Pero al rey Deku eso le da igual: está obsesionado con un mono al que culpa de que su hija haya desaparecido, y quiere <strong>hervirlo vivo</strong> en una olla. El mono no ha hecho nada, solo intentó ayudar, pero el rey necesita a alguien a quien echarle la culpa. Tiene los dos mayores problemas del mundo encima y gasta toda su rabia en lo más pequeño. <em>Cada uno pone el foco donde puede, no donde debería</em>.
+                    </p>
+                </div>
+                <div class="fig-flow">
+                    <figure class="fig-left fig-sm fig-cutout reveal">
+                        <img src="/assets/blog/majoras-mask-me-formo/deku-mayordomo.png" alt="El hijo del mayordomo Deku, la criatura en la que se transforma Link" />
+                        <figcaption>El Deku que llevas puesto casi todo el juego es el hijo del mayordomo de la realeza Deku, que ya había muerto. Su padre te ve jugar con su cuerpo sin saberlo.</figcaption>
+                    </figure>
+                    <p>
+                        Detrás de las máscaras que te pones se esconde lo más turbio del juego, y vuelve a esa canción. No solo rompe maldiciones como la del padre de Pamela: cuando se la tocas a un espíritu atormentado o a alguien que se está muriendo, lo calma, lo deja descansar, y todo el dolor que llevaba dentro se queda cuajado en una máscara. Y esas máscaras son justo las que Link se pone para transformarse. O sea que casi todas tus formas son gente que ya murió. El propio <strong>Deku</strong> en el que te conviertes al principio es el hijo del mayordomo de la realeza Deku, que también murió. Hay un detalle que te lo confirma sin decírtelo: al terminar la carrera del santuario, el mayordomo se te queda mirando y te dice que <em>le recuerdas a su hijo, el que se marchó</em>. Llevas puesta la cara de su hijo muerto y él no lo sabe. A Mikau, un Zora, lo despides con esa misma canción cuando muere y te queda su máscara. El goron que controlas, otra de las razas del juego, es Darmani, otro héroe muerto. Sus cuerpos no están, pero sus espíritus le siguen importando a alguien, y tú los llevas puestos. <em>Literalmente cargas con los muertos para poder seguir</em>.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Skull Kid no es el malo</h2>
+                <div class="fig-flow">
+                    <figure class="fig-left fig-cutout reveal">
+                        <img src="/assets/blog/majoras-mask-me-formo/skull-kid.png" alt="Skull Kid mirando de pie" />
+                        <figcaption>El mismo Skull Kid. Cuando entiendes su historia ya no puedes verlo como un villano, solo como un niño roto.</figcaption>
+                    </figure>
+                    <p>
+                        Si me tengo que quedar con algo, es <strong>Skull Kid</strong> y su relación con los Gigantes. Nunca lo ves como el villano, sabes desde el principio que la culpa es de la máscara de Majora, un ente antiguo que lo controla desde que se la puso. Pero sus acciones te dan rabia igual, porque lo ves ir jodiendo a todo el mundo a su paso. Y con todo, quien carga esa máscara es un crío lleno de preocupaciones, que ha perdido a sus amigos y está solo. <em>El mal es la máscara, pero la tragedia es quién la carga</em>.
+                    </p>
+                    <p>
+                        Su tristeza viene de mucho antes de la máscara. Esos amigos eran los <strong>Gigantes</strong>, cuatro guardianes enormes de Termina, y con ellos era feliz. Pero los Gigantes tenían un deber, proteger las cuatro regiones, así que un día se fueron cada uno a su sitio y lo dejaron atrás. Él lo vivió como lo que parecía desde dentro: sus amigos se largaban y lo dejaban tirado. Se quedó solo en el bosque, y esa soledad se le fue pudriendo hasta volverse rencor. Empezó a hacer trastadas, a molestar, a joder a todo el que pillaba cerca, a ver si alguien le hacía caso. Así acabó robándole al vendedor la <strong>máscara de Majora</strong>, un ente tan peligroso que él mismo la tenía sellada. Se la puso sin saber lo que era, y la máscara agarró todo ese dolor y esa rabia y los multiplicó. De ahí salen las cosas tan feas que hace. Me da muchísima pena, porque en el fondo lo que hay ahí es un niño roto. Cuando lo entendí, el juego entero cambió para mí.
+                    </p>
+                    <p>
+                        Debajo de todo eso hay un hilo que lo cose entero: la <strong>amistad</strong>. El juego no para de preguntártelo. En el reino de Ikana, cuando derrotas a su rey, lo que te deja no es un tesoro, es una frase: <em>"Confiar en tus amigos y perdonar sus fallos... esos sentimientos han desaparecido de nuestros corazones"</em>. Y al final del todo, cuando ya subes a la luna trepando por el árbol para enfrentarte a Majora, uno de los niños enmascarados te lo suelta a la cara: <em>"Tus amigos... ¿qué clase de personas son? ¿Esas personas... te consideran un amigo?"</em>. Ikana se pudrió cuando la gente dejó de confiar y de perdonarse, y Skull Kid se rompió el día que sintió que sus amigos lo habían soltado.
+                    </p>
+                    <p>
+                        Yo de ahí saco una cosa: un amigo de verdad no es el que aparece cuando todo va bien, es el que no te suelta cuando la cagas. Estar ahí y perdonar los fallos del otro, ya está. Parece de cajón, pero cuesta la vida. Que me lo tenga que recordar un Zelda de hace veinte años, y no la mayoría de cosas hechas para adultos, dice bastante.
+                    </p>
+                    <p>
+                        Cada vez que lo juego me ronda otra cosa. Puede que no estuviera pensado así, pero para mí <em>cada zona del juego es una etapa de una pérdida, de un duelo</em>. Avanzas por sus mundos y sientes que estás recorriendo las fases de una ruptura. El juego va de eso, de perder y de aprender a seguir.
+                    </p>
+                </div>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Cada mundo es una fase de la ruptura</h2>
+                <p>
+                    Hay una teoría muy repetida que cruza el juego con las <strong>cinco fases del duelo</strong>, las de Kübler-Ross, y cuanto más lo juego más me cuadra. A mí me encaja igual de bien con algo que casi nadie cuenta: una <strong>ruptura</strong>. Dejarlo con alguien también se recorre por fases, y Termina las tiene todas.
+                </p>
+                <p>
+                    Todo arranca en el <strong>Pueblo Reloj</strong>, con la luna cayendo y la gente colgando adornos para el carnaval. Nadie mira arriba. Es la negación de manual: seguir con tu vida como si el mundo no se estuviera acabando. La primera noche en la que finges que no ha pasado.
+                </p>
+                <p>
+                    Después llega la rabia, en el <strong>reino Deku</strong>. El rey no quiere arreglar nada, quiere un culpable, y la paga con el mono. Cuando lo dejas con alguien vives ese tramo en el que todo, absolutamente todo, es culpa del otro.
+                </p>
+                <p>
+                    En <strong>Snowhead</strong> te toca querer dar marcha atrás. Darmani, el héroe goron, murió y no lo lleva bien: su fantasma te suplica que lo devuelvas a la vida. Es el <em>si cambio esto a lo mejor volvemos</em> que te repites cuando todavía no has asumido nada.
+                </p>
+                <p>
+                    En <strong>Great Bay</strong> tocas fondo. Mikau muere en el agua y Lulu, la cantante zora, se queda muda de la pena, sin poder cantar. El tramo en el que ni te salen las palabras.
+                </p>
+                <p>
+                    <strong>Ikana</strong> cierra, la tierra de los muertos. Ahí no matas a nada, lo calmas: la Canción de Curación deja descansar a los espíritus que llevaban siglos sin poder marcharse. Al final los dejas ir y sigues tú.
+                </p>
+                <p>
+                    Y luego está <strong>Link</strong>, que carga con todo. Llega a Termina con el cuerpo cambiado, hecho un Deku que no es él, y te miras en ese cuerpo y no te reconoces, igual que después de una pérdida gorda. Se pasa el juego repitiendo los mismos tres días, atascado en el bucle, dándole vueltas a lo mismo sin poder tirar adelante. Como cuando algo no lo sueltas y vuelves a ello una y otra vez.
+                </p>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">El vendedor de máscaras</h2>
+                <div class="fig-flow">
+                    <figure class="fig-right fig-lg fig-cutout reveal reveal-right">
+                        <img src="/assets/blog/majoras-mask-me-formo/vendedor-mascaras.png" alt="El vendedor de máscaras con su mochila llena de máscaras" />
+                        <figcaption>El vendedor de máscaras. De crío me daba un pánico que todavía recuerdo.</figcaption>
+                    </figure>
+                    <p>
+                        Lo que no olvido es el miedo. De crío este juego me aterraba. Las transformaciones de Link, ese sufrimiento suyo al cambiar de cuerpo, ni las miraba. Y el que más pánico me daba era el <strong>vendedor de máscaras</strong>. Es el que te suelta esa frase que abre el juego y que no se me ha ido nunca: <em>"Te has encontrado con un terrible destino, ¿verdad?"</em>. Hay un momento en el que le dices que no tienes su máscara y se enfada, te agarra y te levanta del suelo. No he olvidado esa cara. Sentí de verdad que tenía que arreglar su problema. <em>Eso sí que es inmersión</em>.
+                    </p>
+                </div>
+                <figure class="fig-inline reveal reveal-up">
+                    <img src="/assets/blog/majoras-mask-me-formo/vendedor-agarra.jpg" alt="El vendedor de máscaras agarra a Link y lo levanta del suelo" />
+                    <figcaption>Este es el momento. Le dices que no tienes su máscara, se enfada y te levanta del suelo. Esa cara no se me ha ido.</figcaption>
+                </figure>
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">Por qué vuelvo cada año</h2>
+                <p>
+                    Cada año me propongo pasármelo una vez más. Algunos años lo he hecho varias veces. He perdido la cuenta de cuántas van, y no se me hace repetitivo.
+                </p>
+                <p>
+                    Vuelvo por su estética, sus temas, su manera de contar. Por cómo mira el sufrimiento de frente, sin dramatizarlo, solo poniéndolo delante. Es de esas cosas que te dejan tocado y en paz a la vez. Y cada vez salgo con la misma sensación de casa.
+                </p>
+
+                <h2 class="text-[22px] md:text-[26px] font-bold leading-tight mt-4">En qué me define</h2>
+                <p>
+                    Al final, este juego me formó. Suena exagerado, pero creo de verdad que es la razón de que me gusten los videojuegos, de que me pusiera a programar, de que me haga ilusión la idea de <em>hacer juegos algún día</em>.
+                </p>
+                <p>
+                    Me dejó también una forma de mirar a la gente que se me quedó sin darme cuenta: que <strong>cada uno carga con cosas distintas</strong>, y casi nunca las ves desde fuera.
+                </p>
+                <p>
+                    Si no lo has jugado y algo de esto te ha picado, dale una oportunidad. Y si algún día le hacen el remake que merece, nos vemos allí.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <BlogSearch posts={posts} client:idle />
+</BlogLayout>

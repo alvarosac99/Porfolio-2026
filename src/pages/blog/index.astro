@@ -4,6 +4,8 @@ import BlogHeader from '../../components/blog/BlogHeader.astro';
 import BlogSearch from '../../components/blog/BlogSearch.jsx';
 import { posts } from '../../data/blogPosts.js';
 
+export const prerender = false;
+
 const catParam = Astro.url.searchParams.get('cat');
 const activeCategory = catParam === 'tech' || catParam === 'juegos' ? catParam : 'todo';
 
